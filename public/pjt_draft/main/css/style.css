@@ -29,7 +29,7 @@ div.menubar input {
 }
 
 div.wheel_01 {
-    height: 89vh;
+    height: 93vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +37,7 @@ div.wheel_01 {
 }
 
 div.cylinder {
-    width: 160px;
+    width: 130px;
     height: 150px;
     position: relative;
     transform-style: preserve-3d;
@@ -47,36 +47,36 @@ div.cylinder {
     position: absolute;
     top: 0;
     left: 0;
-    width: 160px;
-    height: 235px;
+    width: 130px;
+    height: 190px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #wrap div.cylinder > div.pic > img {
-    width: 160px;
-    height: 235px;
+    width: 130px;
+    height: 190px;
 }
 
 #wrap div.cylinder > div.pic:nth-child(1) {
-    transform: rotateY(-30deg) translateZ(650px);
+    transform: rotateY(-30deg) translateZ(530px);
 }
 
 #wrap div.cylinder > div.pic:nth-child(2) {
-    transform: rotateY(-15deg) translateZ(650px);
+    transform: rotateY(-15deg) translateZ(530px);
 }
 
 #wrap div.cylinder > div.pic:nth-child(3) {
-    transform: rotateY(0deg) translateZ(650px);
+    transform: rotateY(0deg) translateZ(530px);
 }
 
 #wrap div.cylinder > div.pic:nth-child(4) {
-    transform: rotateY(15deg) translateZ(650px);
+    transform: rotateY(15deg) translateZ(530px);
 }
 
 #wrap div.cylinder > div.pic:nth-child(5) {
-    transform: rotateY(30deg) translateZ(650px);
+    transform: rotateY(30deg) translateZ(530px);
 }
 
 #wrap div.wheel_02 {

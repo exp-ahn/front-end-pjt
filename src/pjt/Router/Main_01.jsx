@@ -87,9 +87,65 @@ function App() {
     return (
         <div ref={outerDivRef} className="outer">
             <Dots scrollIndex={scrollIndex} />
-            <div className="inner bg-yellow"></div>
-            <div className="inner bg-blue"></div>
-            <div className="inner bg-pink"></div>
+            <div className="inner bg-yellow">
+                <h2>TESTTESTTEST</h2>
+            </div>
+            <div className="inner bg-blue">
+                <div>
+                    멘트 작성
+                    <br />
+                    해야함
+                    <br />
+                    <button>구경하기</button>
+                </div>
+                <div>
+                    <div className="first_img">
+                        <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                    </div>
+                    <div className="second_img">
+                        <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                    </div>
+                </div>
+                <div>
+                    <div className="third_img">
+                        <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                    </div>
+                    <div className="fourth_img">
+                        <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                    </div>
+                    <div className="fifth_img">
+                        <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div className="inner bg-pink">
+                <div>
+                    <div className="first_img">
+                        <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                    </div>
+                    <div className="second_img">
+                        <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                    </div>
+                </div>
+                <div>
+                    <div className="third_img">
+                        <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                    </div>
+                    <div className="fourth_img">
+                        <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                    </div>
+                    <div className="fifth_img">
+                        <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                    </div>
+                </div>
+                <div>
+                    멘트 작성
+                    <br />
+                    해야함
+                    <br />
+                    <button>구경하기</button>
+                </div>
+            </div>
         </div>
     );
 }

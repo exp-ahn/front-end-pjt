@@ -1,10 +1,10 @@
 import React from "react";
 
-const Main_02 = () => {
+const SubPage = () => {
     return(
         <>
         </>
     );
 }
 
-export default Main_02;
+export default SubPage;
