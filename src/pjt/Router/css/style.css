@@ -1,0 +1,95 @@
+#wrap {
+    margin: 0 auto;
+    width: 1200px;
+    box-sizing: border-box;
+}
+
+#wrap div.header {
+    padding: 0px 15px;
+    height: 65px;
+    line-height: 65px;
+}
+
+#wrap div.menubar > div {
+    padding: 0px 15px;
+    height: 35px;
+    line-height: 35px;
+    background-color: aqua;
+    color: #fff;
+    font-weight: bold;
+}
+
+#wrap div.menubar span {
+    display: inline-block;
+}
+
+#wrap div.menubar input {
+    float: right;
+    text-align: right;
+}
+
+#wrap div.wheel_01 {
+    height: 830px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+}
+
+#wrap div.cylinder {
+    width: 220px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 235px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wrap div.cylinder > div.pic > img {
+    width: 160px;
+    height: 235px;
+}
+
+#wrap div.cylinder > div.pic:nth-child(1) {
+    transform: rotateY(-30deg) translateZ(650px);
+}
+
+#wrap div.cylinder > div.pic:nth-child(2) {
+    transform: rotateY(-15deg) translateZ(650px);
+}
+
+#wrap div.cylinder > div.pic:nth-child(3) {
+    transform: rotateY(0deg) translateZ(650px);
+}
+
+#wrap div.cylinder > div.pic:nth-child(4) {
+    transform: rotateY(15deg) translateZ(650px);
+}
+
+#wrap div.cylinder > div.pic:nth-child(5) {
+    transform: rotateY(30deg) translateZ(650px);
+}
+
+#wrap div.wheel_02 {
+    background-color: bisque;
+    height: 830px;
+}
+
+#wrap div.wheel_03 {
+    background-color: aquamarine;
+    height: 830px;
+}
+
+#wrap div.footer {
+    background-color: gray;
+    height: 100px;
+}

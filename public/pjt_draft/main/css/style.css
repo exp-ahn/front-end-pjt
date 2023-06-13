@@ -1,0 +1,95 @@
+#wrap {
+    margin: 0 auto;
+    width: 1200px;
+    box-sizing: border-box;
+}
+
+div.header {
+    padding: 0px 15px;
+    height: 7vh;
+    line-height: 7vh;
+}
+
+div.menubar > div {
+    padding: 0px 15px;
+    height: 4vh;
+    line-height: 4vh;
+    background-color: aqua;
+    color: #fff;
+    font-weight: bold;
+}
+
+div.menubar span {
+    display: inline-block;
+}
+
+div.menubar input {
+    float: right;
+    text-align: right;
+}
+
+div.wheel_01 {
+    height: 89vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+}
+
+div.cylinder {
+    width: 160px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 235px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wrap div.cylinder > div.pic > img {
+    width: 160px;
+    height: 235px;
+}
+
+#wrap div.cylinder > div.pic:nth-child(1) {
+    transform: rotateY(-30deg) translateZ(650px);
+}
+
+#wrap div.cylinder > div.pic:nth-child(2) {
+    transform: rotateY(-15deg) translateZ(650px);
+}
+
+#wrap div.cylinder > div.pic:nth-child(3) {
+    transform: rotateY(0deg) translateZ(650px);
+}
+
+#wrap div.cylinder > div.pic:nth-child(4) {
+    transform: rotateY(15deg) translateZ(650px);
+}
+
+#wrap div.cylinder > div.pic:nth-child(5) {
+    transform: rotateY(30deg) translateZ(650px);
+}
+
+#wrap div.wheel_02 {
+    background-color: bisque;
+    height: 100vh;
+}
+
+#wrap div.wheel_03 {
+    background-color: aquamarine;
+    height: 90vh;
+}
+
+#wrap div.footer {
+    background-color: gray;
+    height: 10vh;
+}

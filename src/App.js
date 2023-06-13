@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+import Header from './pjt/Header';
+import Footer from './pjt/Footer';
+import Main_01 from './pjt/Router/Main_01';
+// import Main_02 from './pjt/Router/Main_02';
+// import Main_03 from './pjt/Router/Main_03';
+// import Details from './pjt/Router/Details';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Header />
+            <Main_01 />
+            {/* <Main_02 />
+      <Main_03 />
+      <Details /> */}
+            <Footer />
+        </>
+    );
 }
 
 export default App;
