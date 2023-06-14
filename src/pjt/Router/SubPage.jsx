@@ -3,14 +3,22 @@ import CityInfo from './subpage/CityInfo';
 import MapInfo from './subpage/MapInfo';
 import TrafficInfo from './subpage/TrafficInfo';
 import WeatherInfo from './subpage/WeatherInfo';
+import Sidebar from './subpage/Sidebar';
 
 const SubPage = () => {
     return (
         <>
-            <CityInfo />
-            <MapInfo />
-            <TrafficInfo />
-            <WeatherInfo />
+            <div>
+                <Sidebar />
+            </div>
+            <div>
+                <CityInfo />
+                <MapInfo />
+            </div>
+            <div>
+                <TrafficInfo />
+                <WeatherInfo />
+            </div>
         </>
     );
 };
