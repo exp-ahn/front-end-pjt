@@ -17,7 +17,7 @@ function App() {
                 </Routes>
                 <Footer />
             </BrowserRouter>
-            <TmapTrans />
+            {/* <TmapTrans /> */}
         </>
     );
 }
