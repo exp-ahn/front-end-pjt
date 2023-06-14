@@ -3,6 +3,7 @@
 import Header from './pjt/Header';
 import Footer from './pjt/Footer';
 import Main_01 from './pjt/Router/Main_01';
+import TmapTrans from './pjt/Router/api/TmapTrans';
 // import Main_02 from './pjt/Router/Main_02';
 // import Main_03 from './pjt/Router/Main_03';
 // import Details from './pjt/Router/Details';
@@ -16,6 +17,7 @@ function App() {
       <Main_03 />
       <Details /> */}
             <Footer />
+            <TmapTrans />
         </>
     );
 }
