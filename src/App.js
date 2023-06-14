@@ -3,20 +3,20 @@
 import Header from './pjt/Header';
 import Footer from './pjt/Footer';
 import Main_01 from './pjt/Router/Main_01';
-import TmapTrans from './pjt/Router/api/TmapTrans';
-// import Main_02 from './pjt/Router/Main_02';
-// import Main_03 from './pjt/Router/Main_03';
-// import Details from './pjt/Router/Details';
+import SubPage from './pjt/Router/SubPage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
     return (
         <>
-            <Header />
-            <Main_01 />
-            {/* <Main_02 />
-      <Main_03 />
-      <Details /> */}
-            <Footer />
+            <BrowserRouter>
+                <Header />
+                <Routes>
+                    <Route path="/" element={<Main_01 />}></Route>
+                    <Route path="/subpage" element={<SubPage />}></Route>
+                </Routes>
+                <Footer />
+            </BrowserRouter>
             <TmapTrans />
         </>
     );

@@ -1,6 +1,6 @@
 #wrap {
     margin: 0 auto;
-    width: 1200px;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -10,24 +10,44 @@
     line-height: 65px;
 }
 
-#wrap div.menubar > div {
-    padding: 0px 15px;
-    height: 35px;
-    line-height: 35px;
-    background-color: aqua;
-    color: #fff;
+div.section {
+    display: flex;
+}
+.sidebar {
+    padding: 20px;
+    width: 250px;
+}
+
+.filter-head {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.filter-category {
+    margin-bottom: 10px;
+}
+
+.filter-category p {
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-#wrap div.menubar span {
-    display: inline-block;
+.filter-checkbox {
+    display: flex;
 }
 
-#wrap div.menubar input {
-    vertical-align: middle;
-    display: inline-block;
-    float: right;
-    text-align: right;
+.filter-category input[type='checkbox'] {
+    margin-right: 5px;
+}
+
+.filter-category ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.filter-category li {
+    margin-bottom: 5px;
 }
 #wrap div.sub {
     display: flex;
@@ -45,6 +65,26 @@
     line-height: 600px;
     text-align: center;
     background-color: antiquewhite;
+}
+.city_info > div {
+    position: absolute;
+}
+.city_info > div > img {
+    width: 740px;
+    height: 600px;
+    object-fit: cover;
+}
+.city_info > div > div {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: red;
+}
+.city_info > div > div > img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
 }
 #wrap div.main_info > div:nth-child(2) {
     height: 350px;
@@ -68,4 +108,16 @@
     line-height: 300px;
     text-align: center;
     background-color: antiquewhite;
+}
+
+#wrap div.side_info > table {
+    margin: 30px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#wrap div.side_info > table > tbody > tr > td {
+    width: 80px;
+    height: 50px;
+    border: 1px solid #dadada;
 }

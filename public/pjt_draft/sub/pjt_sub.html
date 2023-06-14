@@ -15,23 +15,109 @@
                     <h1>logo</h1>
                 </div>
             </div>
-            <div class="menubar">
-                <div>
-                    <span>menu01</span>&nbsp;&nbsp;&nbsp; <span>menu02</span>&nbsp;&nbsp;&nbsp;
-                    <span>menu03</span>&nbsp;&nbsp;&nbsp; <span>menu04</span>&nbsp;&nbsp;&nbsp;
-                    <span>menu05</span>&nbsp;&nbsp;&nbsp; <span>menu06</span>&nbsp;&nbsp;&nbsp;
-                    <input type="text" placeholder="search" />
-                </div>
-            </div>
+
             <div class="section">
+                <div class="sidebar">
+                    <div class="filter-head">필터</div>
+                    <div class="filter-category">
+                        <p>지역</p>
+                        <ul class="filter-checkbox">
+                            <!-- name value 삽입 onChange => useState([]) => 배열에 삽입 -->
+                            <li><input type="checkbox" />서울</li>
+                            <li><input type="checkbox" />부산</li>
+                            <li><input type="checkbox" />광주</li>
+                            <li><input type="checkbox" />울산</li>
+                        </ul>
+                        <ul class="filter-checkbox">
+                            <li><input type="checkbox" />대전</li>
+                            <li><input type="checkbox" />대구</li>
+                            <li><input type="checkbox" />인천</li>
+                            <li><input type="checkbox" />제주</li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-category">
+                        <p>관광지</p>
+                        <ul class="filter-checkbox">
+                            <li><input type="checkbox" />테마파크</li>
+                            <li><input type="checkbox" />박물관</li>
+                            <li><input type="checkbox" />A</li>
+                            <li><input type="checkbox" />B</li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-category">
+                        <p>맛집</p>
+                        <ul class="filter-checkbox">
+                            <li><input type="checkbox" />한식</li>
+                            <li><input type="checkbox" />양식</li>
+                            <li><input type="checkbox" />중식</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="sub">
                     <div class="main_info">
-                        <div>City Information tab</div>
+                        <div class="city_info">
+                            <div>
+                                <img src="./css/imgs/160x235 - 그리스.jpg" />
+                                <div>
+                                    <img src="./css/imgs/160x235 - 방콕 .jpg" />
+                                    <img src="./css/imgs/160x235 - 싱가포르 .jpg" />
+                                    <img src="./css/imgs/160x235 - 영국 .jpeg" />
+                                    <img src="./css/imgs/160x235 - 하와이.jpg" />
+                                    <img src="./css/imgs/160x235 - 그리스.jpg" />
+                                    <img src="./css/imgs/160x235 - 싱가포르 .jpg" />
+                                </div>
+                            </div>
+                        </div>
                         <div>Map Information tab</div>
                     </div>
                     <div class="side_info">
                         <div>Public Transportation tab</div>
-                        <div>Daily Weather tab</div>
+                        <!-- <div> -->
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td colspan="3">title</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
