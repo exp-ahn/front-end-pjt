@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 import Dots from './Dots';
 
@@ -96,7 +97,9 @@ function App() {
                     <br />
                     해야함
                     <br />
-                    <button>구경하기</button>
+                    <Link to="/subpage">
+                        <button>구경하기</button>
+                    </Link>
                 </div>
                 <div>
                     <div className="first_img">
@@ -143,7 +146,9 @@ function App() {
                     <br />
                     해야함
                     <br />
-                    <button>구경하기</button>
+                    <Link to="/subpage">
+                        <button>구경하기</button>
+                    </Link>
                 </div>
             </div>
         </div>
