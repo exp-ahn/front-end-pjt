@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const TmapTrans = () => {
+var datalist;
+
+const TmapTrans = (startlat, startlon, destlat, destlon) => {
     const api_key = 'x7gSYlQjVI52sY0z3E6J6YaVZFPaIoW4vVdLz6Q3';
     const url = 'https://apis.openapi.sk.com/transit/routes';
+
+    const [trafficData, setTrafficData] = useState([]);
 
     const payload = {
         startX: '127.02550910860451',
@@ -16,6 +20,7 @@ const TmapTrans = () => {
     };
 
     useEffect(() => {
+        console.log('[TmapTrans.js] useEffect() CALLED!!!');
         const Data = async () => {
             try {
                 const response = await axios.post(url, payload, {
@@ -25,17 +30,19 @@ const TmapTrans = () => {
                         accept: 'application/json',
                     },
                 });
-                const data = response.data;
-                console.log(data);
+                setTrafficData(response.data);
             } catch (error) {
                 console.log('API 호출에 실패했습니다.', error);
+                return error;
             }
         };
 
         Data();
     }, []);
 
-    return <></>;
+    useEffect(() => {
+        console.log(trafficData);
+    }, [trafficData]);
 };
 
 export default TmapTrans;

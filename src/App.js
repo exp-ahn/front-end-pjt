@@ -3,7 +3,7 @@ import Footer from './pjt/Footer';
 import Main_01 from './pjt/Router/Main_01';
 import SubPage from './pjt/Router/SubPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import TmapTrans from './pjt/Router/api/TmapTrans';
+// import TmapTrans from './pjt/Router/api/TmapTrans';
 
 function App() {
     return (
