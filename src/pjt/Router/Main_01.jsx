@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import Dots from './Dots';
-
+import Buttons from './Buttons';
+import Header from '../Header';
 import './css/main.css';
 
 const DIVIDER_HEIGHT = 5;
@@ -88,8 +89,44 @@ function App() {
     return (
         <div ref={outerDivRef} className="outer">
             <Dots scrollIndex={scrollIndex} />
+            <Header />
             <div className="inner bg-yellow">
-                <h2>TESTTESTTEST</h2>
+                <Buttons />
+                {/* <div className="cylinder">
+                    <div className="pic">
+                        <div>&#171;</div>
+                    </div>
+                    <div className="pic">
+                        <Link to="/subpage">
+                            <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                        </Link>
+                    </div>
+                    <div className="pic">
+                        <Link to="/subpage">
+                            <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                        </Link>
+                    </div>
+                    <div className="pic">
+                        <Link to="/subpage">
+                            <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                        </Link>
+                    </div>
+                    <div className="pic">
+                        <Link to="/subpage">
+                            <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                        </Link>
+                    </div>
+                    <div className="pic">
+                        <Link to="/subpage">
+                            <img src="./pjt_draft/main/css/imgs/160x235 - 그리스.jpg" />
+                        </Link>
+                    </div>
+                    <div className="pic">
+                        <div>&#187;</div>
+                    </div>
+                </div>
+                <button className="pre-btn">이전</button>
+                <button className="next-btn">다음</button> */}
             </div>
             <div className="inner bg-blue">
                 <div>
