@@ -9,7 +9,6 @@ function App() {
     return (
         <>
             <BrowserRouter>
-                <Header />
                 <Routes>
                     <Route path="/" element={<Main_01 />}></Route>
                     <Route path="/subpage" element={<SubPage />}></Route>
