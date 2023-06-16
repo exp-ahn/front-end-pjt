@@ -1,0 +1,30 @@
+.footer-content {
+    background-color: #ffeebb;
+    padding-left: 300px;
+    padding-right: 300px;
+}
+.footer-company-info {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}
+.footer-company-name {
+    /* background-color: red; */
+    color: #00539c;
+    height: 58px;
+    line-height: 58px;
+}
+
+.footer-company-info img {
+    width: 100%;
+}
+
+.footer-emblem {
+    width: 8%;
+}
+
+.footer-member-info {
+    color: #00539c;
+    padding-left: 20px;
+    font-size: 0.8em;
+}
