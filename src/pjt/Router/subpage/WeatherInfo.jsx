@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/weather.css';
+import WeatherForecastInfo from './WeatherForecastInfo';
 
 const cityEng = {
     Seoul: '서울',
@@ -13,85 +14,105 @@ const cityEng = {
     Gwangju: '광주',
 };
 
-// const weatherIcon = {
-//     clouds: {
-//         charcoal:
-//             'M65.03 60.514c.642 0 1.27.057 1.889.143a15.476 15.476 0 01-.344-3.23c0-8.524 6.91-15.437 15.435-15.437 8.294 0 15.042 6.547 15.402 14.752a9.224 9.224 0 016.208-2.404 9.263 9.263 0 019.263 9.263 9.165 9.165 0 01-.619 3.305c.7-.14 1.423-.218 2.161-.218 5.97 0 10.806 4.839 10.806 10.805 0 5.97-4.836 10.806-10.806 10.806H65.031c-7.674 0-13.893-6.219-13.893-13.893 0-7.671 6.219-13.892 13.893-13.892',
-//         white: 'M39.25 73.05c.76 0 1.505.07 2.24.17a18.296 18.296 0 01-.41-3.834c0-10.114 8.2-18.31 18.312-18.31 9.84 0 17.843 7.766 18.27 17.5a10.935 10.935 0 017.366-2.853c6.068 0 10.987 4.922 10.987 10.99 0 1.382-.267 2.7-.732 3.918a12.868 12.868 0 012.564-.256c7.078 0 12.818 5.739 12.818 12.818 0 7.078-5.74 12.817-12.818 12.817H39.25c-9.103 0-16.48-7.378-16.48-16.48 0-9.103 7.377-16.48 16.48-16.48',
-//     },
-//     sunny: {
-//         red: 'M110.117 74c0 19.947-16.17 36.117-36.117 36.117-19.947 0-36.117-16.17-36.117-36.117 0-19.947 16.17-36.117 36.117-36.117 19.947 0 36.117 16.17 36.117 36.117',
-//     },
-//     'cloudy-rainy': {
-//         red: 'M112.411 57.87c0 11.433-9.27 20.702-20.7 20.702-11.435 0-20.702-9.27-20.702-20.702 0-11.433 9.267-20.701 20.702-20.701 11.43 0 20.7 9.268 20.7 20.701',
-//         white: 'M48.874 61.244c.612 0 1.21.055 1.805.137a14.679 14.679 0 01-.332-3.087c0-8.152 6.607-14.759 14.759-14.759 7.93 0 14.38 6.26 14.725 14.104a8.81 8.81 0 015.936-2.298 8.854 8.854 0 018.854 8.856 8.772 8.772 0 01-.59 3.157 10.425 10.425 0 012.065-.207c5.707 0 10.331 4.625 10.331 10.33 0 5.706-4.624 10.331-10.33 10.331H48.873c-7.335 0-13.285-5.948-13.285-13.282s5.95-13.282 13.285-13.282',
-//         rain: 'M83.052 95.131l.423-1.13a2.172 2.172 0 10-4.069-1.523l-.422 1.132a2.172 2.172 0 104.068 1.521M77.548 109.845l1.483-3.962a1.517 1.517 0 00-.89-1.953l-1.226-.46a1.517 1.517 0 00-1.951.89l-1.483 3.965a1.515 1.515 0 00.889 1.951l1.226.459a1.514 1.514 0 001.952-.89M68.555 100.83l1.781-4.766a1.516 1.516 0 00-.89-1.953l-1.226-.458a1.515 1.515 0 00-1.952.89l-1.781 4.765a1.516 1.516 0 00.889 1.952l1.227.46a1.517 1.517 0 001.952-.89M65.864 108.023l.272-.73a2.173 2.173 0 00-4.068-1.523l-.274.732a2.172 2.172 0 004.07 1.521M60.885 89.073l.724-1.935a2.17 2.17 0 10-4.068-1.52l-.723 1.934a2.173 2.173 0 104.068 1.52M55.884 102.45l1.781-4.763a1.517 1.517 0 00-.889-1.955l-1.227-.458a1.519 1.519 0 00-1.953.89l-1.78 4.765a1.516 1.516 0 00.89 1.952l1.224.46a1.519 1.519 0 001.954-.89',
-//     },
-// };
-
 const api = {
-    key: '90421f0bcb30ace3868661cd944d3635',
+    key: '245561218d937df62cc7a4e8d1173a37',
     base: 'https://api.openweathermap.org/data/2.5/',
 };
 
+const timeDifference = (time) => {
+    const inputDate = new Date(time);
+    const koreaTime = new Date(inputDate.getTime() + 8 * 60 * 60 * 1000);
+
+    return koreaTime;
+};
+
+const url = (api, city, info) => {
+    return `${api.base}${info}?q=${city}&appid=${api.key}`;
+};
+
 const WeatherInfo = ({ checkedArea }) => {
-    const [currentweather, setCurrentweather] = useState([]);
-    const [forecastweather, setForecastweather] = useState([]);
-    var city;
+    const [weatherData, setWeatherData] = useState(null);
 
     useEffect(() => {
-        console.log('[WeatherInfo] useEffect() CALLED!!!');
-        if (checkedArea === '') {
-            city = 'Seoul';
-        } else {
-            city = Object.keys(cityEng).find((key) => cityEng[key] === checkedArea);
-        }
-        axios.get(url(api, city, 'forecast')).then((responseData) => {
-            const data = responseData.data;
-            console.log(data);
-            setForecastweather({ forecast: data.list });
-        });
-        axios.get(url(api, city, 'weather')).then((responseData) => {
-            const data = responseData.data;
-            console.log(data);
-            setCurrentweather({ current: data });
-        });
+        const fetchData = async () => {
+            try {
+                const city =
+                    checkedArea === '' ? 'Seoul' : Object.keys(cityEng).find((key) => cityEng[key] === checkedArea);
+                const currentWeatherResponse = await axios.get(url(api, city, 'weather'));
+                const forecastWeatherResponse = await axios.get(url(api, city, 'forecast'));
+
+                const data = {
+                    currentWeather: {
+                        main: currentWeatherResponse.data.main,
+                        weather: currentWeatherResponse.data.weather,
+                    },
+                    forecastWeather: {
+                        forecast: forecastWeatherResponse.data.list,
+                    },
+                };
+
+                setWeatherData(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
     }, [checkedArea]);
 
-    const url = (api, city, info) => {
-        return `${api.base}${info}?q=${city}&appid=${api.key}`;
-    };
-    // let c = (weather.temperature - 32) / 1.8;
+    if (!weatherData) {
+        return null;
+    }
+    const { currentWeather, forecastWeather } = weatherData;
+
+    const current_temp = parseInt(currentWeather.main.temp - 273.15);
+    // const temp_min = parseInt(currentWeather.main.temp_min - 273.15);
+    // const temp_max = parseInt(currentWeather.main.temp_max - 273.15);
+
+    let month = [];
+    let date = [];
+    let hour = [];
+    let icon = [];
+
+    let i = 1;
+    while (i < 8) {
+        const data = timeDifference(forecastWeather.forecast[i].dt_txt);
+        month.push(data.getMonth() + 1);
+        date.push(data.getDate());
+        hour.push(data.getHours());
+
+        icon.push(forecastWeather.forecast[i].weather[0].icon);
+        i++;
+    }
 
     return (
         <div className="weather-container">
             <div className="weather-current">
                 <div className="weather-current-head">현재 날씨</div>
                 <div className="weather-current-value">
-                    <span>{`온도: ${currentweather.current.main.temp}`}</span>
-                    {/* <span>{`체감 온도: ${currentweather.current.main.feels_like}`}</span>
-                    <span>{`최저 온도: ${currentweather.current.main.temp_min}`}</span>
-                    <span>{`최고 온도: ${currentweather.current.main.temp_max}`}</span> */}
+                    <span>{`현재 온도: ${current_temp}`}</span>
+                    {/* <span>{`최저 온도: ${temp_min}`}</span>
+                    <span>{`최고 온도: ${temp_max}`}</span> */}
+                    <img
+                        className="weather-icon"
+                        src={`https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`}
+                        alt="Weather Icon"
+                    />
                 </div>
             </div>
             <div className="weather-forecast">
                 <div className="weather-forecast-head"></div>
-                <ul className="weather-forecast-list">
-                    <li className="weather-3hourly-list">
-                        <span>날짜</span>
-                        <div className="weather-forecast-value">
-                            {/* <svg className="weather-icon cloud" viewBox="0 0 148 148">
-                            <path className="charcoal" d={weatherIcon.clouds.charcoal}></path>
-                            <path className="white" d={weatherIcon.clouds.white}></path>
-                        </svg> */}
-                            <img className="weather-icon" src="https://openweathermap.org/img/wn/02d@2x.png" />
-                            <span> 날씨 온도</span>
-                            <span> 흐림, 맑음</span>
-                        </div>
-                    </li>
-                </ul>
+                <WeatherForecastInfo month={month[0]} date={date[0]} hour={hour[0]} icon={icon[0]} />
+                <WeatherForecastInfo month={month[2]} date={date[2]} hour={hour[2]} icon={icon[2]} />
+                <WeatherForecastInfo month={month[4]} date={date[4]} hour={hour[4]} icon={icon[4]} />
+                <WeatherForecastInfo month={month[6]} date={date[6]} hour={hour[6]} icon={icon[6]} />
+                {/* <WeatherForecastInfo month = {month[0]} date = {date[0]} hour = {hour[0]} icon = {icon[0]}/>
+                <WeatherForecastInfo month = {month[0]} date = {date[0]} hour = {hour[0]} icon = {icon[0]}/>
+                <WeatherForecastInfo month = {month[0]} date = {date[0]} hour = {hour[0]} icon = {icon[0]}/>
+                <WeatherForecastInfo month = {month[0]} date = {date[0]} hour = {hour[0]} icon = {icon[0]}/> */}
             </div>
         </div>
     );
 };
+
 export default WeatherInfo;
