@@ -4,12 +4,18 @@ import MapInfo from './subpage/MapInfo';
 import TrafficInfo from './subpage/TrafficInfo';
 import WeatherInfo from './subpage/WeatherInfo';
 import Sidebar from './subpage/Sidebar';
+import Footer from '../Footer';
 import './css/subPage.css';
 const SubPage = () => {
     //SideBar에서 관리 START
     const [checkedArea, setCheckedArea] = useState('');
     const [checkedTour, setCheckedTour] = useState([]);
     //SideBar에서 관리 END
+
+    //MapInfo에서 관리 STAR
+    const [depart, setDepart] = useState();
+    const [arrival, setArrival] = useState();
+    //MapInfo에서 관리 END
 
     //SideBar에서 온 훅으로 Keyword 생성 START
     const keyword = checkedArea + checkedTour;
@@ -32,10 +38,16 @@ const SubPage = () => {
             </div>
             <div>
                 <CityInfo />
-                <MapInfo keyword={keyword} />
+                <MapInfo
+                    keyword={keyword}
+                    depart={depart}
+                    setDepart={setDepart}
+                    arrival={arrival}
+                    setArrival={setArrival}
+                />
             </div>
             <div>
-                <TrafficInfo />
+                <TrafficInfo depart={depart} setDepart={setDepart} arrival={arrival} setArrival={setArrival} />
                 <WeatherInfo checkedArea={checkedArea} />
             </div>
         </div>

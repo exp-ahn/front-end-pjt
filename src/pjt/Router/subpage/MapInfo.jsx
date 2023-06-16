@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Map, MapMarker } from "react-kakao-maps-sdk";
+import React, { useEffect, useState } from 'react';
+import { Map, MapMarker } from 'react-kakao-maps-sdk';
 const { kakao } = window;
 
 //마커 다시 클릭하거나하면 올라온 설명
 
-const KakaoMap = ({ keyword }) => {
+const KakaoMap = ({ keyword, depart, setDepart, arrival, setArrival }) => {
     // return (
     //     <div>
     //         <br />
@@ -20,14 +20,33 @@ const KakaoMap = ({ keyword }) => {
     const [markers, setMarkers] = useState([]);
     const [map, setMap] = useState();
 
+    const departureBtnClickHandler = () => {
+        console.log('[MapInfo] departureBtnClickHandler CLICKED!!');
+        if (info && info.position) {
+            const { lat, lng } = info.position;
+            setDepart({ latitude: lat, longitude: lng });
+            console.log('출발지 위도:', lat);
+            console.log('출발지 경도:', lng);
+        }
+    };
+
+    const arrivalBtnClickHandler = () => {
+        console.log('[MapInfo] arrivalBtnClickHandler CLICKED!!');
+        if (info && info.position) {
+            const { lat, lng } = info.position;
+            setArrival({ latitude: lat, longitude: lng });
+            console.log('도착지 위도:', lat);
+            console.log('도착지 경도:', lng);
+        }
+    };
     useEffect(() => {
         if (!map) return;
         const ps = new kakao.maps.services.Places();
         //libraries=services에서 지원하는 Places
 
-        if (keyword == "") {
+        if (keyword == '') {
             //아직 default를 안잡아줘서 오류걸리니 부산으로 임시로 해놓음
-            keyword = "부산";
+            keyword = '부산';
         }
 
         //ps.keywordSearch("센텀 맛집", (data, status, _pagination) => {
@@ -37,7 +56,7 @@ const KakaoMap = ({ keyword }) => {
                 // LatLngBounds 객체에 좌표를 추가합니다
                 const bounds = new kakao.maps.LatLngBounds();
                 let markers = [];
-                console.log("data ---> ", data);
+                console.log('data ---> ', data);
 
                 for (var i = 0; i < data.length; i++) {
                     // @ts-ignore
@@ -52,6 +71,7 @@ const KakaoMap = ({ keyword }) => {
                     });
                     // @ts-ignore
                     bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                    // console.log(new kakao.maps.LatLng(data[i].y, data[i].x));
                 }
                 setMarkers(markers);
 
@@ -68,8 +88,8 @@ const KakaoMap = ({ keyword }) => {
                 lng: 126.9786567,
             }}
             style={{
-                width: "500px",
-                height: "200px",
+                width: '700px',
+                height: '500px',
             }}
             level={3}
             onCreate={setMap}
@@ -81,10 +101,55 @@ const KakaoMap = ({ keyword }) => {
                     onClick={() => setInfo(marker)}
                 >
                     {info && info.content === marker.content && (
-                        <div style={{ color: "#000", width: "200px", height: "100px" }}>
-                            <a href={marker.content2} target='_blank'>
+                        <div
+                            style={{
+                                color: '#000',
+                                width: '150px',
+                                height: '70px',
+                                textAlign: 'center',
+                                paddingTop: '8px',
+                            }}
+                        >
+                            <a href={marker.content2} target="_blank" style={{ fontSize: '0.8em', fontWeight: 'bold' }}>
                                 {marker.content}
                             </a>
+                            <div
+                                style={{
+                                    marginTop: '10px',
+                                }}
+                            >
+                                <button
+                                    onClick={departureBtnClickHandler}
+                                    style={{
+                                        width: '60px',
+                                        height: '30px',
+                                        fontSize: '0.8em',
+                                        fontWeight: 'bold',
+                                        color: '#fff',
+                                        backgroundColor: '#f00',
+                                        textAlign: 'center',
+                                        lineHeight: '30px',
+                                    }}
+                                >
+                                    출&nbsp;&nbsp;발
+                                </button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <button
+                                    onClick={arrivalBtnClickHandler}
+                                    style={{
+                                        width: '60px',
+                                        height: '30px',
+                                        fontSize: '0.8em',
+                                        fontWeight: 'bold',
+                                        color: '#fff',
+                                        backgroundColor: '#00f',
+                                        textAlign: 'center',
+                                        lineHeight: '30px',
+                                    }}
+                                >
+                                    도&nbsp;&nbsp;착
+                                </button>
+                            </div>
                         </div>
                     )}
                 </MapMarker>
