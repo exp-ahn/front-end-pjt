@@ -37,7 +37,7 @@ const WeatherInfo = ({ checkedArea }) => {
         const fetchData = async () => {
             try {
                 const city =
-                    checkedArea === '' ? 'Seoul' : Object.keys(cityEng).find((key) => cityEng[key] === checkedArea);
+                    checkedArea === '' ? 'Busan' : Object.keys(cityEng).find((key) => cityEng[key] === checkedArea);
                 const currentWeatherResponse = await axios.get(url(api, city, 'weather'));
                 const forecastWeatherResponse = await axios.get(url(api, city, 'forecast'));
 
@@ -89,7 +89,7 @@ const WeatherInfo = ({ checkedArea }) => {
         <div className="weather-container">
             <div className="weather-current">
                 <div className="weather-current-head">
-                    <span>{checkedArea === '' ? '서울' : `${checkedArea}`}</span>의 현재 날씨
+                    <span>{checkedArea === '' ? '부산' : `${checkedArea}`}</span>의 현재 날씨
                 </div>
                 <div className="weather-current-value">
                     <span>{`현재 온도: ${current_temp}°C`}</span>
