@@ -1,21 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 const { kakao } = window;
 
 //마커 다시 클릭하거나하면 올라온 설명
 
-const KakaoMap = ({ keyword, depart, setDepart, arrival, setArrival }) => {
-    // return (
-    //     <div>
-    //         <br />
-    //         카카오맵입니다.
-    //         <br />
-    //         {checkedArea}
-    //         <br />
-    //         {checkedTour}
-    //     </div>
-    // );
-
+const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival }) => {
     const [info, setInfo] = useState();
     const [markers, setMarkers] = useState([]);
     const [map, setMap] = useState();
@@ -24,21 +13,25 @@ const KakaoMap = ({ keyword, depart, setDepart, arrival, setArrival }) => {
         console.log('[MapInfo] departureBtnClickHandler CLICKED!!');
         if (info && info.position) {
             const { lat, lng } = info.position;
-            setDepart({ latitude: lat, longitude: lng });
+            const { content } = info;
+            setDepart({ latitude: lat, longitude: lng, name: content });
             console.log('출발지 위도:', lat);
             console.log('출발지 경도:', lng);
+            console.log('출발지 이름:', content);
         }
     };
 
     const arrivalBtnClickHandler = () => {
         console.log('[MapInfo] arrivalBtnClickHandler CLICKED!!');
         if (info && info.position) {
-            const { lat, lng } = info.position;
-            setArrival({ latitude: lat, longitude: lng });
+            const { lat, lng, content } = info.position;
+            setArrival({ latitude: lat, longitude: lng, name: content });
             console.log('도착지 위도:', lat);
             console.log('도착지 경도:', lng);
+            console.log('도착지 이름:', content);
         }
     };
+
     useEffect(() => {
         if (!map) return;
         const ps = new kakao.maps.services.Places();
@@ -88,6 +81,7 @@ const KakaoMap = ({ keyword, depart, setDepart, arrival, setArrival }) => {
                 lng: 126.9786567,
             }}
             style={{
+                borderRadius: '20px',
                 width: '700px',
                 height: '500px',
             }}
@@ -158,4 +152,4 @@ const KakaoMap = ({ keyword, depart, setDepart, arrival, setArrival }) => {
     );
 };
 
-export default KakaoMap;
+export default MapInfo;

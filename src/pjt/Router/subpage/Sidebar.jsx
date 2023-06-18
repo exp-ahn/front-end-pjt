@@ -2,18 +2,6 @@ import React, { useEffect } from 'react';
 import '../css/common.css';
 import '../css/style.css';
 
-const AREA_LIST_1 = [
-    { id: '서울', area: '서울' },
-    { id: '부산', area: '부산' },
-    { id: '광주', area: '광주' },
-    { id: '울산', area: '울산' },
-];
-const AREA_LIST_2 = [
-    { id: '대전', area: '대전' },
-    { id: '대구', area: '대구' },
-    { id: '인천', area: '인천' },
-    { id: '제주', area: '제주' },
-];
 const TOUR_1 = [
     { id: '테마파크', tour: '테마파크' },
     { id: '박물관', tour: '박물관' },
@@ -24,7 +12,7 @@ const RESTAURANT_1 = [
     { id: '중식', food: '중식' },
 ];
 
-const SideBar_test = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) => {
+const SideBar_test = ({ areaList1, areaList2, checkedArea, setCheckedArea, checkedTour, setCheckedTour }) => {
     useEffect(() => {
         console.log('체크박스 변동!!!');
     }, [checkedArea]);
@@ -36,13 +24,13 @@ const SideBar_test = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour
             setCheckedArea(item);
 
             console.log(checkedArea); // 리스트 테스트용
-        } else if (!checked) {
+        } /*else if (!checked) {
             console.log(item, '체크 헤제됨');
 
             setCheckedArea(checkedArea.filter((el) => el !== item)); //체크박스 전용
 
             console.log(checkedArea); // 리스트 테스트용
-        }
+        }*/
     };
     const onCheckedCheckBox = (checked, item) => {
         //체크박스용
@@ -70,7 +58,7 @@ const SideBar_test = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour
             <div className="filter-category">
                 <p>지역</p>
                 <ul className="filter-checkbox">
-                    {AREA_LIST_1.map((item) => {
+                    {areaList1.map((item) => {
                         return (
                             <li key={item.id}>
                                 <input
@@ -87,7 +75,7 @@ const SideBar_test = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour
                     })}
                 </ul>
                 <ul className="filter-checkbox">
-                    {AREA_LIST_2.map((item) => {
+                    {areaList2.map((item) => {
                         return (
                             <li key={item.id}>
                                 <input

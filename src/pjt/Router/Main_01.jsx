@@ -9,9 +9,15 @@ import './css/main.css';
 
 const DIVIDER_HEIGHT = 5;
 
-const Main_01 = () => {
+const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) => {
     const outerDivRef = useRef();
     const [scrollIndex, setScrollIndex] = useState(1);
+
+    const moveToSubPageBtnClickHandler = (area) => {
+        console.log('[Main_01] moveToSubPageBtnClickHandler() CLICKED');
+        setCheckedArea(area);
+        console.log('checkedArea:', checkedArea);
+    };
     useEffect(() => {
         const wheelHandler = (e) => {
             e.preventDefault();
@@ -101,7 +107,7 @@ const Main_01 = () => {
                     해야함
                     <br />
                     <Link to="/subpage">
-                        <button>구경하기</button>
+                        <button onClick={() => moveToSubPageBtnClickHandler('대구')}>구경하기</button>
                     </Link>
                 </div>
                 <div>
@@ -150,7 +156,7 @@ const Main_01 = () => {
                     해야함
                     <br />
                     <Link to="/subpage">
-                        <button>구경하기</button>
+                        <button onClick={() => moveToSubPageBtnClickHandler('거창')}>구경하기</button>
                     </Link>
                 </div>
             </div>

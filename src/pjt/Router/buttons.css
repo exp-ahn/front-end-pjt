@@ -36,8 +36,14 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.9;
+    /* opacity: 0.9; */
 }
+.carousel-card > img {
+    width: 230px;
+    height: 280px;
+    object-fit: cover;
+}
+
 .carousel-card:nth-child(1) {
     transform: rotateY(0deg) translateZ(530px);
     background-color: red;
