@@ -88,9 +88,11 @@ const WeatherInfo = ({ checkedArea }) => {
     return (
         <div className="weather-container">
             <div className="weather-current">
-                <div className="weather-current-head">현재 날씨</div>
+                <div className="weather-current-head">
+                    <span>{checkedArea === '' ? '서울' : `${checkedArea}`}</span>의 현재 날씨
+                </div>
                 <div className="weather-current-value">
-                    <span>{`현재 온도: ${current_temp}`}</span>
+                    <span>{`현재 온도: ${current_temp}°C`}</span>
                     {/* <span>{`최저 온도: ${temp_min}`}</span>
                     <span>{`최고 온도: ${temp_max}`}</span> */}
                     <img
@@ -106,10 +108,6 @@ const WeatherInfo = ({ checkedArea }) => {
                 <WeatherForecastInfo month={month[2]} date={date[2]} hour={hour[2]} icon={icon[2]} />
                 <WeatherForecastInfo month={month[4]} date={date[4]} hour={hour[4]} icon={icon[4]} />
                 <WeatherForecastInfo month={month[6]} date={date[6]} hour={hour[6]} icon={icon[6]} />
-                {/* <WeatherForecastInfo month = {month[0]} date = {date[0]} hour = {hour[0]} icon = {icon[0]}/>
-                <WeatherForecastInfo month = {month[0]} date = {date[0]} hour = {hour[0]} icon = {icon[0]}/>
-                <WeatherForecastInfo month = {month[0]} date = {date[0]} hour = {hour[0]} icon = {icon[0]}/>
-                <WeatherForecastInfo month = {month[0]} date = {date[0]} hour = {hour[0]} icon = {icon[0]}/> */}
             </div>
         </div>
     );

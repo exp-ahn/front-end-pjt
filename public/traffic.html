@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            #progress-bar {
+                width: 100%;
+                height: 30px;
+                background-color: #f2f2f2;
+                position: relative;
+                border-radius: 10px;
+            }
+
+            .progress {
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            #progress-walk {
+                background-color: #39ac73;
+            }
+
+            #progress-bus {
+                background-color: #007bff;
+            }
+
+            #progress-subway {
+                background-color: #fcd303;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>대중교통 길찾기 결과</h1>
+
+        <div id="progress-bar">
+            <div id="progress-walk" class="progress"></div>
+            <div id="progress-bus" class="progress"></div>
+            <div id="progress-subway" class="progress"></div>
+        </div>
+
+        <script>
+            // 가상의 길찾기 결과 데이터
+            const directions = [
+                { mode: '도보', duration: 10 },
+                { mode: '버스', duration: 25 },
+                { mode: '지하철', duration: 15 },
+            ];
+
+            // 전체 소요 시간을 반환하는 함수
+            function getTotalDuration() {
+                let totalDuration = 0;
+                directions.forEach((step) => {
+                    totalDuration += step.duration;
+                });
+                return totalDuration;
+            }
+
+            // 결과를 HTML로 변환하여 화면에 출력하는 함수
+            function renderDirections() {
+                const progressBar = document.getElementById('progress-bar');
+
+                directions.forEach((step) => {
+                    const progressElem = document.createElement('div');
+                    progressElem.className = 'progress';
+                    const progressWidth = (step.duration / getTotalDuration()) * 100;
+                    progressElem.style.width = `${progressWidth}%`;
+                    progressElem.style.backgroundColor = getProgressColor(step.mode.toLowerCase());
+
+                    progressBar.appendChild(progressElem);
+                });
+            }
+
+            // 대중교통 수단에 따라 바의 색상을 반환하는 함수
+            function getProgressColor(mode) {
+                switch (mode) {
+                    case '도보':
+                        return '#39ac73';
+                    case '버스':
+                        return '#007bff';
+                    case '지하철':
+                        return '#fcd303';
+                    default:
+                        return '';
+                }
+            }
+
+            // 초기 로드 시 결과 출력
+            renderDirections();
+        </script>
+    </body>
+</html>

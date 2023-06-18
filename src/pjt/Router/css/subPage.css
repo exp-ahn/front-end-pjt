@@ -1,5 +1,7 @@
 .sub-wrap {
     display: flex;
     justify-content: space-around;
-    margin-top: 40px;
+    padding-top: 40px;
+    overflow-y: scroll;
+    height: 82.7vh;
 }
