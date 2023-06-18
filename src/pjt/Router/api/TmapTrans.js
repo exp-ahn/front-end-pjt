@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-var datalist;
-
 const TmapTrans = (startlat, startlon, destlat, destlon) => {
-    const api_key = 'x7gSYlQjVI52sY0z3E6J6YaVZFPaIoW4vVdLz6Q3';
+    const api_key = 'pgBrEGAgHf3PCyo7Oytic7Rbz050sGhUaycNiYP2';
     const url = 'https://apis.openapi.sk.com/transit/routes';
 
     const [trafficData, setTrafficData] = useState([]);
