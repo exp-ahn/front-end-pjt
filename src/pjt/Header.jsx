@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const HeaderDivStyle = {
@@ -11,7 +12,9 @@ const Header = () => {
     };
     return (
         <div style={HeaderDivStyle}>
-            <img src="./logo_oneteam.jpg" style={HeaderImgStyle} />
+            <Link to="/">
+                <img src="./logo_oneteam.jpg" style={HeaderImgStyle} />
+            </Link>
         </div>
     );
 };
