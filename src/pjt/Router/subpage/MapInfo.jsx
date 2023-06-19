@@ -40,7 +40,7 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival }) => {
 
         if (keyword == "") {
             //아직 default를 안잡아줘서 오류걸리니 부산으로 임시로 해놓음
-            keyword = "부산";
+            keyword = "대구";
         }
 
         //ps.keywordSearch("센텀 맛집", (data, status, _pagination) => {
@@ -78,8 +78,8 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival }) => {
     return (
         <Map // 로드뷰를 표시할 Container
             center={{
-                lat: 37.566826,
-                lng: 126.9786567,
+                lat: 35.8714354,
+                lng: 128.601445,
             }}
             style={{
                 borderRadius: "20px",

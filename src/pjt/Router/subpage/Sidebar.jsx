@@ -44,6 +44,7 @@ const SideBar_test = ({
 }) => {
     useEffect(() => {
         console.log("체크박스 변동!!!");
+        console.log(checkedArea);
     }, [checkedArea]);
 
     const onCheckedRadio = (checked, item) => {

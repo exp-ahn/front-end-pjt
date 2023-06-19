@@ -11,7 +11,7 @@ const AREA_LIST_1 = [
     { id: "서울", area: "서울" },
     { id: "부산", area: "부산" },
     { id: "강릉", area: "강릉" },
-    { id: "수원", area: "수원" },
+    { id: "충북", area: "충북" },
 ];
 const AREA_LIST_2 = [
     { id: "경주", area: "경주" },
