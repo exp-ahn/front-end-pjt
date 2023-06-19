@@ -124,8 +124,8 @@ const SideBar_test = ({
                                     <input
                                         type='radio'
                                         name='area_radio'
-                                        value={item.area || ""}
-                                        checked
+                                        defaultValue={item.area}
+                                        defaultChecked
                                         onChange={(e) => {
                                             onCheckedRadioArea(e.target.checked, e.target.value);
                                         }}
@@ -139,7 +139,7 @@ const SideBar_test = ({
                                     <input
                                         type='radio'
                                         name='area_radio'
-                                        value={item.area || ""}
+                                        defaultValue={item.area}
                                         onChange={(e) => {
                                             onCheckedRadioArea(e.target.checked, e.target.value);
                                         }}
@@ -158,8 +158,8 @@ const SideBar_test = ({
                                     <input
                                         type='radio'
                                         name='area_radio'
-                                        value={item.area || ""}
-                                        checked
+                                        defaultValue={item.area}
+                                        defaultChecked
                                         onChange={(e) => {
                                             onCheckedRadioArea(e.target.checked, e.target.value);
                                         }}
@@ -173,7 +173,7 @@ const SideBar_test = ({
                                     <input
                                         type='radio'
                                         name='area_radio'
-                                        value={item.area || ""}
+                                        defaultValue={item.area}
                                         onChange={(e) => {
                                             onCheckedRadioArea(e.target.checked, e.target.value);
                                         }}
@@ -192,8 +192,8 @@ const SideBar_test = ({
                                     <input
                                         type='radio'
                                         name='area_radio'
-                                        value={item.area || ""}
-                                        checked
+                                        defaultValue={item.area}
+                                        defaultChecked
                                         onChange={(e) => {
                                             onCheckedRadioArea(e.target.checked, e.target.value);
                                         }}
@@ -207,7 +207,7 @@ const SideBar_test = ({
                                     <input
                                         type='radio'
                                         name='area_radio'
-                                        value={item.area || ""}
+                                        defaultValue={item.area}
                                         onChange={(e) => {
                                             onCheckedRadioArea(e.target.checked, e.target.value);
                                         }}
