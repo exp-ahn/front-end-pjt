@@ -1,17 +1,17 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import '../css/TrafficInfo.css';
-import TrafficLocationName from './TrafficLocationName';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import "../css/TrafficInfo.css";
+import TrafficLocationName from "./TrafficLocationName";
 
-const api_key = 'pgBrEGAgHf3PCyo7Oytic7Rbz050sGhUaycNiYP2';
-const url = 'https://apis.openapi.sk.com/transit/routes';
+const api_key = "pgBrEGAgHf3PCyo7Oytic7Rbz050sGhUaycNiYP2";
+const url = "https://apis.openapi.sk.com/transit/routes";
 
 const trafficKor = {
-    도보: 'WALK',
-    버스: 'BUS',
-    급행버스: 'EXPRESSBUS',
-    지하철: 'SUBWAY',
-    비행기: 'AIRPLANE',
+    도보: "WALK",
+    버스: "BUS",
+    급행버스: "EXPRESSBUS",
+    지하철: "SUBWAY",
+    비행기: "AIRPLANE",
 };
 
 const TrafficInfo = ({ depart, arrival }) => {
@@ -26,14 +26,14 @@ const TrafficInfo = ({ depart, arrival }) => {
             endX: arrival.longitude,
             endY: arrival.latitude,
             lang: 0,
-            format: 'json',
+            format: "json",
             count: 1,
         };
         return params;
     };
 
     const findRouteBtnHandler = async () => {
-        console.log('[TrafficInfo] findRouteBtnHandler() CALLED!!!');
+        console.log("[TrafficInfo] findRouteBtnHandler() CALLED!!!");
         setTrafficData(null);
         if (depart !== undefined && arrival !== undefined) {
             setFindingRoute(true);
@@ -42,9 +42,9 @@ const TrafficInfo = ({ depart, arrival }) => {
             try {
                 const response = await axios.post(url, payload(depart, arrival), {
                     headers: {
-                        'content-Type': 'application/json',
+                        "content-Type": "application/json",
                         appKey: api_key,
-                        accept: 'application/json',
+                        accept: "application/json",
                     },
                 });
 
@@ -52,19 +52,19 @@ const TrafficInfo = ({ depart, arrival }) => {
                 setFindingRoute(false);
                 setRouteFound(true);
             } catch (error) {
-                console.log('API 호출에 실패했습니다.', error);
+                console.log("API 호출에 실패했습니다.", error);
                 return error;
             }
         }
     };
 
     const displayRouteResults = () => {
-        console.log('[TrafficInfo] displayRouteResults() CALLED!!!');
+        console.log("[TrafficInfo] displayRouteResults() CALLED!!!");
         if (trafficData === null) {
             return null;
         }
 
-        if ('result' in trafficData) {
+        if ("result" in trafficData) {
             return <p>길찾기 결과가 없습니다.</p>;
         } else {
             const itineraries = trafficData.metaData.plan.itineraries;
@@ -72,7 +72,7 @@ const TrafficInfo = ({ depart, arrival }) => {
             const totalTime_hour = parseInt(itineraries[0].totalTime / 60 / 60);
             const totalTime_min = parseInt(itineraries[0].totalTime / 60) - totalTime_hour * 60;
             const totalTime_sec = itineraries[0].totalTime % 60;
-            const legs = itineraries[0].legs.filter((i) => i.mode !== 'TRANSFER');
+            const legs = itineraries[0].legs.filter((i) => i.mode !== "TRANSFER");
 
             return (
                 <div>
@@ -99,7 +99,7 @@ const TrafficInfo = ({ depart, arrival }) => {
     };
 
     useEffect(() => {
-        console.log('[TrafficInfo] useEffect() CALLED!!!');
+        console.log("[TrafficInfo] useEffect() CALLED!!!");
         if (findingRoute) {
             setRouteFound(false);
             displayRouteResults();
@@ -107,17 +107,17 @@ const TrafficInfo = ({ depart, arrival }) => {
     }, [findingRoute]);
 
     return (
-        <div className="location">
+        <div className='location'>
             <h1>길찾기</h1>
-            <div className="location-user-group-wrap">
-                <TrafficLocationName class="location-user-group" name="출발지" location={depart} />
-                <TrafficLocationName class="location-user-group" name="목적지" location={arrival} />
-                <button type="submit" onClick={findRouteBtnHandler}>
+            <div className='location-user-group-wrap'>
+                <TrafficLocationName class='location-user-group' name='출발지' location={depart} />
+                <TrafficLocationName class='location-user-group' name='목적지' location={arrival} />
+                <button type='submit' onClick={findRouteBtnHandler}>
                     길찾기
                 </button>
             </div>
-            <div className="location-result-group-wrap">
-                <div className="location-result-group">
+            <div className='location-result-group-wrap'>
+                <div className='location-result-group'>
                     {findingRoute && <p>길찾기 중...</p>}
                     {routeFound && (
                         <>

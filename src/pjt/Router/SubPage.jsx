@@ -1,43 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import Header from '../Header';
-import CityInfo from './subpage/CityInfo';
-import MapInfo from './subpage/MapInfo';
-import TrafficInfo from './subpage/TrafficInfo';
-import WeatherInfo from './subpage/WeatherInfo';
-import Sidebar from './subpage/Sidebar';
-import Footer from '../Footer';
-import './css/subPage.css';
-const SubPage = ({ areaList1, areaList2, checkedArea, setCheckedArea, checkedTour, setCheckedTour }) => {
+import React, { useEffect, useState } from "react";
+import Header from "../Header";
+import CityInfo from "./subpage/CityInfo";
+import MapInfo from "./subpage/MapInfo";
+import TrafficInfo from "./subpage/TrafficInfo";
+import WeatherInfo from "./subpage/WeatherInfo";
+import Sidebar from "./subpage/Sidebar";
+import Footer from "../Footer";
+import "./css/subPage.css";
+
+const SubPage = ({ areaList1, areaList2, areaList3, checkedArea, setCheckedArea, checkedTour, setCheckedTour }) => {
     //MapInfo에서 관리 STAR
     const [depart, setDepart] = useState();
     const [arrival, setArrival] = useState();
+    const [checkedDetailArea, setCheckedDetailArea] = useState([]);
+    const [showDetail, setShowdetail] = useState([]);
     //MapInfo에서 관리 END
 
     //SideBar에서 온 훅으로 Keyword 생성 START
-    const keyword = checkedArea + checkedTour;
-    console.log('keyword ---> ', keyword);
+    const keyword = checkedArea + " " + checkedDetailArea + " " + checkedTour;
+    console.log("keyword ---> ", keyword);
     //SideBar에서 온 훅으로 Keyword 생성 END
 
     useEffect(() => {
-        console.log('[SubPage] 변경 사항 발생!!!');
+        console.log("[SubPage] 변경 사항 발생!!!");
     });
 
     return (
         <>
             <Header />
-            <div className="sub-wrap">
+            <div className='sub-wrap'>
                 <div>
                     <Sidebar
                         areaList1={areaList1}
                         areaList2={areaList2}
+                        areaList3={areaList3}
                         checkedArea={checkedArea}
                         setCheckedArea={setCheckedArea}
                         checkedTour={checkedTour}
                         setCheckedTour={setCheckedTour}
+                        checkedDetailArea={checkedDetailArea}
+                        setCheckedDetailArea={setCheckedDetailArea}
                     />
                 </div>
                 <div>
-                    <CityInfo />
+                    <CityInfo
+                        checkedArea={checkedArea}
+                        checkedTour={checkedTour}
+                        showDetail={showDetail}
+                        setShowdetail={setShowdetail}
+                    />
                     <MapInfo
                         keyword={keyword}
                         depart={depart}
@@ -47,8 +58,8 @@ const SubPage = ({ areaList1, areaList2, checkedArea, setCheckedArea, checkedTou
                     />
                 </div>
                 <div>
-                    {/* <TrafficInfo depart={depart} setDepart={setDepart} arrival={arrival} setArrival={setArrival} /> */}
-                    {/* <WeatherInfo checkedArea={checkedArea} /> */}
+                    <TrafficInfo depart={depart} setDepart={setDepart} arrival={arrival} setArrival={setArrival} />
+                    <WeatherInfo checkedArea={checkedArea} />
                 </div>
             </div>
         </>
