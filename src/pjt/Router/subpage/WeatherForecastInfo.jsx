@@ -4,7 +4,7 @@ const WeatherForecastInfo = ({ month, date, hour, icon, description, feels_like,
     return (
         <ul className="weather-forecast-list">
             <li className="weather-3hourly-list">
-                <span>{`${month}월 ${date}일 ${hour}시`}</span>
+                <span>{`${month}. ${date}. ${hour}:00`}</span>
                 <div className="weather-forecast-value">
                     <span>{`예상 기온: ${parseInt(temp - 273.15)}°C`}</span>
                     &nbsp; &nbsp;
