@@ -16,7 +16,7 @@ import { useEffect } from "react";
 const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail }) => {
     const url = "https://apis.data.go.kr/B551011/KorService1/searchKeyword1?";
     const serviceKey = "t51lRPM28ojei66rhxTvsdJD3NoGauLy2iSnMetoi7TWdAYiyOr3jNo5wtn58txAyGr1IYQlVbXUEFFhOB5ogQ%3D%3D";
-    const numOfRows = "500";
+    const numOfRows = "200";
     const pageNo = "1";
     const MobileOs = "ETC";
     const MobileApp = "AppTest";
@@ -44,6 +44,7 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail }) => {
 
     //잠시 에러잡는 곳
     if (area == "") area = "부산";
+    if (tour == "") tour = "관광지";
     if (contentTypeIdSellect == "") {
         console.log("없습니다!!");
         contentTypeIdSellect = "12";
@@ -92,6 +93,7 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail }) => {
         <div>
             <hr />
             <br />
+            <div>큰거</div>
             {showDetail.map((it, idx) => (
                 <div key={idx}>
                     <ul>
