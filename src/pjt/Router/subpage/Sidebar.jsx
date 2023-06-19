@@ -45,9 +45,12 @@ const SideBar_test = ({
     useEffect(() => {
         console.log("체크박스 변동!!!");
         console.log(checkedArea);
-    }, [checkedArea]);
+        console.log(checkedTour);
 
-    const onCheckedRadio = (checked, item) => {
+        //Detail_Area = Busan_Area;
+    }, [checkedArea, checkedTour]);
+
+    const onCheckedRadioArea = (checked, item) => {
         //라디오용
         if (checked) {
             console.log(item, "체크됨");
@@ -71,11 +74,13 @@ const SideBar_test = ({
             console.log(checkedArea); // 리스트 테스트용
         }
     };
-    const onCheckedCheckBox = (checked, item) => {
+
+    const onCheckedRadioTour = (checked, item) => {
         //체크박스용
         if (checked) {
             console.log(item, "체크됨");
-            setCheckedTour([...checkedTour, item]);
+            //setCheckedTour([...checkedTour, item]);
+            setCheckedTour(item);
 
             // checkedTour.push(item);
             // let temp = checkedTour.slice();
@@ -113,53 +118,104 @@ const SideBar_test = ({
                 <p>지역</p>
                 <ul className='filter-checkbox'>
                     {areaList1.map((item) => {
-                        return (
-                            <li key={item.id}>
-                                <input
-                                    type='radio'
-                                    name='area_radio'
-                                    value={item.area}
-                                    onChange={(e) => {
-                                        onCheckedRadio(e.target.checked, e.target.value);
-                                    }}
-                                />
-                                {item.area}
-                            </li>
-                        );
+                        if (item.area == checkedArea) {
+                            return (
+                                <li key={item.id}>
+                                    <input
+                                        type='radio'
+                                        name='area_radio'
+                                        value={item.area || ""}
+                                        checked
+                                        onChange={(e) => {
+                                            onCheckedRadioArea(e.target.checked, e.target.value);
+                                        }}
+                                    />
+                                    {item.area}
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li key={item.id}>
+                                    <input
+                                        type='radio'
+                                        name='area_radio'
+                                        value={item.area || ""}
+                                        onChange={(e) => {
+                                            onCheckedRadioArea(e.target.checked, e.target.value);
+                                        }}
+                                    />
+                                    {item.area}
+                                </li>
+                            );
+                        }
                     })}
                 </ul>
                 <ul className='filter-checkbox'>
                     {areaList2.map((item) => {
-                        return (
-                            <li key={item.id}>
-                                <input
-                                    type='radio'
-                                    name='area_radio'
-                                    value={item.area}
-                                    onChange={(e) => {
-                                        onCheckedRadio(e.target.checked, e.target.value);
-                                    }}
-                                />
-                                {item.area}
-                            </li>
-                        );
+                        if (item.area == checkedArea) {
+                            return (
+                                <li key={item.id}>
+                                    <input
+                                        type='radio'
+                                        name='area_radio'
+                                        value={item.area || ""}
+                                        checked
+                                        onChange={(e) => {
+                                            onCheckedRadioArea(e.target.checked, e.target.value);
+                                        }}
+                                    />
+                                    {item.area}
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li key={item.id}>
+                                    <input
+                                        type='radio'
+                                        name='area_radio'
+                                        value={item.area || ""}
+                                        onChange={(e) => {
+                                            onCheckedRadioArea(e.target.checked, e.target.value);
+                                        }}
+                                    />
+                                    {item.area}
+                                </li>
+                            );
+                        }
                     })}
                 </ul>
                 <ul className='filter-checkbox'>
                     {areaList3.map((item) => {
-                        return (
-                            <li key={item.id}>
-                                <input
-                                    type='radio'
-                                    name='area_radio'
-                                    value={item.area}
-                                    onChange={(e) => {
-                                        onCheckedRadio(e.target.checked, e.target.value);
-                                    }}
-                                />
-                                {item.area}
-                            </li>
-                        );
+                        if (item.area == checkedArea) {
+                            return (
+                                <li key={item.id}>
+                                    <input
+                                        type='radio'
+                                        name='area_radio'
+                                        value={item.area || ""}
+                                        checked
+                                        onChange={(e) => {
+                                            onCheckedRadioArea(e.target.checked, e.target.value);
+                                        }}
+                                    />
+                                    {item.area}
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li key={item.id}>
+                                    <input
+                                        type='radio'
+                                        name='area_radio'
+                                        value={item.area || ""}
+                                        onChange={(e) => {
+                                            onCheckedRadioArea(e.target.checked, e.target.value);
+                                        }}
+                                    />
+                                    {item.area}
+                                </li>
+                            );
+                        }
                     })}
                 </ul>
             </div>
@@ -189,34 +245,70 @@ const SideBar_test = ({
                 <p>관광지</p>
                 <ul className='filter-checkbox'>
                     {TOUR_1.map((item) => {
-                        return (
-                            <li key={item.id}>
-                                <input
-                                    type='checkbox'
-                                    value={item.tour}
-                                    onChange={(e) => {
-                                        onCheckedCheckBox(e.target.checked, e.target.value);
-                                    }}
-                                />
-                                {item.tour}
-                            </li>
-                        );
+                        if (item.tour == checkedTour) {
+                            return (
+                                <li key={item.id}>
+                                    <input
+                                        type='radio'
+                                        name='tour_radio'
+                                        value={item.tour}
+                                        checked
+                                        onChange={(e) => {
+                                            onCheckedRadioTour(e.target.checked, e.target.value);
+                                        }}
+                                    />
+                                    {item.tour}
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li key={item.id}>
+                                    <input
+                                        type='radio'
+                                        name='tour_radio'
+                                        value={item.tour}
+                                        onChange={(e) => {
+                                            onCheckedRadioTour(e.target.checked, e.target.value);
+                                        }}
+                                    />
+                                    {item.tour}
+                                </li>
+                            );
+                        }
                     })}
                 </ul>
                 <ul className='filter-checkbox'>
                     {TOUR_2.map((item) => {
-                        return (
-                            <li key={item.id}>
-                                <input
-                                    type='checkbox'
-                                    value={item.tour}
-                                    onChange={(e) => {
-                                        onCheckedCheckBox(e.target.checked, e.target.value);
-                                    }}
-                                />
-                                {item.tour}
-                            </li>
-                        );
+                        if (item.tour == checkedTour) {
+                            return (
+                                <li key={item.id}>
+                                    <input
+                                        type='radio'
+                                        name='tour_radio'
+                                        value={item.tour}
+                                        checked
+                                        onChange={(e) => {
+                                            onCheckedRadioTour(e.target.checked, e.target.value);
+                                        }}
+                                    />
+                                    {item.tour}
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li key={item.id}>
+                                    <input
+                                        type='radio'
+                                        name='tour_radio'
+                                        value={item.tour}
+                                        onChange={(e) => {
+                                            onCheckedRadioTour(e.target.checked, e.target.value);
+                                        }}
+                                    />
+                                    {item.tour}
+                                </li>
+                            );
+                        }
                     })}
                 </ul>
             </div>

@@ -39,7 +39,7 @@ const AREA_LIST_3 = [
 function App() {
     //SideBar에서 관리 START
     const [checkedArea, setCheckedArea] = useState("");
-    const [checkedTour, setCheckedTour] = useState([]);
+    const [checkedTour, setCheckedTour] = useState("");
     //SideBar에서 관리 END
 
     return (
