@@ -18,6 +18,17 @@ const SubPage = ({ areaList1, areaList2, areaList3, checkedArea, setCheckedArea,
 
     //SideBar에서 온 훅으로 Keyword 생성 START
     const keyword = checkedArea + " " + checkedDetailArea + " " + checkedTour;
+
+    const detail_locate = checkedTour == "" ? checkedArea : checkedArea + " > " + checkedTour;
+    const map_locate =
+        checkedDetailArea == "" && checkedTour == ""
+            ? checkedArea
+            : checkedDetailArea == ""
+            ? checkedArea + ` >  ${checkedTour}`
+            : checkedTour == ""
+            ? checkedArea + " > " + checkedDetailArea
+            : checkedArea + " > " + checkedDetailArea + ` >  ${checkedTour}`;
+
     console.log("keyword ---> ", keyword);
     //SideBar에서 온 훅으로 Keyword 생성 END
 
@@ -43,12 +54,14 @@ const SubPage = ({ areaList1, areaList2, areaList3, checkedArea, setCheckedArea,
                     />
                 </div>
                 <div>
+                    {detail_locate}
                     <CityInfo
                         checkedArea={checkedArea}
                         checkedTour={checkedTour}
                         showDetail={showDetail}
                         setShowdetail={setShowdetail}
                     />
+                    {map_locate}
                     <MapInfo
                         keyword={keyword}
                         depart={depart}

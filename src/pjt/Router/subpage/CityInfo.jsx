@@ -16,14 +16,16 @@ import { useEffect } from "react";
 const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail }) => {
     const url = "https://apis.data.go.kr/B551011/KorService1/searchKeyword1?";
     const serviceKey = "t51lRPM28ojei66rhxTvsdJD3NoGauLy2iSnMetoi7TWdAYiyOr3jNo5wtn58txAyGr1IYQlVbXUEFFhOB5ogQ%3D%3D";
-    const numOfRows = "10";
-    const pageNo = "2";
+    const numOfRows = "500";
+    const pageNo = "1";
     const MobileOs = "ETC";
     const MobileApp = "AppTest";
     const type = "json";
     const listYN = "Y";
     const arrange = "A";
     let area = checkedArea; //keyword          //임시로 let
+    let tour = checkedTour;
+
     const contentTypeId = {
         12: "관광지",
         14: "문화시설",
@@ -80,6 +82,7 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail }) => {
 
             setShowdetail(city_data);
 
+            city_data.length = 10;
             console.log("[city]data", city_data);
         })();
     }, [checkedArea, checkedTour]);
@@ -87,8 +90,6 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail }) => {
 
     return (
         <div>
-            <hr />
-            =========================
             <hr />
             <br />
             {showDetail.map((it, idx) => (
@@ -104,8 +105,7 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail }) => {
             ))}
             <br />
             <hr />
-            =========================
-            <hr />
+            <br />
         </div>
     );
 };
