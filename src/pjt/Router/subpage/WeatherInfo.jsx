@@ -37,7 +37,7 @@ const WeatherInfo = ({ checkedArea }) => {
         const fetchData = async () => {
             try {
                 const city =
-                    checkedArea === '' ? 'Busan' : Object.keys(cityEng).find((key) => cityEng[key] === checkedArea);
+                    checkedArea === '' ? 'Daegu' : Object.keys(cityEng).find((key) => cityEng[key] === checkedArea);
                 const currentWeatherResponse = await axios.get(url(api, city, 'weather'));
                 const forecastWeatherResponse = await axios.get(url(api, city, 'forecast'));
 
@@ -52,6 +52,7 @@ const WeatherInfo = ({ checkedArea }) => {
                 };
 
                 setWeatherData(data);
+                console.log(data);
             } catch (error) {
                 console.error(error);
             }
@@ -66,13 +67,14 @@ const WeatherInfo = ({ checkedArea }) => {
     const { currentWeather, forecastWeather } = weatherData;
 
     const current_temp = parseInt(currentWeather.main.temp - 273.15);
-    // const temp_min = parseInt(currentWeather.main.temp_min - 273.15);
-    // const temp_max = parseInt(currentWeather.main.temp_max - 273.15);
 
     let month = [];
     let date = [];
     let hour = [];
     let icon = [];
+    let description = [];
+    let feels_like = [];
+    let temp = [];
 
     let i = 1;
     while (i < 8) {
@@ -82,6 +84,9 @@ const WeatherInfo = ({ checkedArea }) => {
         hour.push(data.getHours());
 
         icon.push(forecastWeather.forecast[i].weather[0].icon);
+        description.push(forecastWeather.forecast[i].weather[0].description);
+        feels_like.push(forecastWeather.forecast[i].main.feels_like);
+        temp.push(forecastWeather.forecast[i].main.temp);
         i++;
     }
 
@@ -93,8 +98,6 @@ const WeatherInfo = ({ checkedArea }) => {
                 </div>
                 <div className="weather-current-value">
                     <span>{`현재 온도: ${current_temp}°C`}</span>
-                    {/* <span>{`최저 온도: ${temp_min}`}</span>
-                    <span>{`최고 온도: ${temp_max}`}</span> */}
                     <img
                         className="weather-icon"
                         src={`https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`}
@@ -103,11 +106,45 @@ const WeatherInfo = ({ checkedArea }) => {
                 </div>
             </div>
             <div className="weather-forecast">
-                <div className="weather-forecast-head"></div>
-                <WeatherForecastInfo month={month[0]} date={date[0]} hour={hour[0]} icon={icon[0]} />
-                <WeatherForecastInfo month={month[2]} date={date[2]} hour={hour[2]} icon={icon[2]} />
-                <WeatherForecastInfo month={month[4]} date={date[4]} hour={hour[4]} icon={icon[4]} />
-                <WeatherForecastInfo month={month[6]} date={date[6]} hour={hour[6]} icon={icon[6]} />
+                <div className="weather-forecast-head">예상 날씨</div>
+                <div className="weather-forecast-list-wrap">
+                    <WeatherForecastInfo
+                        month={month[0]}
+                        date={date[0]}
+                        hour={hour[0]}
+                        icon={icon[0]}
+                        description={description[0]}
+                        feels_like={feels_like[0]}
+                        temp={temp[0]}
+                    />
+                    <WeatherForecastInfo
+                        month={month[2]}
+                        date={date[2]}
+                        hour={hour[2]}
+                        icon={icon[2]}
+                        description={description[2]}
+                        feels_like={feels_like[2]}
+                        temp={temp[2]}
+                    />
+                    <WeatherForecastInfo
+                        month={month[4]}
+                        date={date[4]}
+                        hour={hour[4]}
+                        icon={icon[4]}
+                        description={description[4]}
+                        feels_like={feels_like[4]}
+                        temp={temp[4]}
+                    />
+                    <WeatherForecastInfo
+                        month={month[6]}
+                        date={date[6]}
+                        hour={hour[6]}
+                        icon={icon[6]}
+                        description={description[6]}
+                        feels_like={feels_like[6]}
+                        temp={temp[6]}
+                    />
+                </div>
             </div>
         </div>
     );
