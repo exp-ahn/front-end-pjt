@@ -23,14 +23,30 @@ p {
     display: block;
     margin-bottom: 5px;
 }
+.location {
+    font-family: Arial, sans-serif;
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
+    max-width: 400px;
+    min-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-input[type='text'],
-select {
-    width: 90%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+h1 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.location-user-group {
+    margin-bottom: 20px;
+}
+
+p {
+    display: block;
+    margin-bottom: 5px;
 }
 
 .location-user-group-wrap button {
@@ -45,4 +61,41 @@ select {
 
 .location-user-group-wrap button:hover {
     background-color: #0056b3;
+}
+
+.location-user-group-wrap button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.location-user-group-wrap button:hover {
+    background-color: #0056b3;
+}
+
+.trarffic-result-picture {
+    width: 30px;
+    height: 30px;
+}
+
+.traffic-result-list-line {
+    border: 1px solid #000;
+    width: 0px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.WALK,
+.traffic-result-wrap > div:nth-last-child(2) > div.traffic-result-list-line {
+    border: 1px dashed #000;
+}
+.TRANSFER {
+    display: none;
+}
+.traffic-result-wrap > div:last-child > div.traffic-result-list-line {
+    display: none;
 }
