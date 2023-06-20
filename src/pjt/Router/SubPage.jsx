@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import Header from '../Header';
-import CityInfo from './subpage/CityInfo';
-import MapInfo from './subpage/MapInfo';
-import TrafficInfo from './subpage/TrafficInfo';
-import WeatherInfo from './subpage/WeatherInfo';
-import Sidebar from './subpage/Sidebar';
-import Footer from '../Footer';
-import './css/subPage.css';
+import React, { useEffect, useState } from "react";
+import Header from "../Header";
+import CityInfo from "./subpage/CityInfo";
+import MapInfo from "./subpage/MapInfo";
+import TrafficInfo from "./subpage/TrafficInfo";
+import WeatherInfo from "./subpage/WeatherInfo";
+import Sidebar from "./subpage/Sidebar";
+import Footer from "../Footer";
+import "./css/subPage.css";
 
 const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setCheckedTour }) => {
     //MapInfo에서 관리 STAR
@@ -14,32 +14,35 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
     const [arrival, setArrival] = useState();
     const [checkedDetailArea, setCheckedDetailArea] = useState([]);
     const [showDetail, setShowdetail] = useState([]);
+
+    const [addKakaoPin, setAddKakaoPin] = useState([]);
+
     //MapInfo에서 관리 END
 
     //SideBar에서 온 훅으로 Keyword 생성 START
-    const keyword = checkedArea + ' ' + checkedDetailArea + ' ' + checkedTour;
+    const keyword = checkedArea + " " + checkedDetailArea + " " + checkedTour;
 
-    const detail_locate = checkedTour == '' ? checkedArea : checkedArea + ' > ' + checkedTour;
+    const detail_locate = checkedTour == "" ? checkedArea : checkedArea + " > " + checkedTour;
     const map_locate =
-        checkedDetailArea == '' && checkedTour == ''
+        checkedDetailArea == "" && checkedTour == ""
             ? checkedArea
-            : checkedDetailArea == ''
+            : checkedDetailArea == ""
             ? checkedArea + ` >  ${checkedTour}`
-            : checkedTour == ''
-            ? checkedArea + ' > ' + checkedDetailArea
-            : checkedArea + ' > ' + checkedDetailArea + ` >  ${checkedTour}`;
+            : checkedTour == ""
+            ? checkedArea + " > " + checkedDetailArea
+            : checkedArea + " > " + checkedDetailArea + ` >  ${checkedTour}`;
 
-    console.log('keyword ---> ', keyword);
+    console.log("keyword ---> ", keyword);
     //SideBar에서 온 훅으로 Keyword 생성 END
 
     useEffect(() => {
-        console.log('[SubPage] 변경 사항 발생!!!');
+        console.log("[SubPage] 변경 사항 발생!!!");
     });
 
     return (
         <>
             <Header />
-            <div className="sub-wrap">
+            <div className='sub-wrap'>
                 <div>
                     <Sidebar
                         areaList={areaList}
@@ -58,6 +61,8 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
                         checkedTour={checkedTour}
                         showDetail={showDetail}
                         setShowdetail={setShowdetail}
+                        addKakaoPin={addKakaoPin}
+                        setAddKakaoPin={setAddKakaoPin}
                     />
                     {map_locate}
                     <MapInfo
@@ -66,6 +71,7 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
                         setDepart={setDepart}
                         arrival={arrival}
                         setArrival={setArrival}
+                        addKakaoPin={addKakaoPin}
                     />
                 </div>
                 <div>
