@@ -12,17 +12,19 @@ const DIVIDER_HEIGHT = 5;
 const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) => {
     const outerDivRef = useRef();
     const [scrollIndex, setScrollIndex] = useState(1);
+    const [hideButtons, setHideButtons] = useState(false);
 
     const moveToSubPageBtnClickHandler = (area, tour) => {
         console.log('[Main_01] moveToSubPageBtnClickHandler() CLICKED');
         setCheckedArea(area);
         setCheckedTour(tour);
+        setHideButtons(true);
         console.log('checkedArea:', checkedArea);
     };
     useEffect(() => {
         const wheelHandler = (e) => {
-            e.preventDefault();
-            const { deltaY } = e;
+            e.preventDefault(); //event.preventDefault()는 단순히 html에서 표준으로 제공하는 태그의 기본 이벤트 발생을 막는 메서드
+            const { deltaY } = e; // 스크롤 이벤트에서 수직 스크롤 값(deltaY) 가져오기
             const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
             const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
@@ -37,6 +39,7 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                         behavior: 'smooth',
                     });
                     setScrollIndex(2);
+                    setHideButtons(true); // 버튼 숨기기
                 } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
                     //현재 2페이지
                     console.log('현재 2페이지, down');
@@ -46,6 +49,7 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                         behavior: 'smooth',
                     });
                     setScrollIndex(3);
+                    setHideButtons(true); // 버튼 숨기기
                 } else {
                     // 현재 3페이지
                     console.log('현재 3페이지, down');
@@ -55,6 +59,7 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                         behavior: 'smooth',
                     });
                     setScrollIndex(3);
+                    setHideButtons(false); // 버튼 숨기기
                 }
             } else {
                 // 스크롤 올릴 때
@@ -67,6 +72,7 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                         behavior: 'smooth',
                     });
                     setScrollIndex(1);
+                    setHideButtons(false); // 버튼 숨기기
                 } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
                     //현재 2페이지
                     console.log('현재 2페이지, up');
@@ -76,6 +82,7 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                         behavior: 'smooth',
                     });
                     setScrollIndex(1);
+                    setHideButtons(false); // 버튼 숨기기
                 } else {
                     // 현재 3페이지
                     console.log('현재 3페이지, up');
@@ -85,6 +92,7 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                         behavior: 'smooth',
                     });
                     setScrollIndex(2);
+                    setHideButtons(true); // 버튼 숨기기
                 }
             }
         };
@@ -99,7 +107,7 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
             <Dots scrollIndex={scrollIndex} />
             <Header />
             <div className="inner bg-yellow">
-                <Buttons />
+                <Buttons setCheckedArea={setCheckedArea} hideButtons={hideButtons} setHideButtons={setHideButtons} />
             </div>
             <div className="inner bg-blue">
                 <div>

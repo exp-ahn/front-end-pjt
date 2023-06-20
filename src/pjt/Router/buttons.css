@@ -1,10 +1,49 @@
-button {
+.buttons_wrap {
+    width: 100%;
+    display: flex;
+}
+.hidden {
+    /* background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0); */
+    display: none;
+}
+.pre-btn {
+    top: 28vh;
+    left: 5vh;
+}
+.next-btn {
+    top: 28vh;
+    right: 8vh;
+}
+.pre-btn > p,
+.next-btn > p {
+    color: #dadada;
+}
+.pre-btn,
+.next-btn {
+    height: 350px;
+    line-height: 350px;
+    position: fixed;
+    color: rgba(0, 0, 0, 0);
     font-size: 20px;
-    background-color: aliceblue;
+    font-weight: bold;
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
+    z-index: 999;
 }
+.pre-btn:hover,
+.next-btn:hover {
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #dadada;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    z-index: 999;
+}
+
 .scene {
     width: 210px;
     height: 140px;

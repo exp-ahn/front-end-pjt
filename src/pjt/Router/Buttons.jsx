@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './buttons.css';
 
-const Buttons = ({ checkedArea, setCheckedArea }) => {
+const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) => {
     const [angle, setAngle] = useState(0);
     const carouselRef = useRef(null);
     const carouselCardRefs = useRef([]);
@@ -131,15 +131,17 @@ const Buttons = ({ checkedArea, setCheckedArea }) => {
                 </div>
             </div>
             <br />
-            <div className="buttons_wrap">
+            <div className={`buttons_wrap ${hideButtons ? 'hidden' : ''}`}>
                 <br />
-                <button className="pre-btn" onClick={prevBtnClickHander}>
-                    이전
-                </button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button className="next-btn" onClick={nextBtnClickHander}>
-                    다음
-                </button>
+                <div className="pre-btn" onClick={prevBtnClickHander}>
+                    <p>이전</p>
+                    &#60; &#60;
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div className="next-btn" onClick={nextBtnClickHander}>
+                    <p>다음</p>
+                    &#62; &#62;
+                </div>
             </div>
             {/* <button className="axis-btn" onClick={handleAxisToggle}>
                 축 변경
