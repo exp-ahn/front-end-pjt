@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/weather.css';
-import WeatherForecastInfo from './WeatherForecastInfo';
+import WeatherInfoList from './WeatherInfoList';
 
 const cityEng = {
     Seoul: '서울',
@@ -70,9 +70,10 @@ const WeatherInfo = ({ checkedArea }) => {
 
     let month = [];
     let date = [];
+    let day = [];
     let hour = [];
     let icon = [];
-    let description = [];
+    let main = [];
     let feels_like = [];
     let temp = [];
 
@@ -81,10 +82,11 @@ const WeatherInfo = ({ checkedArea }) => {
         const data = timeDifference(forecastWeather.forecast[i].dt_txt);
         month.push(data.getMonth() + 1);
         date.push(data.getDate());
+        day.push(data.getDay());
         hour.push(data.getHours());
 
         icon.push(forecastWeather.forecast[i].weather[0].icon);
-        description.push(forecastWeather.forecast[i].weather[0].description);
+        main.push(forecastWeather.forecast[i].weather[0].main);
         feels_like.push(forecastWeather.forecast[i].main.feels_like);
         temp.push(forecastWeather.forecast[i].main.temp);
         i++;
@@ -100,52 +102,59 @@ const WeatherInfo = ({ checkedArea }) => {
                     <span>{`현재 온도: ${current_temp}°C`}</span>
                     <img
                         className="weather-icon"
-                        src={`https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`}
+                        src={`./weather_icon/${currentWeather.weather[0].icon}.png`}
                         alt="Weather Icon"
                     />
                 </div>
             </div>
-            <div className="weather-forecast">
-                <div className="weather-forecast-head">예상 날씨</div>
-                <div className="weather-forecast-list-wrap">
-                    <WeatherForecastInfo
-                        month={month[0]}
-                        date={date[0]}
-                        hour={hour[0]}
-                        icon={icon[0]}
-                        description={description[0]}
-                        feels_like={feels_like[0]}
-                        temp={temp[0]}
-                    />
-                    <WeatherForecastInfo
-                        month={month[2]}
-                        date={date[2]}
-                        hour={hour[2]}
-                        icon={icon[2]}
-                        description={description[2]}
-                        feels_like={feels_like[2]}
-                        temp={temp[2]}
-                    />
-                    <WeatherForecastInfo
-                        month={month[4]}
-                        date={date[4]}
-                        hour={hour[4]}
-                        icon={icon[4]}
-                        description={description[4]}
-                        feels_like={feels_like[4]}
-                        temp={temp[4]}
-                    />
-                    <WeatherForecastInfo
-                        month={month[6]}
-                        date={date[6]}
-                        hour={hour[6]}
-                        icon={icon[6]}
-                        description={description[6]}
-                        feels_like={feels_like[6]}
-                        temp={temp[6]}
-                    />
-                </div>
-            </div>
+            <thead>
+                <th>날짜/시간</th>
+                <th>날씨</th>
+                <th>예상 기온</th>
+                <th>체감 온도</th>
+            </thead>
+            <tbody className="weather-forecast">
+                <WeatherInfoList
+                    month={month[0]}
+                    date={date[0]}
+                    day={day[0]}
+                    hour={hour[0]}
+                    icon={icon[0]}
+                    main={main[0]}
+                    feels_like={feels_like[0]}
+                    temp={temp[0]}
+                />
+                <WeatherInfoList
+                    month={month[2]}
+                    date={date[2]}
+                    day={day[2]}
+                    hour={hour[2]}
+                    icon={icon[2]}
+                    main={main[2]}
+                    feels_like={feels_like[2]}
+                    temp={temp[2]}
+                />
+                <WeatherInfoList
+                    month={month[4]}
+                    date={date[4]}
+                    day={day[4]}
+                    hour={hour[4]}
+                    icon={icon[4]}
+                    main={main[4]}
+                    feels_like={feels_like[4]}
+                    temp={temp[4]}
+                />
+                <WeatherInfoList
+                    month={month[6]}
+                    date={date[6]}
+                    day={day[6]}
+                    hour={hour[6]}
+                    icon={icon[6]}
+                    main={main[6]}
+                    feels_like={feels_like[6]}
+                    temp={temp[6]}
+                />
+            </tbody>
         </div>
     );
 };
