@@ -4,7 +4,7 @@ const { kakao } = window;
 
 //마커 다시 클릭하거나하면 올라온 설명
 
-const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival }) => {
+const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin }) => {
     const [info, setInfo] = useState();
     const [markers, setMarkers] = useState([]);
     const [map, setMap] = useState();
@@ -34,6 +34,9 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival }) => {
     };
 
     useEffect(() => {
+        console.log("addKakaoPin[0]--> ", addKakaoPin[0]);
+        console.log("addKakaoPin[1]--> ", addKakaoPin[1]);
+
         if (!map) return;
         const ps = new kakao.maps.services.Places();
         //libraries=services에서 지원하는 Places
@@ -73,13 +76,15 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival }) => {
                 map.setBounds(bounds);
             }
         });
-    }, [map, keyword]);
+    }, [map, keyword, addKakaoPin]);
 
     return (
         <Map // 로드뷰를 표시할 Container
             center={{
                 lat: 35.8714354,
                 lng: 128.601445,
+                //lat: addKakaoPin[0],
+                //lng: addKakaoPin[1],
             }}
             style={{
                 borderRadius: "20px",
