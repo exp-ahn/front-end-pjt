@@ -90,9 +90,11 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
     }, [checkedArea, checkedTour]);
     //}, [checkedArea, contentTypeIdSellect]);
 
-    const SHOWKAKAOMARKER = (m_x, m_y) => {
+    const SHOWKAKAOMARKER = (m_addr1, m_title, m_x, m_y) => {
         console.log("-----[SHOWKAKAOMARKER]-----"); //setAddKakaoPin
         const showkm = new Array();
+        showkm.push(m_addr1);
+        showkm.push(m_title);
         showkm.push(m_x);
         showkm.push(m_y);
         setAddKakaoPin(showkm);
@@ -114,7 +116,7 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
                                 src={it.firstimage}
                                 width='50px'
                                 height='50px'
-                                onClick={() => SHOWKAKAOMARKER(it.mapx, it.mapy)}
+                                onClick={() => SHOWKAKAOMARKER(it.addr1, it.title, it.mapx, it.mapy)}
                                 // map 함수 내에서는 콜백함수로 호출해야 한다.
                             />
                         </li>
