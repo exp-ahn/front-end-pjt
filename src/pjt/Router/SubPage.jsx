@@ -8,7 +8,7 @@ import Sidebar from "./subpage/Sidebar";
 import Footer from "../Footer";
 import "./css/subPage.css";
 
-const SubPage = ({ areaList1, areaList2, areaList3, checkedArea, setCheckedArea, checkedTour, setCheckedTour }) => {
+const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setCheckedTour }) => {
     //MapInfo에서 관리 STAR
     const [depart, setDepart] = useState();
     const [arrival, setArrival] = useState();
@@ -42,9 +42,7 @@ const SubPage = ({ areaList1, areaList2, areaList3, checkedArea, setCheckedArea,
             <div className='sub-wrap'>
                 <div>
                     <Sidebar
-                        areaList1={areaList1}
-                        areaList2={areaList2}
-                        areaList3={areaList3}
+                        areaList={areaList}
                         checkedArea={checkedArea}
                         setCheckedArea={setCheckedArea}
                         checkedTour={checkedTour}
