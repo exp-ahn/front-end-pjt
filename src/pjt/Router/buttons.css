@@ -1,10 +1,49 @@
-button {
+.buttons_wrap {
+    width: 100%;
+    display: flex;
+}
+.hidden {
+    /* background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0); */
+    display: none;
+}
+.pre-btn {
+    top: 28vh;
+    left: 5vh;
+}
+.next-btn {
+    top: 28vh;
+    right: 8vh;
+}
+.pre-btn > p,
+.next-btn > p {
+    color: #dadada;
+}
+.pre-btn,
+.next-btn {
+    height: 350px;
+    line-height: 350px;
+    position: fixed;
+    color: rgba(0, 0, 0, 0);
     font-size: 20px;
-    background-color: aliceblue;
+    font-weight: bold;
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
+    z-index: 999;
 }
+.pre-btn:hover,
+.next-btn:hover {
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #dadada;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    z-index: 999;
+}
+
 .scene {
     width: 210px;
     height: 140px;
@@ -38,49 +77,39 @@ button {
     justify-content: center;
     /* opacity: 0.9; */
 }
-.carousel-card > img {
-    width: 230px;
-    height: 280px;
+.carousel-card img {
+    width: 350px;
+    height: 220px;
     object-fit: cover;
 }
 
 .carousel-card:nth-child(1) {
-    transform: rotateY(0deg) translateZ(530px);
-    background-color: red;
+    transform: rotateY(0deg) translateZ(600px);
 }
 .carousel-card:nth-child(2) {
-    transform: rotateY(36deg) translateZ(530px);
-    background-color: orange;
+    transform: rotateY(36deg) translateZ(600px);
 }
 .carousel-card:nth-child(3) {
-    transform: rotateY(72deg) translateZ(530px);
-    background-color: yellow;
+    transform: rotateY(72deg) translateZ(600px);
 }
 .carousel-card:nth-child(4) {
-    transform: rotateY(108deg) translateZ(530px);
-    background-color: green;
+    transform: rotateY(108deg) translateZ(600px);
 }
 .carousel-card:nth-child(5) {
-    transform: rotateY(144deg) translateZ(530px);
-    background-color: blue;
+    transform: rotateY(144deg) translateZ(600px);
 }
 .carousel-card:nth-child(6) {
-    transform: rotateY(180deg) translateZ(530px);
-    background-color: navy;
+    transform: rotateY(180deg) translateZ(600px);
 }
 .carousel-card:nth-child(7) {
-    transform: rotateY(216deg) translateZ(530px);
-    background-color: purple;
+    transform: rotateY(216deg) translateZ(600px);
 }
 .carousel-card:nth-child(8) {
-    transform: rotateY(252deg) translateZ(530px);
-    background-color: pink;
+    transform: rotateY(252deg) translateZ(600px);
 }
 .carousel-card:nth-child(9) {
-    transform: rotateY(288deg) translateZ(530px);
-    background-color: salmon;
+    transform: rotateY(288deg) translateZ(600px);
 }
 .carousel-card:nth-child(10) {
-    transform: rotateY(324deg) translateZ(530px);
-    background-color: salmon;
+    transform: rotateY(324deg) translateZ(600px);
 }
