@@ -14,7 +14,6 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
     const [arrival, setArrival] = useState();
     const [checkedDetailArea, setCheckedDetailArea] = useState([]);
     const [showDetail, setShowdetail] = useState([]);
-
     const [addKakaoPin, setAddKakaoPin] = useState([]);
 
     //MapInfo에서 관리 END
@@ -52,6 +51,7 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
                         setCheckedTour={setCheckedTour}
                         checkedDetailArea={checkedDetailArea}
                         setCheckedDetailArea={setCheckedDetailArea}
+                        addKakaoPin={addKakaoPin}
                     />
                 </div>
                 <div>
@@ -72,6 +72,7 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
                         arrival={arrival}
                         setArrival={setArrival}
                         addKakaoPin={addKakaoPin}
+                        checkedTour={checkedTour}
                     />
                 </div>
                 <div>

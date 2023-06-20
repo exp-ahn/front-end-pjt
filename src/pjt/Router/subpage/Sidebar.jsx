@@ -37,6 +37,7 @@ const SideBar_test = ({
     setCheckedTour,
     checkedDetailArea,
     setCheckedDetailArea,
+    addKakaoPin,
 }) => {
     useEffect(() => {
         console.log("체크박스 변동!!!");
@@ -47,9 +48,10 @@ const SideBar_test = ({
             Detail_Area = Busan_Area;
             console.log("[Detail_Area]-->", Detail_Area);
         }
+        addKakaoPin.length = 0;
 
         //Detail_Area = Busan_Area;
-    }, [checkedArea, checkedTour]);
+    }, [checkedArea, checkedTour, checkedDetailArea]);
 
     const onCheckedRadioArea = (checked, item) => {
         //라디오용
@@ -122,7 +124,7 @@ const SideBar_test = ({
                         if (item.area == checkedArea) {
                             return (
                                 <li key={item.id}>
-                                    <label class='box-radio-input'>
+                                    <label className='box-radio-input'>
                                         <input
                                             type='radio'
                                             name='area_radio'
@@ -139,7 +141,7 @@ const SideBar_test = ({
                         } else {
                             return (
                                 <li key={item.id}>
-                                    <label class='box-radio-input'>
+                                    <label className='box-radio-input'>
                                         <input
                                             type='radio'
                                             name='area_radio'
@@ -163,7 +165,7 @@ const SideBar_test = ({
                     {Detail_Area.map((item) => {
                         return (
                             <li key={item.id}>
-                                <label class='box-radio-input'>
+                                <label className='box-radio-input'>
                                     <input
                                         type='radio'
                                         name='area_radio2'
@@ -187,7 +189,7 @@ const SideBar_test = ({
                         if (item.tour == checkedTour) {
                             return (
                                 <li key={item.id}>
-                                    <label class='box-radio-input'>
+                                    <label className='box-radio-input'>
                                         <input
                                             type='radio'
                                             name='tour_radio'
@@ -204,7 +206,7 @@ const SideBar_test = ({
                         } else {
                             return (
                                 <li key={item.id}>
-                                    <label class='box-radio-input'>
+                                    <label className='box-radio-input'>
                                         <input
                                             type='radio'
                                             name='tour_radio'
