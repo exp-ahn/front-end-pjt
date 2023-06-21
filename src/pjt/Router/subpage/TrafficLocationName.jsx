@@ -12,7 +12,7 @@ const TrafficLocationName = (props) => {
                     readOnly
                 />
             ) : (
-                <input className="traffic-input-value" type="text" value={props.location.name} readOnly />
+                <input className="traffic-input-value" type="text" defaultValue={props.location.name} readOnly />
             )}
         </div>
     );

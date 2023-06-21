@@ -68,14 +68,19 @@
     border: 1px solid #000;
     width: 0px;
     height: 20px;
-    margin: 1px 0px 2px 15px;
+    margin: 2px 0px 2px 15px;
+    padding-top: 3px;
+}
+
+.traffic-result-bottom {
+    margin-top: 10px;
 }
 
 .WALK,
-.traffic-result-bottom > div:nth-last-child(2) div.traffic-result-list-line {
+.traffic-result-bottom > div:nth-last-child(2) .traffic-result-list-line {
     border: 1px dashed #000;
 }
-.traffic-result-bottom > div:last-child div.traffic-result-list-line {
+.traffic-result-bottom > div:last-child .traffic-result-list-line {
     display: none;
 }
 .location-result-findingRoute {
@@ -105,4 +110,23 @@
 
 input::-webkit-input-placeholder {
     text-align: center;
+}
+
+.traffic-result-list-pic-wrap {
+    display: flex;
+}
+
+.traffic-result-list-pic-wrap > li {
+    margin-left: 5px;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.traffic-result-title {
+    margin: 15px 0;
+    font-size: 1.1em;
 }

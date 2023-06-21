@@ -81,9 +81,11 @@ const TrafficInfo = ({ depart, setDepart, arrival, setArrival }) => {
             return (
                 <div className="traffic-result-wrap">
                     <div className="traffic-result-top">
-                        <p>총 요금:&nbsp;{totalFare}원</p>
                         <p>
-                            총 시간:&nbsp;
+                            <span className="bold">총 요금:</span>&nbsp;{totalFare}원
+                        </p>
+                        <p>
+                            <span className="bold">총 시간:</span>&nbsp;
                             {totalTime_hour === 0
                                 ? `${totalTime_min}분 ${totalTime_sec}초`
                                 : `${totalTime_hour}시간 ${totalTime_min}분 ${totalTime_sec}초`}
@@ -138,7 +140,7 @@ const TrafficInfo = ({ depart, setDepart, arrival, setArrival }) => {
 
     return (
         <div className="location">
-            <h1>길찾기</h1>
+            <h1>빠른 길찾기</h1>
 
             <div className="location-user-group-wrap">
                 <img
@@ -175,7 +177,7 @@ const TrafficInfo = ({ depart, setDepart, arrival, setArrival }) => {
                           )}
                     {routeFound && (
                         <div>
-                            <p>길찾기 결과</p>
+                            <p className="traffic-result-title">길찾기 결과</p>
                             {displayRouteResults()}
                         </div>
                     )}
