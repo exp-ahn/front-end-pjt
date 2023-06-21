@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef, useEffect, useState } from 'react';
 import SlideButton from './SlideButton';
-import '../css/slider/mainPageSlider.css';
+import '../css/Slider.css';
 import '../css/slider/sliderItem.css';
 
 function useWindowSize() {

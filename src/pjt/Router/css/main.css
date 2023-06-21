@@ -51,35 +51,35 @@ body {
     text-align: left;
 }
 
-div.first_img > img {
+div.first_img img {
     margin: 0px 20px 20px 0px;
     width: 230px;
     height: 230px;
     border-radius: 20px;
 }
 
-div.second_img > img {
+div.second_img img {
     margin: 0px 20px 20px 0px;
     width: 180px;
     height: 180px;
     border-radius: 20px;
 }
 
-div.third_img > img {
+div.third_img img {
     margin: 0px 20px 20px 0px;
     width: 180px;
     height: 180px;
     border-radius: 20px;
 }
 
-div.fourth_img > img {
+div.fourth_img img {
     margin: 0px 20px 20px 0px;
     width: 120px;
     height: 120px;
     border-radius: 20px;
 }
 
-div.fifth_img > img {
+div.fifth_img img {
     margin: 0px 20px 20px 0px;
     width: 140px;
     height: 140px;

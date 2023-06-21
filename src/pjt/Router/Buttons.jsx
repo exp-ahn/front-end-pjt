@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MainSlideButton from './subpage/MainSlideButton';
 import './css/buttons.css';
-import './css/Slider.css';
+import './css/slider/mainPageSlider.css';
 
 const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) => {
     const [angle, setAngle] = useState(0);
