@@ -2,33 +2,52 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../pjt/Router/css/subfooter.css';
 
-const Footer = () => {
+const SubFooter = () => {
     return (
         <div className="subfooter-content">
             <div className="subfooter-company-info">
-                <div className="subfooter-company-name">
-                    <strong>ONETEAM COMPANY</strong>
-                    <span className="subfooter__company-kr-name">(주) 원팀컴퍼니</span>
+                <div className="subfooter_menu">
+                    <a href="#none">서비스 약관</a>
                 </div>
-                <div className="subfooter-emblem">
-                    <Link to="/">
-                        <img src="./logo_oneteam.jpg" />
-                    </Link>
+                <div className="subfooter_menu">
+                    <a>|</a>
                 </div>
-            </div>
-            <div className="subfooter-member-info">
-                <div className="member-info01">
-                    <p>안지수&nbsp;&nbsp;&nbsp;phone : 010-2499-8682</p>
+                <div className="subfooter_menu">
+                    <a href="#none">개인정보 보호정책</a>
                 </div>
-                <div className="member-info02">
-                    <p>김란희&nbsp;&nbsp;&nbsp;phone : 010-2499-8682</p>
+                <div className="subfooter_menu">
+                    <a>|</a>
                 </div>
-                <div className="member-info03">
-                    <p>김장훈&nbsp;&nbsp;&nbsp;phone : 010-2499-8682</p>
+                <div className="subfooter_menu">
+                    <a href="#none">FAQ</a>
+                </div>
+                <div className="subfooter_menu">
+                    <a>|</a>
+                </div>
+                <div className="subfooter_menu">
+                    <a href="#none">취소/환불정책</a>
+                </div>
+                <div className="subfooter_menu">
+                    <a>|</a>
+                </div>
+                <div className="subfooter_menu">
+                    <a href="#none">자료실</a>
+                </div>
+                <div className="subfooter_menu">
+                    <a>|</a>
+                </div>
+                <div className="subfooter_menu">
+                    <a href="#none">공지사항</a>
+                </div>
+                <div className="subfooter_menu">
+                    <a>|</a>
+                </div>
+                <div className="subfooter_menu">
+                    <a href="#none">도움말</a>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Footer;
+export default SubFooter;
