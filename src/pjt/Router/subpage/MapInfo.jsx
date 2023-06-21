@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import '../css/mapinfo.css';
+
 const { kakao } = window;
 
 //마커 다시 클릭하거나하면 올라온 설명
@@ -10,7 +12,8 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
     const [markers, setMarkers] = useState([]);
 
     let marker_src = '';
-    if (checkedTour == '관광지') marker_src = './kakao_marker/kakao_travel.png';
+    if (checkedTour == '') marker_src = './kakao_marker/kakao_travel.png';
+    else if (checkedTour == '관광지') marker_src = './kakao_marker/kakao_travel.png';
     else if (checkedTour == '문화시설') marker_src = './kakao_marker/kakao_culture.png';
     else if (checkedTour == '행사') marker_src = './kakao_marker/kakao_festa.png';
     else if (checkedTour == '레포츠') marker_src = './kakao_marker/kakao_reports.png';
@@ -139,28 +142,13 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
                         onClick={() => setInfo(marker)}
                     >
                         {info && info.content === marker.content && (
-                            <div
-                                style={{
-                                    color: '#000',
-                                    width: '150px',
-                                    height: '70px',
-                                    textAlign: 'center',
-                                    paddingTop: '8px',
-                                }}
-                            >
-                                <a
-                                    href={marker.content2}
-                                    target='_blank'
-                                    style={{ fontSize: '0.8em', fontWeight: 'bold' }}
-                                >
+                            <div className='mapContentBox'>
+                                <a className='mapALinker' href={marker.content2} target='_blank'>
                                     {marker.content}
                                 </a>
-                                <div
-                                    style={{
-                                        marginTop: '10px',
-                                    }}
-                                >
-                                    <button
+                                <p class='arrow_box'>{marker.content}</p>
+                                <div className='mapRouteContent'>
+                                    <button className='mapSt'
                                         onClick={departureBtnClickHandler}
                                         style={{
                                             width: '60px',
