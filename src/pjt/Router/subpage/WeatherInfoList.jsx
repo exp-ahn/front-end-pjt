@@ -34,9 +34,7 @@ const WeatherInfoList = ({ month, date, day, hour, icon, main, feels_like, temp 
                 {Object.keys(weatherDescriptionData).find((key) => weatherDescriptionData[key] === main)} */}
             </td>
             {/* <td>{Object.keys(weatherDescriptionData).find((key) => weatherDescriptionData[key] === main)}</td> */}
-            <td>
-                {`${parseInt(temp - 273.15)}°C`} / {`${parseInt(feels_like - 273.15)}°C`}
-            </td>
+            <td>{`${parseInt(temp - 273.15)}°C / ${parseInt(feels_like - 273.15)}°C`}</td>
             {/* <td>{`${parseInt(feels_like - 273.15)}°C`}</td> */}
         </tr>
     );
