@@ -127,11 +127,11 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
         <div>
             <hr />
             <br />
-            <div>큰거</div>
+            <div></div>
             {findingData && (
-                <div className='location-result-findingRoute'>
+                <div className="location-result-findingRoute">
                     <div>
-                        <img src='./pjt_draft/sub/css/imgs/loading-circle.gif' />
+                        <img src="./pjt_draft/sub/css/imgs/loading-circle.gif" />
                     </div>
                     <p>로딩 중...</p>
                 </div>
