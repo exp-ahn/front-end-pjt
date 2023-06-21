@@ -55,8 +55,9 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
                     />
                 </div>
                 <div>
-                    {detail_locate}
+                    {/* {detail_locate} */}
                     <CityInfo
+                        detail_locate={detail_locate}
                         checkedArea={checkedArea}
                         checkedTour={checkedTour}
                         showDetail={showDetail}
@@ -64,8 +65,9 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
                         addKakaoPin={addKakaoPin}
                         setAddKakaoPin={setAddKakaoPin}
                     />
-                    {map_locate}
+                    {/* {map_locate} */}
                     <MapInfo
+                        map_locate={map_locate}
                         keyword={keyword}
                         depart={depart}
                         setDepart={setDepart}

@@ -94,7 +94,7 @@ const CityInfoSlide = ({ showDetail, addKakaoPin, setAddKakaoPin }) => {
 
     function getNewItemWidth() {
         let itemWidth = windowWidth * 0.9 - sliderPadding * 2;
-        itemWidth = itemWidth > 1060 ? 350 : itemWidth;
+        itemWidth = itemWidth > 1060 ? 420 : itemWidth;
         return itemWidth;
     }
 

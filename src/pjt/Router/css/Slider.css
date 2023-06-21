@@ -1,9 +1,10 @@
 .slider-area {
     overflow: hidden;
-    padding-top: 10px;
+    padding-top: 30px;
     width: 700px;
-    height: 400px;
+    height: 450px;
     border: 1px solid #dadada;
+    margin: 0px auto;
 }
 .slider {
     /* position: relative; */
@@ -53,7 +54,7 @@
 }
 
 .btn-slide-control {
-    top: calc(50% - 30px);
+    top: calc(50% - 40px);
     padding: 20px 4px;
     z-index: 1;
     background-color: white;
@@ -64,11 +65,13 @@
 }
 
 .city-btn-prev {
+    /* z-index: 999; */
     transform: rotate(180deg);
     left: calc((100% - 700px) / 2);
 }
 
 .city-btn-next {
+    /* z-index: 999; */
     right: calc((100% - 700px) / 2);
 }
 

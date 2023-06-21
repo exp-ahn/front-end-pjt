@@ -11,11 +11,20 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import CityInfoSlide from './CityInfoSlide';
 import fetchRetry from 'fetch-retry';
+import '../css/cityInfo.css';
 
 //12:관광지     14:문화시설     15:축제공연행사     25:여행코스(안됨 지금)
 //28:레포츠     32:숙박         38:쇼핑             39:음식점
 
-const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKakaoPin, setAddKakaoPin }) => {
+const CityInfo = ({
+    detail_locate,
+    checkedArea,
+    checkedTour,
+    showDetail,
+    setShowdetail,
+    addKakaoPin,
+    setAddKakaoPin,
+}) => {
     const url = 'http://apis.data.go.kr/B551011/KorService1/searchKeyword1?';
     const serviceKey = 't51lRPM28ojei66rhxTvsdJD3NoGauLy2iSnMetoi7TWdAYiyOr3jNo5wtn58txAyGr1IYQlVbXUEFFhOB5ogQ%3D%3D';
     const numOfRows = '200';
@@ -124,7 +133,8 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
     };
 
     return (
-        <div>
+        <div className="city_info_wrap">
+            {detail_locate}
             <hr />
             <br />
             <div></div>
@@ -137,8 +147,6 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
                 </div>
             )}
             {!findingData && detailList()}
-            <br />
-            <hr />
             <br />
         </div>
     );

@@ -9,8 +9,9 @@
 }
 
 .slider-item img {
-    width: 350px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 10px;
     border-radius: 4px;
     object-fit: cover;
     /* max-height: 300px; */

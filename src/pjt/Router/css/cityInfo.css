@@ -1,44 +1,8 @@
-.citycarousel_container {
-    position: relative;
-}
-
-.citycarousel {
-    display: flex;
-    overflow: hidden;
+.city_info_wrap {
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
     width: 100%;
-    height: 200px; /* 적절한 높이 설정 */
-}
-
-.slide {
-    flex: 0 0 100%;
-    transition: transform 0.3s ease-in-out;
-}
-
-.slide.active {
-    transform: translateX(0);
-}
-
-/* .citycarousel_buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-} */
-
-.prev-button,
-.next-button {
-    border: none;
-    background-color: #eaeaea;
-    color: #333;
-    padding: 5px 10px;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.prev-button:hover,
-.next-button:hover {
-    background-color: #ccc;
-}
-
-.carousel-image {
-    width: 50%;
+    margin: 20px auto 0px;
+    padding: 20px 20px 10px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
