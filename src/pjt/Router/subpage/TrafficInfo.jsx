@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react';
 import '../css/TrafficInfo.css';
 import TrafficLocationName from './TrafficLocationName';
 import TrafficResultList from './TrafficResultList';
+import Swal from 'sweetalert2';
 
 const api_key = 'uWsrh1zKfT7GAQ1LpsAas5ye2KbeXxPL7oHwuyAX';
 const url = 'https://apis.openapi.sk.com/transit/routes';
 
-const TrafficInfo = ({ depart, setDepart, arrival }) => {
+const TrafficInfo = ({ depart, setDepart, arrival, setArrival }) => {
     const [findingRoute, setFindingRoute] = useState(false);
     const [routeFound, setRouteFound] = useState(false);
     const [trafficData, setTrafficData] = useState(null);
@@ -52,6 +53,12 @@ const TrafficInfo = ({ depart, setDepart, arrival }) => {
                 setErrorMessage('서버 에러입니다. 다시 시도해주세요.');
                 return error;
             }
+        } else if (depart === undefined && arrival === undefined) {
+            Swal.fire({ title: '출발지와 목적지를 눌러주세요!', confirmButtonColor: '#3085d6' });
+        } else if (depart === undefined) {
+            Swal.fire({ title: '출발지를 눌러주세요!', confirmButtonColor: '#3085d6' });
+        } else if (arrival === undefined) {
+            Swal.fire({ title: '목적지를 눌러주세요!', confirmButtonColor: '#3085d6' });
         }
     };
 
@@ -84,12 +91,9 @@ const TrafficInfo = ({ depart, setDepart, arrival }) => {
                     </div>
                     <div className="traffic-result-bottom">
                         {legs.map((i, index) => (
-                            <TrafficResultList
-                                index={index}
-                                mode={i.mode}
-                                sectionTime={i.sectionTime}
-                                route={i.route}
-                            />
+                            <div key={index}>
+                                <TrafficResultList mode={i.mode} sectionTime={i.sectionTime} route={i.route} />
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -97,13 +101,26 @@ const TrafficInfo = ({ depart, setDepart, arrival }) => {
         }
     };
 
-    const currentLocationBtnHandler = () => {
+    const currentLocationDepartBtnHandler = () => {
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
                 const name = '현위치';
                 setDepart({ latitude, longitude, name });
+            },
+            (error) => {
+                setErrorMessage('현재 위치를 가져오는데 실패했습니다.');
+            }
+        );
+    };
+    const currentLocationArrivalBtnHandler = () => {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                const name = '현위치';
+                setArrival({ latitude, longitude, name });
             },
             (error) => {
                 setErrorMessage('현재 위치를 가져오는데 실패했습니다.');
@@ -122,15 +139,23 @@ const TrafficInfo = ({ depart, setDepart, arrival }) => {
     return (
         <div className="location">
             <h1>길찾기</h1>
-            <img
-                className="location-img"
-                type="button"
-                src="./weather_background/현위치.png"
-                title="현위치 출발"
-                onClick={currentLocationBtnHandler}
-            />
+
             <div className="location-user-group-wrap">
+                <img
+                    className="location-img"
+                    type="button"
+                    src="./weather_background/현위치.png"
+                    title="현위치 출발"
+                    onClick={currentLocationDepartBtnHandler}
+                />
                 <TrafficLocationName class="location-user-group" name="출발지" location={depart} />
+                <img
+                    className="location-img"
+                    type="button"
+                    src="./weather_background/현위치.png"
+                    title="현위치 도착"
+                    onClick={currentLocationArrivalBtnHandler}
+                />
                 <TrafficLocationName class="location-user-group" name="목적지" location={arrival} />
                 <button type="submit" onClick={findRouteBtnHandler}>
                     길찾기
