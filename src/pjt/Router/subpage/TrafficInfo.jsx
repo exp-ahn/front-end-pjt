@@ -110,6 +110,7 @@ const TrafficInfo = ({ depart, setDepart, arrival, setArrival }) => {
                 const longitude = position.coords.longitude;
                 const name = '현위치';
                 setDepart({ latitude, longitude, name });
+                console.log({ latitude, longitude, name });
             },
             (error) => {
                 setErrorMessage('현재 위치를 가져오는데 실패했습니다.');
@@ -123,6 +124,7 @@ const TrafficInfo = ({ depart, setDepart, arrival, setArrival }) => {
                 const longitude = position.coords.longitude;
                 const name = '현위치';
                 setArrival({ latitude, longitude, name });
+                console.log({ latitude, longitude, name });
             },
             (error) => {
                 setErrorMessage('현재 위치를 가져오는데 실패했습니다.');
