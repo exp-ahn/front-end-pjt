@@ -77,7 +77,7 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
                 </div>
                 <div>
                     <WeatherInfo checkedArea={checkedArea} />
-                    <TrafficInfo depart={depart} setDepart={setDepart} arrival={arrival} />
+                    <TrafficInfo depart={depart} setDepart={setDepart} arrival={arrival} setArrival={setArrival} />
                 </div>
             </div>
         </>

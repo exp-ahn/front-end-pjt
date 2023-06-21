@@ -11,7 +11,7 @@ const trafficKorData = {
 
 const TrafficResultList = ({ index, mode, sectionTime, route }) => {
     return (
-        <div key={index}>
+        <>
             <img className="trarffic-result-picture" src={`./pjt_draft/sub/css/imgs/${mode}.png`} />
             <span>
                 {Object.keys(trafficKorData).find((key) => trafficKorData[key] === mode)}
@@ -24,7 +24,7 @@ const TrafficResultList = ({ index, mode, sectionTime, route }) => {
                 &nbsp;&nbsp;&nbsp; {route}
                 <div className={`traffic-result-list-line ${index} ${mode}`}></div>
             </span>
-        </div>
+        </>
     );
 };
 
