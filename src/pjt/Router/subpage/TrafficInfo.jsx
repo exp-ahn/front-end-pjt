@@ -2,27 +2,16 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import '../css/TrafficInfo.css';
 import TrafficLocationName from './TrafficLocationName';
+import TrafficResultList from './TrafficResultList';
 
 const api_key = 'uWsrh1zKfT7GAQ1LpsAas5ye2KbeXxPL7oHwuyAX';
 const url = 'https://apis.openapi.sk.com/transit/routes';
 
-const trafficKorData = {
-    도보: 'WALK',
-    버스: 'BUS',
-    급행버스: 'EXPRESSBUS',
-    지하철: 'SUBWAY',
-    비행기: 'AIRPLANE',
-    기차: 'TRAIN',
-};
-
-const TrafficInfo = ({ depart, arrival }) => {
+const TrafficInfo = ({ depart, setDepart, arrival }) => {
     const [findingRoute, setFindingRoute] = useState(false);
     const [routeFound, setRouteFound] = useState(false);
     const [trafficData, setTrafficData] = useState(null);
-
-    const currentLocationBtnHandler = () => {
-        console.log('[TrafficInfo] currentLocationBtnHandler() CALLED!!!');
-    };
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const payload = (depart, arrival) => {
         let params = {
@@ -40,6 +29,7 @@ const TrafficInfo = ({ depart, arrival }) => {
     const findRouteBtnHandler = async () => {
         console.log('[TrafficInfo] findRouteBtnHandler() CALLED!!!');
         setTrafficData(null);
+        setErrorMessage(null);
         if (depart !== undefined && arrival !== undefined) {
             setFindingRoute(true);
             setRouteFound(false);
@@ -56,9 +46,10 @@ const TrafficInfo = ({ depart, arrival }) => {
                 setTrafficData(response.data);
                 setFindingRoute(false);
                 setRouteFound(true);
-                console.log(response.data);
+                // console.log(response.data);
             } catch (error) {
                 console.log('API 호출에 실패했습니다.', error);
+                setErrorMessage('서버 에러입니다. 다시 시도해주세요.');
                 return error;
             }
         }
@@ -82,30 +73,42 @@ const TrafficInfo = ({ depart, arrival }) => {
 
             return (
                 <div className="traffic-result-wrap">
-                    <p>총 요금:&nbsp;{totalFare}원</p>
-                    <p>
-                        총 시간:&nbsp;
-                        {{ totalTime_hour } === 0
-                            ? `${totalTime_min}분 ${totalTime_sec}초`
-                            : `${totalTime_hour}시간 ${totalTime_min}분 ${totalTime_sec}초`}
-                    </p>
-                    {legs.map((i, index) => (
-                        <div key={index}>
-                            <img className="trarffic-result-picture" src={`./pjt_draft/sub/css/imgs/${i.mode}.png`} />
-                            {Object.keys(trafficKorData).find((key) => trafficKorData[key] === i.mode)}
-                            &nbsp;&nbsp;&nbsp;
-                            {parseInt(i.sectionTime / 60 / 60) === 0
-                                ? `${parseInt(i.sectionTime / 60)}분 ${i.sectionTime % 60}초`
-                                : `${parseInt(i.sectionTime / 60 / 60)}시간 ${
-                                      parseInt(i.sectionTime / 60) - parseInt(i.sectionTime / 60 / 60) * 60
-                                  }분 ${i.sectionTime % 60}초`}
-                            &nbsp;&nbsp;&nbsp; {i.route}
-                            <div className={`traffic-result-list-line ${index} ${i.mode}`}></div>
-                        </div>
-                    ))}
+                    <div className="traffic-result-top">
+                        <p>총 요금:&nbsp;{totalFare}원</p>
+                        <p>
+                            총 시간:&nbsp;
+                            {totalTime_hour === 0
+                                ? `${totalTime_min}분 ${totalTime_sec}초`
+                                : `${totalTime_hour}시간 ${totalTime_min}분 ${totalTime_sec}초`}
+                        </p>
+                    </div>
+                    <div className="traffic-result-bottom">
+                        {legs.map((i, index) => (
+                            <TrafficResultList
+                                index={index}
+                                mode={i.mode}
+                                sectionTime={i.sectionTime}
+                                route={i.route}
+                            />
+                        ))}
+                    </div>
                 </div>
             );
         }
+    };
+
+    const currentLocationBtnHandler = () => {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                const name = '현위치';
+                setDepart({ latitude, longitude, name });
+            },
+            (error) => {
+                setErrorMessage('현재 위치를 가져오는데 실패했습니다.');
+            }
+        );
     };
 
     useEffect(() => {
@@ -114,14 +117,18 @@ const TrafficInfo = ({ depart, arrival }) => {
             setRouteFound(false);
             displayRouteResults();
         }
-    }, [findingRoute]);
+    }, [findingRoute, depart]);
 
     return (
         <div className="location">
             <h1>길찾기</h1>
-            {/* <button type="button" onClick={currentLocationBtnHandler}>
-                현위치
-            </button> */}
+            <img
+                className="location-img"
+                type="button"
+                src="./weather_background/현위치.png"
+                title="현위치 출발"
+                onClick={currentLocationBtnHandler}
+            />
             <div className="location-user-group-wrap">
                 <TrafficLocationName class="location-user-group" name="출발지" location={depart} />
                 <TrafficLocationName class="location-user-group" name="목적지" location={arrival} />
@@ -131,17 +138,21 @@ const TrafficInfo = ({ depart, arrival }) => {
             </div>
             <div className="location-result-group-wrap">
                 <div className="location-result-group">
-                    {findingRoute && (
-                        <>
-                            <img src="./pjt_draft/sub/css/imgs/loading-circle.gif" />
-                            <p>길찾기 중...</p>
-                        </>
-                    )}
+                    {errorMessage
+                        ? errorMessage
+                        : findingRoute && (
+                              <div className="location-result-findingRoute">
+                                  <div>
+                                      <img src="./pjt_draft/sub/css/imgs/loading-circle.gif" />
+                                  </div>
+                                  <p>길찾기 중입니다...</p>
+                              </div>
+                          )}
                     {routeFound && (
-                        <>
+                        <div>
                             <p>길찾기 결과</p>
                             {displayRouteResults()}
-                        </>
+                        </div>
                     )}
                 </div>
             </div>

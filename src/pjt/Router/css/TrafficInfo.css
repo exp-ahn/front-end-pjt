@@ -2,51 +2,22 @@
     font-family: Arial, sans-serif;
     border: 1px solid #f2f2f2;
     border-radius: 10px;
-    max-width: 400px;
-    min-width: 400px;
+    max-width: 350px;
+    min-width: 350px;
+    min-height: 200px;
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.location h1 {
     font-size: 24px;
     margin-top: 0;
 }
 
 .location-user-group {
     margin-bottom: 20px;
-}
-
-p {
-    display: block;
-    margin-bottom: 5px;
-}
-.location {
-    font-family: Arial, sans-serif;
-    border: 1px solid #f2f2f2;
-    border-radius: 10px;
-    max-width: 400px;
-    min-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 24px;
-    margin-top: 0;
-}
-
-.location-user-group {
-    margin-bottom: 20px;
-}
-
-p {
-    display: block;
-    margin-bottom: 5px;
 }
 
 .location-user-group-wrap button {
@@ -71,6 +42,7 @@ p {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    float: right;
 }
 
 .location-user-group-wrap button:hover {
@@ -86,16 +58,25 @@ p {
     border: 1px solid #000;
     width: 0px;
     height: 20px;
-    margin: 1px 0px 1px 15px;
+    margin: 1px 0px 2px 15px;
 }
 
 .WALK,
-.traffic-result-wrap > div:nth-last-child(2) > div.traffic-result-list-line {
+.traffic-result-bottom > div:nth-last-child(2) div.traffic-result-list-line {
     border: 1px dashed #000;
 }
-.TRANSFER {
+.traffic-result-bottom > div:last-child div.traffic-result-list-line {
     display: none;
 }
-.traffic-result-wrap > div:last-child > div.traffic-result-list-line {
-    display: none;
+.location-result-findingRoute {
+    text-align: center;
+}
+.location-result-findingRoute img {
+    width: 100px;
+    height: 100px;
+}
+
+.location-img {
+    width: 40px;
+    float: right;
 }

@@ -13,6 +13,19 @@ const cityEng = {
     Daegu: '대구',
     Gwangju: '광주',
 };
+const weatherDescriptionData = {
+    맑음: 'clear',
+    흐림: 'clouds',
+    '매우 흐림': 'overcast clouds',
+    비: 'rain',
+    가랑비: 'drizzle',
+    '천둥/번개': 'thunderstorm',
+    눈: 'snow',
+    안개: 'mist',
+    황사: 'dust',
+    스모크: 'smoke',
+    토네이도: 'tornado',
+};
 
 const api = {
     key: '245561218d937df62cc7a4e8d1173a37',
@@ -93,68 +106,84 @@ const WeatherInfo = ({ checkedArea }) => {
     }
 
     return (
-        <div className="weather-container">
+        <div
+            className="weather-container"
+            style={{
+                backgroundImage: url(`./weather_background/${currentWeather.weather[0].icon}.jpg`),
+            }}
+        >
             <div className="weather-current">
                 <div className="weather-current-head">
-                    <span>{checkedArea === '' ? '부산' : `${checkedArea}`}</span>의 현재 날씨
+                    <span>{checkedArea === '' ? '대구' : `${checkedArea}`}</span>의 현재 날씨
                 </div>
                 <div className="weather-current-value">
-                    <span>{`현재 온도: ${current_temp}°C`}</span>
-                    <img
-                        className="weather-icon"
-                        src={`./weather_icon/${currentWeather.weather[0].icon}.png`}
-                        alt="Weather Icon"
-                    />
+                    <div className="weather-current-value-temp">{`현재 온도: ${current_temp}°C`}</div>
+                    <div className="weather-current-value-img">
+                        <img
+                            className="weather-current-value-icon"
+                            src={`./weather_icon/${currentWeather.weather[0].icon}.png`}
+                            alt="Weather Icon"
+                        />
+                    </div>
+                    <div className="weather-current-value-description">
+                        {Object.keys(weatherDescriptionData).find(
+                            (key) => weatherDescriptionData[key] === currentWeather.weather[0].description
+                        )}
+                    </div>
                 </div>
             </div>
-            <thead>
-                <th>날짜/시간</th>
-                <th>날씨</th>
-                <th>예상 기온</th>
-                <th>체감 온도</th>
-            </thead>
-            <tbody className="weather-forecast">
-                <WeatherInfoList
-                    month={month[0]}
-                    date={date[0]}
-                    day={day[0]}
-                    hour={hour[0]}
-                    icon={icon[0]}
-                    main={main[0]}
-                    feels_like={feels_like[0]}
-                    temp={temp[0]}
-                />
-                <WeatherInfoList
-                    month={month[2]}
-                    date={date[2]}
-                    day={day[2]}
-                    hour={hour[2]}
-                    icon={icon[2]}
-                    main={main[2]}
-                    feels_like={feels_like[2]}
-                    temp={temp[2]}
-                />
-                <WeatherInfoList
-                    month={month[4]}
-                    date={date[4]}
-                    day={day[4]}
-                    hour={hour[4]}
-                    icon={icon[4]}
-                    main={main[4]}
-                    feels_like={feels_like[4]}
-                    temp={temp[4]}
-                />
-                <WeatherInfoList
-                    month={month[6]}
-                    date={date[6]}
-                    day={day[6]}
-                    hour={hour[6]}
-                    icon={icon[6]}
-                    main={main[6]}
-                    feels_like={feels_like[6]}
-                    temp={temp[6]}
-                />
-            </tbody>
+            <table>
+                <thead>
+                    <tr>
+                        <th>날짜 / 시간</th>
+                        <th colSpan={2}>날씨</th>
+                        <th>예상 기온</th>
+                        <th>체감 온도</th>
+                    </tr>
+                </thead>
+                <tbody className="weather-forecast">
+                    <WeatherInfoList
+                        month={month[0]}
+                        date={date[0]}
+                        day={day[0]}
+                        hour={hour[0]}
+                        icon={icon[0]}
+                        main={main[0]}
+                        feels_like={feels_like[0]}
+                        temp={temp[0]}
+                    />
+                    <WeatherInfoList
+                        month={month[2]}
+                        date={date[2]}
+                        day={day[2]}
+                        hour={hour[2]}
+                        icon={icon[2]}
+                        main={main[2]}
+                        feels_like={feels_like[2]}
+                        temp={temp[2]}
+                    />
+                    <WeatherInfoList
+                        month={month[4]}
+                        date={date[4]}
+                        day={day[4]}
+                        hour={hour[4]}
+                        icon={icon[4]}
+                        main={main[4]}
+                        feels_like={feels_like[4]}
+                        temp={temp[4]}
+                    />
+                    <WeatherInfoList
+                        month={month[6]}
+                        date={date[6]}
+                        day={day[6]}
+                        hour={hour[6]}
+                        icon={icon[6]}
+                        main={main[6]}
+                        feels_like={feels_like[6]}
+                        temp={temp[6]}
+                    />
+                </tbody>
+            </table>
         </div>
     );
 };
