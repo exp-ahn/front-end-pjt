@@ -12,18 +12,22 @@ const trafficKorData = {
 const TrafficResultList = ({ mode, sectionTime, route }) => {
     return (
         <>
-            <img className="trarffic-result-picture" src={`./pjt_draft/sub/css/imgs/${mode}.png`} />
-            <span>
-                {Object.keys(trafficKorData).find((key) => trafficKorData[key] === mode)}
-                &nbsp;&nbsp;&nbsp;
-                {parseInt(sectionTime / 60 / 60) === 0
-                    ? `${parseInt(sectionTime / 60)}분 ${sectionTime % 60}초`
-                    : `${parseInt(sectionTime / 60 / 60)}시간 ${
-                          parseInt(sectionTime / 60) - parseInt(sectionTime / 60 / 60) * 60
-                      }분 ${sectionTime % 60}초`}
-                &nbsp;&nbsp;&nbsp; {route}
-                <div className={`traffic-result-list-line ${mode}`}></div>
-            </span>
+            <ul className="traffic-result-list-pic-wrap">
+                <li>
+                    <img className="trarffic-result-picture" src={`./pjt_draft/sub/css/imgs/${mode}.png`} />
+                    <div className={`traffic-result-list-line ${mode}`}></div>
+                </li>
+                <li>
+                    {Object.keys(trafficKorData).find((key) => trafficKorData[key] === mode)}
+                    &nbsp;&nbsp;&nbsp;
+                    {parseInt(sectionTime / 60 / 60) === 0
+                        ? `${parseInt(sectionTime / 60)}분 ${sectionTime % 60}초`
+                        : `${parseInt(sectionTime / 60 / 60)}시간 ${
+                              parseInt(sectionTime / 60) - parseInt(sectionTime / 60 / 60) * 60
+                          }분 ${sectionTime % 60}초`}
+                    &nbsp;&nbsp;&nbsp; {route}
+                </li>
+            </ul>
         </>
     );
 };
