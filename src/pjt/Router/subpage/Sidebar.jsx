@@ -6,10 +6,16 @@ import '../css/sidebar.css';
 let Detail_Area = [];
 
 const Seoul_Area = [
-    { id: '송리단길', area: '송리단길' },
-    { id: '강동구', area: '강동구' },
-    { id: '강서구', area: '강서구' },
-    { id: '관악구', area: '관악구' },
+    { id: '명동', area: '명동' },
+    { id: '익선동', area: '익선동' },
+    { id: '연남동', area: '연남동' },
+    { id: '홍대', area: '홍대' },
+    { id: '성수동', area: '성수동' },
+    { id: '동대문', area: '동대문' },
+    { id: '한남동', area: '한남동' },
+    { id: '이태원', area: '이태원' },
+    { id: '강남', area: '강남' },
+    { id: '문래동', area: '문래동' },
 ];
 
 const Busan_Area = [

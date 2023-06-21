@@ -111,8 +111,8 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
                                 이미지:
                                 <img
                                     src={it.firstimage}
-                                    width="50px"
-                                    height="50px"
+                                    width='50px'
+                                    height='50px'
                                     onClick={() => SHOWKAKAOMARKER(it.addr1, it.title, it.mapx, it.mapy)}
                                     // map 함수 내에서는 콜백함수로 호출해야 한다.
                                 />
@@ -143,9 +143,9 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
             <br />
             <div>큰거</div>
             {findingData && (
-                <div className="location-result-findingRoute">
+                <div className='location-result-findingRoute'>
                     <div>
-                        <img src="./pjt_draft/sub/css/imgs/loading-circle.gif" />
+                        <img src='./pjt_draft/sub/css/imgs/loading-circle.gif' />
                     </div>
                     <p>로딩 중...</p>
                 </div>
