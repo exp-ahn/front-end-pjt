@@ -1,0 +1,79 @@
+.filter-head {
+    padding: 5px;
+    width: 200px;
+    height: 35px;
+    line-height: 35px;
+    position: fixed;
+    top: 120px;
+    left: 30px;
+    background: #dadada;
+    color: #000;
+    border: #fff;
+    transition: all 0.3s ease;
+}
+
+.filter-head.collapsed {
+    left: 0px;
+    width: 35px;
+    height: 200px;
+    /* ... 추가적인 사이드바 숨김 스타일 ... */
+}
+
+.filter-head > img {
+    line-height: 35px;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    z-index: 999;
+}
+
+.sidebar {
+    padding: 20px;
+    /* width: 50%; */
+    width: 200px;
+    position: fixed;
+    top: 160px;
+    left: 30px;
+    height: 70%;
+    z-index: 999;
+    /* background: #333; */
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.sidebar.collapsed {
+    left: -250px;
+    /* ... 추가적인 사이드바 숨김 스타일 ... */
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+.box-radio-input input[type='radio'] {
+    display: none;
+}
+
+.box-radio-input input[type='radio'] + span {
+    margin: 2px;
+    display: inline-block;
+    background: none;
+    border: 1px solid #dfdfdf;
+    padding: 0px 10px;
+    text-align: center;
+    height: 35px;
+    line-height: 33px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.box-radio-input input[type='radio']:checked + span {
+    border: 1px solid #23a3a7;
+    background: #23a3a7;
+    color: #fff;
+}
+
+button {
+    float: right;
+}

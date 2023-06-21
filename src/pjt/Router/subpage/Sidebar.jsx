@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../css/common.css';
-import '../css/style.css';
+// import '../css/style.css';
+import '../css/sidebar.css';
 
 let Detail_Area = [];
 
@@ -39,6 +40,24 @@ const SideBar_test = ({
     setCheckedDetailArea,
     addKakaoPin,
 }) => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
+    const buttonContent = isSidebarOpen ? (
+        <>
+            <img src="./filter01.png" />
+            필터 숨기기
+        </>
+    ) : (
+        <>
+            <img src="./filter01.png" />
+            필터 표시
+        </>
+    );
+
     useEffect(() => {
         console.log('체크박스 변동!!!');
         if (checkedArea == '서울') {
@@ -116,115 +135,125 @@ const SideBar_test = ({
     };
 
     return (
-        <div className='sidebar'>
-            <div className='filter-head'>필터</div>
-            <div className='filter-category'>
-                <p>지역</p>
-                <ul className='filter-checkbox'>
-                    {areaList.map((item) => {
-                        if (item.area == checkedArea) {
+        <>
+            <button className={`filter-head ${isSidebarOpen ? '' : 'collapsed'}`} onClick={toggleSidebar}>
+                {buttonContent}
+            </button>
+            <div className={`sidebar ${isSidebarOpen ? '' : 'collapsed'}`}>
+                <hr />
+                <br />
+                <div className="filter-category">
+                    <p>지역</p>
+                    <ul className="filter-checkbox">
+                        {areaList.map((item) => {
+                            if (item.area == checkedArea) {
+                                return (
+                                    <li key={item.id}>
+                                        <label className="box-radio-input">
+                                            <input
+                                                type="radio"
+                                                name="area_radio"
+                                                defaultValue={item.area}
+                                                defaultChecked
+                                                onChange={(e) => {
+                                                    onCheckedRadioArea(e.target.checked, e.target.value);
+                                                }}
+                                            />
+                                            <span>{item.area}</span>
+                                        </label>
+                                    </li>
+                                );
+                            } else {
+                                return (
+                                    <li key={item.id}>
+                                        <label className="box-radio-input">
+                                            <input
+                                                type="radio"
+                                                name="area_radio"
+                                                defaultValue={item.area}
+                                                onChange={(e) => {
+                                                    onCheckedRadioArea(e.target.checked, e.target.value);
+                                                }}
+                                            />
+                                            <span>{item.area}</span>
+                                        </label>
+                                    </li>
+                                );
+                            }
+                        })}
+                    </ul>
+                </div>
+                <br />
+                <hr />
+                <br />
+                <div className="filter-category">
+                    <p>상세 지역</p>
+                    <ul className="filter-checkbox">
+                        {Detail_Area.map((item) => {
                             return (
                                 <li key={item.id}>
-                                    <label className='box-radio-input'>
+                                    <label className="box-radio-input">
                                         <input
-                                            type='radio'
-                                            name='area_radio'
-                                            defaultValue={item.area}
-                                            defaultChecked
+                                            type="radio"
+                                            name="area_radio2"
+                                            value={item.area}
                                             onChange={(e) => {
-                                                onCheckedRadioArea(e.target.checked, e.target.value);
+                                                onCheckedRadio_detail(e.target.checked, e.target.value);
                                             }}
                                         />
                                         <span>{item.area}</span>
                                     </label>
                                 </li>
                             );
-                        } else {
-                            return (
-                                <li key={item.id}>
-                                    <label className='box-radio-input'>
-                                        <input
-                                            type='radio'
-                                            name='area_radio'
-                                            defaultValue={item.area}
-                                            onChange={(e) => {
-                                                onCheckedRadioArea(e.target.checked, e.target.value);
-                                            }}
-                                        />
-                                        <span>{item.area}</span>
-                                    </label>
-                                </li>
-                            );
-                        }
-                    })}
-                </ul>
+                        })}
+                    </ul>
+                </div>
+                <br />
+                <hr />
+                <br />
+                <div className="filter-category">
+                    <p>관광지</p>
+                    <ul className="filter-checkbox">
+                        {TOUR.map((item) => {
+                            if (item.tour == checkedTour) {
+                                return (
+                                    <li key={item.id}>
+                                        <label className="box-radio-input">
+                                            <input
+                                                type="radio"
+                                                name="tour_radio"
+                                                defaultValue={item.tour}
+                                                defaultChecked
+                                                onChange={(e) => {
+                                                    onCheckedRadioTour(e.target.checked, e.target.value);
+                                                }}
+                                            />
+                                            <span>{item.tour}</span>
+                                        </label>
+                                    </li>
+                                );
+                            } else {
+                                return (
+                                    <li key={item.id}>
+                                        <label className="box-radio-input">
+                                            <input
+                                                type="radio"
+                                                name="tour_radio"
+                                                defaultValue={item.tour}
+                                                onChange={(e) => {
+                                                    onCheckedRadioTour(e.target.checked, e.target.value);
+                                                }}
+                                            />
+                                            <span>{item.tour}</span>
+                                        </label>
+                                    </li>
+                                );
+                            }
+                        })}
+                    </ul>
+                </div>
             </div>
-
-            <div className='filter-category'>
-                <p>상세 지역</p>
-                <ul className='filter-checkbox'>
-                    {Detail_Area.map((item) => {
-                        return (
-                            <li key={item.id}>
-                                <label className='box-radio-input'>
-                                    <input
-                                        type='radio'
-                                        name='area_radio2'
-                                        value={item.area}
-                                        onChange={(e) => {
-                                            onCheckedRadio_detail(e.target.checked, e.target.value);
-                                        }}
-                                    />
-                                    <span>{item.area}</span>
-                                </label>
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
-
-            <div className='filter-category'>
-                <p>관광지</p>
-                <ul className='filter-checkbox'>
-                    {TOUR.map((item) => {
-                        if (item.tour == checkedTour) {
-                            return (
-                                <li key={item.id}>
-                                    <label className='box-radio-input'>
-                                        <input
-                                            type='radio'
-                                            name='tour_radio'
-                                            defaultValue={item.tour}
-                                            defaultChecked
-                                            onChange={(e) => {
-                                                onCheckedRadioTour(e.target.checked, e.target.value);
-                                            }}
-                                        />
-                                        <span>{item.tour}</span>
-                                    </label>
-                                </li>
-                            );
-                        } else {
-                            return (
-                                <li key={item.id}>
-                                    <label className='box-radio-input'>
-                                        <input
-                                            type='radio'
-                                            name='tour_radio'
-                                            defaultValue={item.tour}
-                                            onChange={(e) => {
-                                                onCheckedRadioTour(e.target.checked, e.target.value);
-                                            }}
-                                        />
-                                        <span>{item.tour}</span>
-                                    </label>
-                                </li>
-                            );
-                        }
-                    })}
-                </ul>
-            </div>
-        </div>
+        </>
     );
 };
 
