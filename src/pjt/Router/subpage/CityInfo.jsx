@@ -10,6 +10,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import CityInfoSlide from './CityInfoSlide';
+import fetchRetry from 'fetch-retry';
 
 //12:관광지     14:문화시설     15:축제공연행사     25:여행코스(안됨 지금)
 //28:레포츠     32:숙박         38:쇼핑             39:음식점
@@ -69,31 +70,36 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
     console.log('[city]tour_url', tour_url);
 
     const [findingData, setFindingData] = useState(false);
+    const retryOptions = {
+        retries: 3,
+        retryDelay: 1000,
+    };
 
     useEffect(() => {
+        const retryFetch = fetchRetry(fetch, retryOptions);
+
         (async () => {
             setFindingData(true);
-            const response = await fetch(
-                //`https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=t51lRPM28ojei66rhxTvsdJD3NoGauLy2iSnMetoi7TWdAYiyOr3jNo5wtn58txAyGr1IYQlVbXUEFFhOB5ogQ%3D%3D&numOfRows=10&pageNo=2&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=A&keyword=%EA%B0%95%EC%9B%90&contentTypeId=12`
-                tour_url
-            );
 
-            const json = await response.json();
-            //console.log('[city]data 키 값 추가 전',json.response.body.items.item);
+            try {
+                const response = await retryFetch(tour_url);
+                const json = await response.json();
+                const city_data = json.response.body.items.item;
 
-            const city_data = json.response.body.items.item;
-            console.log('city_data==>', city_data);
+                console.log('city_data==>', city_data);
+                console.log('[setShowdetail--->] 작동!!');
 
-            console.log('[setShowdetail--->] 작동!!');
+                const cityData = city_data.filter((i) => i.firstimage !== '' && i.modifiedtime > '20220101000000');
+                setShowdetail(cityData);
 
-            const cityData = city_data.filter((i) => i.firstimage !== '' && i.modifiedtime > '20220101000000');
-            // setShowdetail({ data: cityData });
-            setShowdetail(cityData);
-
-            cityData.length = 10;
-            console.log('[city]data', cityData);
-            setFindingData(false);
-            console.log('showdetail', showDetail);
+                cityData.length = 10;
+                console.log('[city]data', cityData);
+            } catch (error) {
+                console.error('fetch 실패:', error);
+            } finally {
+                setFindingData(false);
+                console.log('showdetail', showDetail);
+            }
         })();
     }, [checkedArea, checkedTour]);
 
@@ -123,9 +129,9 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
             <br />
             <div>큰거</div>
             {findingData && (
-                <div className='location-result-findingRoute'>
+                <div className="location-result-findingRoute">
                     <div>
-                        <img src='./pjt_draft/sub/css/imgs/loading-circle.gif' />
+                        <img src="./pjt_draft/sub/css/imgs/loading-circle.gif" />
                     </div>
                     <p>로딩 중...</p>
                 </div>
