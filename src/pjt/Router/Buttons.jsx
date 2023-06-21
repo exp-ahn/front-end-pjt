@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import SlideButton from './SlideButton';
+import MainSlideButton from './subpage/MainSlideButton';
 import './css/buttons.css';
 import './css/Slider.css';
 
@@ -145,8 +145,8 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
             <br />
             <div className={`buttons_wrap ${hideButtons ? 'hidden' : ''}`}>
                 <br />
-                <SlideButton direction="prev" onClick={prevBtnClickHander} />
-                <SlideButton direction="next" onClick={nextBtnClickHander} />
+                <MainSlideButton direction="prev" onClick={prevBtnClickHander} />
+                <MainSlideButton direction="next" onClick={nextBtnClickHander} />
             </div>
         </div>
     );

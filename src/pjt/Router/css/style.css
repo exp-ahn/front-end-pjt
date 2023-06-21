@@ -4,11 +4,11 @@
     box-sizing: border-box;
 }
 
-#wrap div.header {
+/* #wrap div.header {
     padding: 0px 15px;
     height: 65px;
     line-height: 65px;
-}
+} */
 
 #wrap div.menubar > div {
     padding: 0px 15px;

@@ -1,0 +1,30 @@
+.subfooter-content {
+    background-color: #ffeebb;
+    padding-left: 300px;
+    padding-right: 300px;
+}
+.subfooter-company-info {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}
+.subfooter-company-name {
+    /* background-color: red; */
+    color: #00539c;
+    height: 58px;
+    line-height: 58px;
+}
+
+.subfooter-company-info img {
+    width: 100%;
+}
+
+.subfooter-emblem {
+    width: 8%;
+}
+
+.subfooter-member-info {
+    color: #00539c;
+    padding-left: 20px;
+    font-size: 0.8em;
+}

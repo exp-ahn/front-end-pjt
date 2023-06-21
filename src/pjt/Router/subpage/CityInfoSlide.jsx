@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef, useEffect, useState } from 'react';
 import SlideButton from './SlideButton';
-import '../css/slider/slider.css';
+import '../css/slider/mainPageSlider.css';
 import '../css/slider/sliderItem.css';
 
 function useWindowSize() {
@@ -157,13 +157,13 @@ const CityInfoSlide = ({ showDetail, addKakaoPin, setAddKakaoPin }) => {
     }, 5000);
 
     return (
-        <div className='slider-area'>
-            <div className='slider'>
-                <SlideButton direction='prev' onClick={() => handleSwipe(-1)} />
-                <SlideButton direction='next' onClick={() => handleSwipe(1)} />
-                <div className='slider-list' style={{ padding: sliderPaddingStyle }}>
+        <div className="slider-area">
+            <div className="slider">
+                <SlideButton direction="prev" onClick={() => handleSwipe(-1)} />
+                <SlideButton direction="next" onClick={() => handleSwipe(1)} />
+                <div className="slider-list" style={{ padding: sliderPaddingStyle }}>
                     <div
-                        className='slider-track'
+                        className="slider-track"
                         style={{
                             transform: `translateX(calc(${(-100 / slides.length) * (0.5 + currentIndex)}% + ${
                                 slideX || 0
@@ -192,7 +192,7 @@ const CityInfoSlide = ({ showDetail, addKakaoPin, setAddKakaoPin }) => {
                                                 )
                                             }
                                         />
-                                        <span className='slideTitle'>{items[itemIndex].title}</span>
+                                        <span className="slideTitle">{items[itemIndex].title}</span>
                                     </a>
                                 </div>
                             );

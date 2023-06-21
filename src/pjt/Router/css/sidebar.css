@@ -4,9 +4,10 @@
     height: 35px;
     line-height: 35px;
     position: fixed;
+    /* position: sticky; */
     top: 120px;
     left: 30px;
-    background: #dadada;
+    background: #fff;
     color: #000;
     border: #fff;
     transition: all 0.3s ease;
@@ -32,6 +33,7 @@
     /* width: 50%; */
     width: 200px;
     position: fixed;
+    /* position: sticky; */
     top: 160px;
     left: 30px;
     height: 70%;
