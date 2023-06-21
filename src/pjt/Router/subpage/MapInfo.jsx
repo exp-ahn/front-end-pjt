@@ -12,6 +12,7 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
     const [markers, setMarkers] = useState([]);
 
     let marker_src = '';
+    let my_marker_src = '';
     if (checkedTour == '') marker_src = './kakao_marker/kakao_travel.png';
     else if (checkedTour == '관광지') marker_src = './kakao_marker/kakao_travel.png';
     else if (checkedTour == '문화시설') marker_src = './kakao_marker/kakao_culture.png';
@@ -20,6 +21,11 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
     else if (checkedTour == '숙박') marker_src = './kakao_marker/kakao_hotel.png';
     else if (checkedTour == '쇼핑') marker_src = './kakao_marker/kakao_shop.png';
     else if (checkedTour == '음식점') marker_src = './kakao_marker/kakao_restaurant.png';
+
+    if (depart != undefined || arrival != undefined) {
+        my_marker_src = './kakao_marker/kakao_my_location.png';
+        console.log('depart', depart);
+    }
 
     const markerImage = {
         src: './kakao_marker/kakao_new_Marker.gif', // 마커이미지의 주소
@@ -30,6 +36,13 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
     };
     const markerImage2 = {
         src: marker_src, // 마커이미지의 주소
+        size: {
+            width: 40,
+            height: 30,
+        }, // 마커이미지의 크기
+    };
+    const markerImage3 = {
+        src: my_marker_src, // 마커이미지의 주소
         size: {
             width: 40,
             height: 30,
@@ -71,6 +84,7 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
         }
 
         const addPin_data = {};
+        const addPin_my_data = {};
 
         if (addKakaoPin.length > 0) {
             addPin_data.y = addKakaoPin[3];
@@ -79,6 +93,23 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
             addPin_data.place_address = addKakaoPin[0];
             addPin_data.place_url = 'http://place.map.kakao.com';
             addPin_data.new = 'yes';
+        }
+
+        if (depart != undefined) {
+            addPin_my_data.y = depart.latitude;
+            addPin_my_data.x = depart.longitude;
+            addPin_my_data.place_name = depart.name;
+            addPin_my_data.place_url = 'http://place.map.kakao.com';
+            addPin_my_data.my_place = 'yes';
+            console.log('addPin_my_data.length', addPin_my_data);
+        }
+        if (arrival != undefined) {
+            addPin_my_data.y = arrival.latitude;
+            addPin_my_data.x = arrival.longitude;
+            addPin_my_data.place_name = arrival.name;
+            addPin_my_data.place_url = 'http://place.map.kakao.com';
+            addPin_my_data.my_place = 'yes';
+            console.log('addPin_my_data.length', addPin_my_data);
         }
 
         //ps.keywordSearch("센텀 맛집", (data, status, _pagination) => {
@@ -90,6 +121,10 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
 
                 if (addKakaoPin.length > 0) {
                     data.push(addPin_data);
+                }
+                if (depart != undefined || arrival != undefined) {
+                    console.log('addPin_my_data called');
+                    data.push(addPin_my_data);
                 }
 
                 let markers = [];
@@ -106,6 +141,7 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
                         content: data[i].place_name,
                         content2: data[i].place_url,
                         new: data[i].new,
+                        my_place: data[i].my_place,
                     });
                     // @ts-ignore
                     bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
@@ -115,9 +151,11 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
 
                 // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
                 map.setBounds(bounds);
+
+                console.log('markers', markers);
             }
         });
-    }, [map, keyword, addKakaoPin]);
+    }, [map, keyword, addKakaoPin, depart, arrival]);
 
     return (
         <Map // 로드뷰를 표시할 Container
@@ -142,13 +180,92 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
                         onClick={() => setInfo(marker)}
                     >
                         {info && info.content === marker.content && (
-                            <div className='mapContentBox'>
-                                <a className='mapALinker' href={marker.content2} target='_blank'>
+                            <div
+                                style={{
+                                    color: '#000',
+                                    width: '150px',
+                                    height: '70px',
+                                    textAlign: 'center',
+                                    paddingTop: '8px',
+                                }}
+                            >
+                                <a
+                                    href={marker.content2}
+                                    target="_blank"
+                                    style={{ fontSize: '0.8em', fontWeight: 'bold' }}
+                                >
                                     {marker.content}
                                 </a>
-                                <p class='arrow_box'>{marker.content}</p>
-                                <div className='mapRouteContent'>
-                                    <button className='mapSt'
+                                <div
+                                    style={{
+                                        marginTop: '10px',
+                                    }}
+                                >
+                                    <button
+                                        onClick={departureBtnClickHandler}
+                                        style={{
+                                            width: '60px',
+                                            height: '30px',
+                                            fontSize: '0.8em',
+                                            fontWeight: 'bold',
+                                            color: '#fff',
+                                            backgroundColor: '#f00',
+                                            textAlign: 'center',
+                                            lineHeight: '30px',
+                                        }}
+                                    >
+                                        출&nbsp;&nbsp;발
+                                    </button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button
+                                        onClick={arrivalBtnClickHandler}
+                                        style={{
+                                            width: '60px',
+                                            height: '30px',
+                                            fontSize: '0.8em',
+                                            fontWeight: 'bold',
+                                            color: '#fff',
+                                            backgroundColor: '#00f',
+                                            textAlign: 'center',
+                                            lineHeight: '30px',
+                                        }}
+                                    >
+                                        도&nbsp;&nbsp;착
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </MapMarker>
+                ) : marker.my_place === 'yes' ? (
+                    <MapMarker
+                        key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
+                        position={marker.position}
+                        image={markerImage3}
+                        onClick={() => setInfo(marker)}
+                    >
+                        {info && info.content === marker.content && (
+                            <div
+                                style={{
+                                    color: '#000',
+                                    width: '150px',
+                                    height: '70px',
+                                    textAlign: 'center',
+                                    paddingTop: '8px',
+                                }}
+                            >
+                                <a
+                                    href={marker.content2}
+                                    target="_blank"
+                                    style={{ fontSize: '0.8em', fontWeight: 'bold' }}
+                                >
+                                    {marker.content}
+                                </a>
+                                <div
+                                    style={{
+                                        marginTop: '10px',
+                                    }}
+                                >
+                                    <button
                                         onClick={departureBtnClickHandler}
                                         style={{
                                             width: '60px',
@@ -202,7 +319,7 @@ const MapInfo = ({ keyword, depart, setDepart, arrival, setArrival, addKakaoPin,
                             >
                                 <a
                                     href={marker.content2}
-                                    target='_blank'
+                                    target="_blank"
                                     style={{ fontSize: '0.8em', fontWeight: 'bold' }}
                                 >
                                     {marker.content}

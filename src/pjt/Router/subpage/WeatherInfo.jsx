@@ -116,17 +116,20 @@ const WeatherInfo = ({ checkedArea }) => {
         >
             <div className="weather-current">
                 <div className="weather-current-head">
-                    <span>{checkedArea === '' ? '대구' : `${checkedArea}`}</span>의 현재 날씨
+                    <span>{checkedArea === '' ? '대구' : `${checkedArea}`}</span>
+                    <span>의 현재 날씨</span>
                 </div>
                 <div className="weather-current-value">
                     <div className="weather-current-value-temp">{`현재 온도: ${current_temp}°C`}</div>
                     <div className="weather-current-value-img">
+                        &nbsp;&nbsp;&nbsp;
                         <img
                             className="weather-current-value-icon"
                             src={`./weather_icon/${currentWeather.weather[0].icon}.png`}
                             alt="Weather Icon"
                         />
                     </div>
+                    &nbsp;&nbsp;&nbsp;
                     <div className="weather-current-value-description">
                         {Object.keys(weatherDescriptionData).find(
                             (key) => weatherDescriptionData[key] === currentWeather.weather[0].description
@@ -138,9 +141,13 @@ const WeatherInfo = ({ checkedArea }) => {
                 <thead>
                     <tr>
                         <th>날짜 / 시간</th>
-                        <th colSpan={2}>날씨</th>
-                        <th>예상 기온</th>
-                        <th>체감 온도</th>
+                        <th /*colSpan={2}*/>날씨</th>
+                        <th>
+                            예상 기온 /
+                            <br />
+                            체감 온도
+                        </th>
+                        {/* <th>체감 온도</th> */}
                     </tr>
                 </thead>
                 <tbody className="weather-forecast">

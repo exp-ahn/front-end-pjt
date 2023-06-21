@@ -25,15 +25,19 @@ const weatherDayData = {
 const WeatherInfoList = ({ month, date, day, hour, icon, main, feels_like, temp }) => {
     return (
         <tr className="weather-forecast-value">
-            <td>{`${month}.${date}.${Object.keys(weatherDayData).find(
+            <td>{`${month}.${date}(${Object.keys(weatherDayData).find(
                 (key) => weatherDayData[key] === day
-            )} / ${hour}시`}</td>
+            )}) ${hour}시`}</td>
             <td>
                 <img className="weather-forecast-value-icon" src={`./weather_icon/${icon}.png`} alt="Weather Icon" />
+                {/* <br />
+                {Object.keys(weatherDescriptionData).find((key) => weatherDescriptionData[key] === main)} */}
             </td>
-            <td>{Object.keys(weatherDescriptionData).find((key) => weatherDescriptionData[key] === main)}</td>
-            <td>{`${parseInt(temp - 273.15)}°C`}</td>
-            <td>{`${parseInt(feels_like - 273.15)}°C`}</td>
+            {/* <td>{Object.keys(weatherDescriptionData).find((key) => weatherDescriptionData[key] === main)}</td> */}
+            <td>
+                {`${parseInt(temp - 273.15)}°C`} / {`${parseInt(feels_like - 273.15)}°C`}
+            </td>
+            {/* <td>{`${parseInt(feels_like - 273.15)}°C`}</td> */}
         </tr>
     );
 };
