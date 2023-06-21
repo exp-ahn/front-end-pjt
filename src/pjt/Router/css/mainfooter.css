@@ -1,0 +1,41 @@
+.mainfooter-content {
+    background-color: #ffeebb;
+    /* background-color: rgba(200, 200, 200, 0.7); */
+    padding-left: 600px;
+    padding-right: 600px;
+    height: 5vh;
+}
+.mainfooter-company-info {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}
+.mainfooter-company-name {
+    /* background-color: red; */
+    color: #00539c;
+    height: 5vh;
+    line-height: 5vh;
+}
+
+.mainfooter-company-info img {
+    width: 100%;
+}
+
+.mainfooter-emblem {
+    width: 6%;
+}
+
+.mainfooter-member-info {
+    color: #00539c;
+    padding-left: 20px;
+    font-size: 0.8em;
+}
+
+.mainfooter_menu > a {
+    color: #00539c;
+    padding-left: 20px;
+    font-size: 0.8em;
+    text-align: center;
+    height: 5vh;
+    line-height: 5vh;
+}

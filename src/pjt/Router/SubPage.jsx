@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../Header';
+import SubHeader from '../SubHeader';
+import SubFooter from '../SubFooter';
 import CityInfo from './subpage/CityInfo';
 import MapInfo from './subpage/MapInfo';
 import TrafficInfo from './subpage/TrafficInfo';
 import WeatherInfo from './subpage/WeatherInfo';
 import Sidebar from './subpage/Sidebar';
-import Footer from '../Footer';
 import './css/subPage.css';
 
 const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setCheckedTour }) => {
@@ -39,8 +39,8 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
     });
 
     return (
-        <>
-            <Header />
+        <div className="subpage">
+            <SubHeader />
             <div className="sub-wrap">
                 <div>
                     <Sidebar
@@ -80,7 +80,8 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
                     <TrafficInfo depart={depart} setDepart={setDepart} arrival={arrival} setArrival={setArrival} />
                 </div>
             </div>
-        </>
+            <SubFooter />
+        </div>
     );
 };
 

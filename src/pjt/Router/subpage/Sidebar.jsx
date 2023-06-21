@@ -55,7 +55,7 @@ const SideBar_test = ({
     const buttonContent = isSidebarOpen ? (
         <>
             <img src="./filter01.png" />
-            필터 숨기기
+            &nbsp; 필터 숨기기
         </>
     ) : (
         <>
