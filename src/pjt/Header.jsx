@@ -1,19 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Router/css/header.css';
 
 const Header = () => {
-    const HeaderDivStyle = {
-        paddingTop: '1vh',
-        paddingLeft: '3vh',
-        height: '5vh',
-    };
-    const HeaderImgStyle = {
-        width: '7%',
-    };
     return (
-        <div style={HeaderDivStyle}>
+        <div className="header_wrap">
             <Link to="/">
-                <img src="./logo_oneteam.jpg" style={HeaderImgStyle} />
+                <img className="header_img" src="./logo_oneteam.jpg" />
             </Link>
         </div>
     );

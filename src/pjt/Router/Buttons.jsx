@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './buttons.css';
+import SlideButton from './SlideButton';
+import './css/buttons.css';
+import './css/Slider.css';
 
 const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) => {
     const [angle, setAngle] = useState(0);
@@ -46,84 +48,94 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
 
     return (
         <div>
-            <div className='scene' ref={sceneRef}>
-                <div className='carousel' ref={carouselRef}>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[0] = el)}>
-                        <Link to='/subpage'>
+            <div className="scene" ref={sceneRef}>
+                <div className="carousel" ref={carouselRef}>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[0] = el)}>
+                        <Link to="/subpage">
                             <img
-                                src='./trip_pics/Busan/부산1.jpg'
+                                className="carousel-card-img"
+                                src="./trip_pics/Busan/부산1.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('부산')}
                             />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[1] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[1] = el)}>
+                        <Link to="/subpage">
                             <img
-                                src='./trip_pics/Gangneung/강릉1.jpg'
+                                className="carousel-card-img"
+                                src="./trip_pics/Gangneung/강릉1.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('강릉')}
                             />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[2] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[2] = el)}>
+                        <Link to="/subpage">
                             <img
-                                src='./trip_pics/Geoje/거제1.jpg'
+                                className="carousel-card-img"
+                                src="./trip_pics/Geoje/거제1.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('거제')}
                             />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[3] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[3] = el)}>
+                        <Link to="/subpage">
                             <img
-                                src='./trip_pics/Gyeongju/경주1.webp'
+                                className="carousel-card-img"
+                                src="./trip_pics/Gyeongju/경주1.webp"
                                 onClick={() => moveToSubPageBtnClickHandler('경주')}
                             />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[4] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[4] = el)}>
+                        <Link to="/subpage">
                             <img
-                                src='./trip_pics/Jeju/제주1.jpg'
+                                className="carousel-card-img"
+                                src="./trip_pics/Jeju/제주1.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('제주')}
                             />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[5] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[5] = el)}>
+                        <Link to="/subpage">
                             <img
-                                src='./trip_pics/Miryang/밀양01.png'
+                                className="carousel-card-img"
+                                src="./trip_pics/Miryang/밀양01.png"
                                 onClick={() => moveToSubPageBtnClickHandler('밀양')}
                             />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[6] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[6] = el)}>
+                        <Link to="/subpage">
                             <img
-                                src='./trip_pics/Pohang/포항2.jpg'
+                                className="carousel-card-img"
+                                src="./trip_pics/Pohang/포항2.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('포항')}
                             />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[7] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[7] = el)}>
+                        <Link to="/subpage">
                             <img
-                                src='./trip_pics/Seoul/서울1.jpg'
+                                className="carousel-card-img"
+                                src="./trip_pics/Seoul/서울1.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('서울')}
                             />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[8] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[8] = el)}>
+                        <Link to="/subpage">
                             <img
-                                src='./trip_pics/Suwon/수원1.jpg'
+                                className="carousel-card-img"
+                                src="./trip_pics/Suwon/수원1.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('수원')}
                             />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[9] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[9] = el)}>
+                        <Link to="/subpage">
                             <img
-                                src='./trip_pics/Yeosu/여수1.webp'
+                                className="carousel-card-img"
+                                src="./trip_pics/Yeosu/여수1.webp"
                                 onClick={() => moveToSubPageBtnClickHandler('여수')}
                             />
                         </Link>
@@ -133,19 +145,9 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
             <br />
             <div className={`buttons_wrap ${hideButtons ? 'hidden' : ''}`}>
                 <br />
-                <div className='pre-btn' onClick={prevBtnClickHander}>
-                    <p>이전</p>
-                    &#60; &#60;
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div className='next-btn' onClick={nextBtnClickHander}>
-                    <p>다음</p>
-                    &#62; &#62;
-                </div>
+                <SlideButton direction="prev" onClick={prevBtnClickHander} />
+                <SlideButton direction="next" onClick={nextBtnClickHander} />
             </div>
-            {/* <button className="axis-btn" onClick={handleAxisToggle}>
-                축 변경
-            </button> */}
         </div>
     );
 };
