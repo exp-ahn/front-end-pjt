@@ -8,14 +8,16 @@ const cityEng = {
     Busan: '부산',
     Incheon: '인천',
     Jeju: '제주',
-    Ulsan: '울산',
+    Suwon: '수원',
     Daejeon: '대전',
     Daegu: '대구',
-    Gwangju: '광주',
+    Yeosu: '여수',
+    Sokcho: '속초',
 };
 const weatherDescriptionData = {
     맑음: 'clear',
     흐림: 'clouds',
+    '약간 흐림': 'broken clouds',
     '매우 흐림': 'overcast clouds',
     비: 'rain',
     가랑비: 'drizzle',

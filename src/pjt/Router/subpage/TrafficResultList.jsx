@@ -9,7 +9,7 @@ const trafficKorData = {
     기차: 'TRAIN',
 };
 
-const TrafficResultList = ({ index, mode, sectionTime, route }) => {
+const TrafficResultList = ({ mode, sectionTime, route }) => {
     return (
         <>
             <img className="trarffic-result-picture" src={`./pjt_draft/sub/css/imgs/${mode}.png`} />
@@ -22,7 +22,7 @@ const TrafficResultList = ({ index, mode, sectionTime, route }) => {
                           parseInt(sectionTime / 60) - parseInt(sectionTime / 60 / 60) * 60
                       }분 ${sectionTime % 60}초`}
                 &nbsp;&nbsp;&nbsp; {route}
-                <div className={`traffic-result-list-line ${index} ${mode}`}></div>
+                <div className={`traffic-result-list-line ${mode}`}></div>
             </span>
         </>
     );
