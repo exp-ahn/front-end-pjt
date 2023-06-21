@@ -1,8 +1,9 @@
 .subheader_wrap {
     padding-top: 2vh;
-    padding-left: 42vh;
+    width: 1100px;
+    margin: auto;
     height: 4vh;
 }
 .subheader_img {
-    width: 9%;
+    width: 130px;
 }

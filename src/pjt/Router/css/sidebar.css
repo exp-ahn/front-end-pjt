@@ -23,7 +23,7 @@
     /* position: sticky; */
     top: 120px;
     left: 30px;
-    background: #fff;
+    background: none;
     color: #000;
     border: #fff;
     transition: all 0.3s ease;
