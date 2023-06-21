@@ -1,0 +1,44 @@
+.citycarousel_container {
+    position: relative;
+}
+
+.citycarousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 200px; /* 적절한 높이 설정 */
+}
+
+.slide {
+    flex: 0 0 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slide.active {
+    transform: translateX(0);
+}
+
+/* .citycarousel_buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+} */
+
+.prev-button,
+.next-button {
+    border: none;
+    background-color: #eaeaea;
+    color: #333;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    background-color: #ccc;
+}
+
+.carousel-image {
+    width: 50%;
+}
