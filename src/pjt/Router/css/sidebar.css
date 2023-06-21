@@ -16,8 +16,10 @@
 .filter-head.collapsed {
     left: 0px;
     width: 35px;
-    height: 200px;
-    /* ... 추가적인 사이드바 숨김 스타일 ... */
+    height: 130px;
+    background-color: #dadada;
+    border-radius: 0px 10px 10px 0px;
+    /* ... 추가적인 사이드바 컨트롤러 숨김 스타일 ... */
 }
 
 .filter-head > img {

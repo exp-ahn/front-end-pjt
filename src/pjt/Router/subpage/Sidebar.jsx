@@ -60,7 +60,7 @@ const SideBar_test = ({
     ) : (
         <>
             <img src="./filter01.png" />
-            필터 표시
+            필터
         </>
     );
 
