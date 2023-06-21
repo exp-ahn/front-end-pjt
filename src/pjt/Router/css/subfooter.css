@@ -1,7 +1,9 @@
 .subfooter-content {
     /* background-color: #ffeebb; */
-    padding-left: 300px;
-    padding-right: 300px;
+    /* background-color: rgba(200, 200, 200, 0.7); */
+    padding-left: 600px;
+    padding-right: 600px;
+    height: 5vh;
 }
 .subfooter-company-info {
     display: flex;
@@ -11,8 +13,8 @@
 .subfooter-company-name {
     /* background-color: red; */
     color: #00539c;
-    height: 58px;
-    line-height: 58px;
+    height: 5vh;
+    line-height: 5vh;
 }
 
 .subfooter-company-info img {
@@ -20,11 +22,20 @@
 }
 
 .subfooter-emblem {
-    width: 8%;
+    width: 6%;
 }
 
 .subfooter-member-info {
     color: #00539c;
     padding-left: 20px;
     font-size: 0.8em;
+}
+
+.subfooter_menu > a {
+    color: #00539c;
+    padding-left: 20px;
+    font-size: 0.8em;
+    text-align: center;
+    height: 5vh;
+    line-height: 5vh;
 }
