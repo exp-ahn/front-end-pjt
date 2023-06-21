@@ -34,7 +34,7 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
         15: '행사',
         // '25' : '여행코스',
         28: '레포츠',
-        32: '숙박',
+        // 32: '숙박',
         38: '쇼핑',
         39: '음식점',
     };
@@ -129,9 +129,9 @@ const CityInfo = ({ checkedArea, checkedTour, showDetail, setShowdetail, addKaka
             <br />
             <div>큰거</div>
             {findingData && (
-                <div className="location-result-findingRoute">
+                <div className='location-result-findingRoute'>
                     <div>
-                        <img src="./pjt_draft/sub/css/imgs/loading-circle.gif" />
+                        <img src='./pjt_draft/sub/css/imgs/loading-circle.gif' />
                     </div>
                     <p>로딩 중...</p>
                 </div>
