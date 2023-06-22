@@ -80,14 +80,6 @@ const Daejeon_Area = [
     { id: '동구', area: '동구' },
 ];
 
-const Gwangju_Area = [
-    { id: '광산구', area: '광산구' },
-    { id: '북구', area: '북구' },
-    { id: '서구', area: '서구' },
-    { id: '남구', area: '남구' },
-    { id: '동구', area: '동구' },
-];
-
 const Daegu_Area = [
     { id: '수성구', area: '수성구' },
     { id: '달서구', area: '달서구' },
@@ -99,17 +91,6 @@ const Daegu_Area = [
     { id: '남구', area: '남구' },
 ];
 
-const Sokcho_Area = [
-    { id: '영랑동', area: '영랑동' },
-    { id: '동명동', area: '동명동' },
-    { id: '금호동', area: '금호동' },
-    { id: '노학동', area: '노학동' },
-    { id: '조양동', area: '조양동' },
-    { id: '청호동', area: '청호동' },
-    { id: '대포동', area: '대포동' },
-    { id: '교동', area: '교동' },
-];
-
 const TOUR = [
     { id: '문화시설', tour: '문화시설' },
     { id: '관광지', tour: '관광지' },
@@ -118,7 +99,7 @@ const TOUR = [
     { id: '행사', tour: '행사' },
     { id: '숙박', tour: '숙박' },
     { id: '쇼핑', tour: '쇼핑' },
-    // { id: '여행코스', tour: '여행코스' }, 에러걸림
+    // { id: '여행코스', tour: '여행코스' },    데이터가 없음
 ];
 
 const SideBar_test = ({
@@ -139,12 +120,12 @@ const SideBar_test = ({
 
     const buttonContent = isSidebarOpen ? (
         <>
-            <img src="./filter01.png" />
+            <img src='./filter01.png' />
             &nbsp; 필터 숨기기
         </>
     ) : (
         <>
-            <img src="./filter01.png" />
+            <img src='./filter01.png' />
             필터
         </>
     );
@@ -165,12 +146,8 @@ const SideBar_test = ({
             Detail_Area = Suwon_Area;
         } else if (checkedArea === '대전') {
             Detail_Area = Daejeon_Area;
-        } else if (checkedArea === '광주') {
-            Detail_Area = Gwangju_Area;
         } else if (checkedArea === '대구') {
             Detail_Area = Daegu_Area;
-        } else if (checkedArea === '속초') {
-            Detail_Area = Sokcho_Area;
         }
         addKakaoPin.length = 0;
 
@@ -199,12 +176,8 @@ const SideBar_test = ({
                 Detail_Area = Suwon_Area;
             } else if (item === '대전') {
                 Detail_Area = Daejeon_Area;
-            } else if (item === '광주') {
-                Detail_Area = Gwangju_Area;
             } else if (item === '대구') {
                 Detail_Area = Daegu_Area;
-            } else if (item === '속초') {
-                Detail_Area = Sokcho_Area;
             }
 
             console.log(checkedArea); // 리스트 테스트용
@@ -256,17 +229,17 @@ const SideBar_test = ({
             <div className={`sidebar ${isSidebarOpen ? '' : 'collapsed'}`}>
                 <hr />
                 <br />
-                <div className="filter-category">
+                <div className='filter-category'>
                     <p>지역</p>
-                    <ul className="filter-checkbox">
+                    <ul className='filter-checkbox'>
                         {areaList.map((item) => {
                             if (item.area === checkedArea) {
                                 return (
                                     <li key={item.id}>
-                                        <label className="box-radio-input">
+                                        <label className='box-radio-input'>
                                             <input
-                                                type="radio"
-                                                name="area_radio"
+                                                type='radio'
+                                                name='area_radio'
                                                 defaultValue={item.area}
                                                 defaultChecked
                                                 onChange={(e) => {
@@ -280,10 +253,10 @@ const SideBar_test = ({
                             } else {
                                 return (
                                     <li key={item.id}>
-                                        <label className="box-radio-input">
+                                        <label className='box-radio-input'>
                                             <input
-                                                type="radio"
-                                                name="area_radio"
+                                                type='radio'
+                                                name='area_radio'
                                                 defaultValue={item.area}
                                                 onChange={(e) => {
                                                     onCheckedRadioArea(e.target.checked, e.target.value);
@@ -300,16 +273,16 @@ const SideBar_test = ({
                 <br />
                 <hr />
                 <br />
-                <div className="filter-category">
+                <div className='filter-category'>
                     <p>상세 지역</p>
-                    <ul className="filter-checkbox">
+                    <ul className='filter-checkbox'>
                         {Detail_Area.map((item) => {
                             return (
                                 <li key={item.id}>
-                                    <label className="box-radio-input">
+                                    <label className='box-radio-input'>
                                         <input
-                                            type="radio"
-                                            name="area_radio2"
+                                            type='radio'
+                                            name='area_radio2'
                                             value={item.area}
                                             onChange={(e) => {
                                                 onCheckedRadio_detail(e.target.checked, e.target.value);
@@ -325,17 +298,17 @@ const SideBar_test = ({
                 <br />
                 <hr />
                 <br />
-                <div className="filter-category">
+                <div className='filter-category'>
                     <p>관광지</p>
-                    <ul className="filter-checkbox">
+                    <ul className='filter-checkbox'>
                         {TOUR.map((item) => {
                             if (item.tour === checkedTour) {
                                 return (
                                     <li key={item.id}>
-                                        <label className="box-radio-input">
+                                        <label className='box-radio-input'>
                                             <input
-                                                type="radio"
-                                                name="tour_radio"
+                                                type='radio'
+                                                name='tour_radio'
                                                 defaultValue={item.tour}
                                                 defaultChecked
                                                 onChange={(e) => {
@@ -349,10 +322,10 @@ const SideBar_test = ({
                             } else {
                                 return (
                                     <li key={item.id}>
-                                        <label className="box-radio-input">
+                                        <label className='box-radio-input'>
                                             <input
-                                                type="radio"
-                                                name="tour_radio"
+                                                type='radio'
+                                                name='tour_radio'
                                                 defaultValue={item.tour}
                                                 onChange={(e) => {
                                                     onCheckedRadioTour(e.target.checked, e.target.value);

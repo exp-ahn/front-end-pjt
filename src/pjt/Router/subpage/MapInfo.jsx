@@ -123,7 +123,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
     }, [map, keyword, addKakaoPin, depart, arrival]);
 
     return (
-        <div className="mapInfo_wrap">
+        <div className='mapInfo_wrap'>
             {/* <div>KAKAO MAP에서 추천하는...</div> */}
             {map_locate}
             <hr />
@@ -151,17 +151,19 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                         >
                             {info && info.content === marker.content && (
                                 <div
+                                    className='mapContentBox'
                                     style={{
                                         color: '#000',
                                         width: '150px',
                                         height: '70px',
                                         textAlign: 'center',
                                         paddingTop: '8px',
+                                        paddingLeft: '5px',
                                     }}
                                 >
                                     <a
                                         href={marker.content2}
-                                        target="_blank"
+                                        target='_blank'
                                         style={{ fontSize: '0.8em', fontWeight: 'bold' }}
                                     >
                                         {marker.content}
@@ -215,17 +217,19 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                         >
                             {info && info.content === marker.content && (
                                 <div
+                                    className='mapContentBox'
                                     style={{
                                         color: '#000',
                                         width: '150px',
                                         height: '70px',
                                         textAlign: 'center',
                                         paddingTop: '8px',
+                                        paddingLeft: '5px',
                                     }}
                                 >
                                     <a
                                         href={marker.content2}
-                                        target="_blank"
+                                        target='_blank'
                                         style={{ fontSize: '0.8em', fontWeight: 'bold' }}
                                     >
                                         {marker.content}

@@ -19,6 +19,14 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
     //MapInfo에서 관리 END
 
     //SideBar에서 온 훅으로 Keyword 생성 START
+
+    if (checkedArea === '') {
+        setCheckedArea('대구');
+    }
+    if (checkedTour === '') {
+        setCheckedTour('관광지');
+    }
+
     const keyword = checkedArea + ' ' + checkedDetailArea + ' ' + checkedTour;
 
     const detail_locate = checkedTour == '' ? checkedArea : checkedArea + ' > ' + checkedTour;
@@ -39,9 +47,9 @@ const SubPage = ({ areaList, checkedArea, setCheckedArea, checkedTour, setChecke
     });
 
     return (
-        <div className="subpage">
+        <div className='subpage'>
             <SubHeader />
-            <div className="sub-wrap">
+            <div className='sub-wrap'>
                 <div>
                     <Sidebar
                         areaList={areaList}

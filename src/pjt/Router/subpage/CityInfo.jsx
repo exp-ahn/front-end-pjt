@@ -41,9 +41,9 @@ const CityInfo = ({
         12: '관광지',
         14: '문화시설',
         15: '행사',
-        // '25' : '여행코스',
+        // 25: '여행코스', 데이터가 없음
         28: '레포츠',
-        // 32: '숙박',
+        32: '숙박',
         38: '쇼핑',
         39: '음식점',
     };
@@ -98,10 +98,12 @@ const CityInfo = ({
                 console.log('city_data==>', city_data);
                 console.log('[setShowdetail--->] 작동!!');
 
-                const cityData = city_data.filter((i) => i.firstimage !== '' && i.modifiedtime > '20220101000000');
+                const cityData = city_data.filter((i) => i.firstimage !== '' && i.modifiedtime > '2000101000000');
                 setShowdetail(cityData);
 
-                cityData.length = 10;
+                if (cityData.length > 10) {
+                    cityData.length = 10;
+                }
                 console.log('[city]data', cityData);
             } catch (error) {
                 console.error('fetch 실패:', error);
@@ -133,15 +135,15 @@ const CityInfo = ({
     };
 
     return (
-        <div className="city_info_wrap">
+        <div className='city_info_wrap'>
             {detail_locate}
             <hr />
             <br />
             <div></div>
             {findingData && (
-                <div className="location-result-findingRoute">
+                <div className='location-result-findingRoute'>
                     <div>
-                        <img src="./pjt_draft/sub/css/imgs/loading-circle.gif" />
+                        <img src='./pjt_draft/sub/css/imgs/loading-circle.gif' />
                     </div>
                     <p>로딩 중...</p>
                 </div>

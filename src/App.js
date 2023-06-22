@@ -15,9 +15,7 @@ const AREA_LIST = [
     { id: '여수', area: '여수' },
     { id: '수원', area: '수원' },
     { id: '대전', area: '대전' },
-    { id: '광주', area: '광주' },
     { id: '대구', area: '대구' },
-    { id: '속초', area: '속초' },
 ];
 
 function App() {

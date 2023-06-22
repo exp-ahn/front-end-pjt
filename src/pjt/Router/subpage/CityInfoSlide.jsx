@@ -34,9 +34,8 @@ function useInterval(callback, delay) {
 }
 
 const CityInfoSlide = ({ showDetail, addKakaoPin, setAddKakaoPin }) => {
+    console.log('입장하셨습니다1');
     const [windowWidth, windowHeight] = useWindowSize();
-
-    // console.log('showDetail', showDetail);
 
     const items = [];
 
@@ -51,19 +50,6 @@ const CityInfoSlide = ({ showDetail, addKakaoPin, setAddKakaoPin }) => {
         items.push(tempData);
     }
     console.log('[items]', items);
-
-    // let tempData = {};
-    //     let kakaoShowData = [];
-
-    //     for (let i = 0; i < showDetail.length; i++) {
-    //         tempData.addr1 = showDetail[i].addr1;
-    //         tempData.title = showDetail[i].title;
-    //         tempData.mapx = showDetail[i].mapx;
-    //         tempData.mapy = showDetail[i].mapy;
-
-    //         //items.push(tempData);
-    //     }
-    //     console.log('[items]', items);
 
     const itemSize = showDetail.length;
     const sliderPadding = 40;
@@ -157,13 +143,13 @@ const CityInfoSlide = ({ showDetail, addKakaoPin, setAddKakaoPin }) => {
     }, 5000);
 
     return (
-        <div className="slider-area">
-            <div className="slider">
-                <SlideButton direction="prev" onClick={() => handleSwipe(-1)} />
-                <SlideButton direction="next" onClick={() => handleSwipe(1)} />
-                <div className="slider-list" style={{ padding: sliderPaddingStyle }}>
+        <div className='slider-area'>
+            <div className='slider'>
+                <SlideButton direction='prev' onClick={() => handleSwipe(-1)} />
+                <SlideButton direction='next' onClick={() => handleSwipe(1)} />
+                <div className='slider-list' style={{ padding: sliderPaddingStyle }}>
                     <div
-                        className="slider-track"
+                        className='slider-track'
                         style={{
                             transform: `translateX(calc(${(-100 / slides.length) * (0.5 + currentIndex)}% + ${
                                 slideX || 0
@@ -192,7 +178,7 @@ const CityInfoSlide = ({ showDetail, addKakaoPin, setAddKakaoPin }) => {
                                                 )
                                             }
                                         />
-                                        <span className="slideTitle">{items[itemIndex].title}</span>
+                                        <span className='slideTitle'>{items[itemIndex].title}</span>
                                     </a>
                                 </div>
                             );
