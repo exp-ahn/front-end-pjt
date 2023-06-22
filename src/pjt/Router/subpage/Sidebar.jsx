@@ -4,6 +4,8 @@ import '../css/common.css';
 import '../css/sidebar.css';
 
 let Detail_Area = [];
+let click = false;
+let current_item = '';
 
 const Seoul_Area = [
     { id: '익선동', area: '익선동' },
@@ -131,7 +133,7 @@ const SideBar_test = ({
     );
 
     useEffect(() => {
-        console.log('체크박스 변동!!!');
+        console.log('라디오버튼 변동!!!');
         if (checkedArea === '서울') {
             Detail_Area = Seoul_Area;
         } else if (checkedArea === '부산') {
@@ -184,14 +186,13 @@ const SideBar_test = ({
         } else if (!checked) {
             console.log(item, '체크 헤제됨');
 
-            setCheckedArea(checkedArea.filter((el) => el !== item)); //체크박스 전용
+            setCheckedArea(checkedArea.filter((el) => el !== item));
 
             console.log(checkedArea); // 리스트 테스트용
         }
     };
 
     const onCheckedRadioTour = (checked, item) => {
-        //체크박스용
         if (checked) {
             console.log(item, '체크됨');
             setCheckedTour(item);
@@ -200,22 +201,35 @@ const SideBar_test = ({
         } else if (!checked) {
             console.log(item, '체크 헤제됨');
 
-            setCheckedTour(checkedTour.filter((el) => el !== item)); //체크박스 전용
+            setCheckedTour(checkedTour.filter((el) => el !== item));
 
             console.log(checkedTour); // 리스트 테스트용
         }
     };
 
     const onCheckedRadio_detail = (checked, item) => {
-        if (checked) {
-            console.log(item, '체크됨');
+        console.log('onCheckedRadio_detail 호출');
+        // console.log('current_item', current_item);
+        // console.log('current_item', item);
+        if (checked && current_item !== item) {
+            //console.log(item, '체크됨');
+            current_item = item;
             setCheckedDetailArea(item);
+
+            console.log(checkedDetailArea); // 리스트 테스트용
+        } else if (checked && current_item === item) {
+            //console.log(item, '한번 더 체크됨');
+            //setCheckedDetailArea(item);
+            const radio = document.querySelector('input[type=radio][name=area_radio2]:checked');
+            radio.checked = false;
+            setCheckedDetailArea('');
+            current_item = '';
 
             console.log(checkedDetailArea); // 리스트 테스트용
         } else if (!checked) {
             console.log(item, '체크 헤제됨');
 
-            setCheckedDetailArea(checkedDetailArea.filter((el) => el !== item)); //체크박스 전용
+            setCheckedDetailArea(checkedDetailArea.filter((el) => el !== item));
 
             console.log(checkedDetailArea); // 리스트 테스트용
         }
@@ -284,7 +298,7 @@ const SideBar_test = ({
                                             type='radio'
                                             name='area_radio2'
                                             value={item.area}
-                                            onChange={(e) => {
+                                            onClick={(e) => {
                                                 onCheckedRadio_detail(e.target.checked, e.target.value);
                                             }}
                                         />
@@ -299,7 +313,7 @@ const SideBar_test = ({
                 <hr />
                 <br />
                 <div className='filter-category'>
-                    <p>관광지</p>
+                    <p>테마별</p>
                     <ul className='filter-checkbox'>
                         {TOUR.map((item) => {
                             if (item.tour === checkedTour) {
