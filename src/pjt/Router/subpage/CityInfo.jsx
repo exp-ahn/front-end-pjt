@@ -140,7 +140,7 @@ const CityInfo = ({
     };
 
     return (
-        <div className='city_info_wrap'>
+        <div className="city_info_wrap">
             {detail_locate}
             <hr />
             <br />
@@ -148,9 +148,9 @@ const CityInfo = ({
             {errorMessage !== null
                 ? errorMessage
                 : findingData && (
-                      <div className='location-result-findingRoute'>
+                      <div className="location-result-findingRoute">
                           <div>
-                              <img src='./pjt_draft/sub/css/imgs/loading-circle.gif' />
+                              <img src="./pjt_draft/sub/css/imgs/loading-circle.gif" />
                           </div>
                           <p>로딩 중...</p>
                       </div>
