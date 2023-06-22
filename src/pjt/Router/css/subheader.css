@@ -2,8 +2,10 @@
     padding-top: 2vh;
     width: 1100px;
     margin: auto;
-    height: 4vh;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
 }
 .subheader_img {
-    width: 130px;
+    width: 150px;
 }

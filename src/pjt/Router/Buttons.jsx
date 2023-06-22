@@ -64,7 +64,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                             <img
                                 className="carousel-card-img"
                                 src="./trip_pics/Gangneung/강릉1.jpg"
-                                onClick={() => moveToSubPageBtnClickHandler('강릉')}
+                                onClick={() => moveToSubPageBtnClickHandler('서울')}
                             />
                         </Link>
                     </div>
@@ -73,7 +73,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                             <img
                                 className="carousel-card-img"
                                 src="./trip_pics/Geoje/거제1.jpg"
-                                onClick={() => moveToSubPageBtnClickHandler('거제')}
+                                onClick={() => moveToSubPageBtnClickHandler('제주')}
                             />
                         </Link>
                     </div>
@@ -82,7 +82,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                             <img
                                 className="carousel-card-img"
                                 src="./trip_pics/Gyeongju/경주1.webp"
-                                onClick={() => moveToSubPageBtnClickHandler('경주')}
+                                onClick={() => moveToSubPageBtnClickHandler('인천')}
                             />
                         </Link>
                     </div>
@@ -91,7 +91,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                             <img
                                 className="carousel-card-img"
                                 src="./trip_pics/Jeju/제주1.jpg"
-                                onClick={() => moveToSubPageBtnClickHandler('제주')}
+                                onClick={() => moveToSubPageBtnClickHandler('여수')}
                             />
                         </Link>
                     </div>
@@ -100,7 +100,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                             <img
                                 className="carousel-card-img"
                                 src="./trip_pics/Miryang/밀양01.png"
-                                onClick={() => moveToSubPageBtnClickHandler('밀양')}
+                                onClick={() => moveToSubPageBtnClickHandler('수원')}
                             />
                         </Link>
                     </div>
@@ -109,7 +109,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                             <img
                                 className="carousel-card-img"
                                 src="./trip_pics/Pohang/포항2.jpg"
-                                onClick={() => moveToSubPageBtnClickHandler('포항')}
+                                onClick={() => moveToSubPageBtnClickHandler('대전')}
                             />
                         </Link>
                     </div>
@@ -118,7 +118,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                             <img
                                 className="carousel-card-img"
                                 src="./trip_pics/Seoul/서울1.jpg"
-                                onClick={() => moveToSubPageBtnClickHandler('서울')}
+                                onClick={() => moveToSubPageBtnClickHandler('광주')}
                             />
                         </Link>
                     </div>
@@ -127,7 +127,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                             <img
                                 className="carousel-card-img"
                                 src="./trip_pics/Suwon/수원1.jpg"
-                                onClick={() => moveToSubPageBtnClickHandler('수원')}
+                                onClick={() => moveToSubPageBtnClickHandler('대구')}
                             />
                         </Link>
                     </div>
@@ -136,7 +136,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                             <img
                                 className="carousel-card-img"
                                 src="./trip_pics/Yeosu/여수1.webp"
-                                onClick={() => moveToSubPageBtnClickHandler('여수')}
+                                onClick={() => moveToSubPageBtnClickHandler('속초')}
                             />
                         </Link>
                     </div>
