@@ -156,7 +156,7 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                         <div className="fourth_img">
                             <Link to="/subpage">
                                 <img
-                                    src="./trip_pics/대구/대구03.gif"
+                                    src="./pics_area/대구/대구 앞산공원.png"
                                     onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}
                                 />
                             </Link>

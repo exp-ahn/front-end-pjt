@@ -56,7 +56,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                         <Link to="/subpage">
                             <img
                                 className="carousel-card-img"
-                                src="./pics_area/대구/대구 스파크랜드.png"
+                                src="./trip_pics/Busan/부산1.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('부산')}
                             />
                             <div className="main01_title">부산</div>
@@ -67,7 +67,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                         <Link to="/subpage">
                             <img
                                 className="carousel-card-img"
-                                src="./pics_area/대전/대전 오월드.png"
+                                src="./trip_pics/Seoul/서울1.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('서울')}
                             />
                             <div className="main01_title">서울</div>
@@ -78,7 +78,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                         <Link to="/subpage">
                             <img
                                 className="carousel-card-img"
-                                src="./pics_area/부산/부산 감천문화마을.png"
+                                src="./trip_pics/Jeju/제주.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('제주')}
                             />
                             <div className="main01_title">제주</div>
@@ -89,7 +89,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                         <Link to="/subpage">
                             <img
                                 className="carousel-card-img"
-                                src="./pics_area/서울/서울 은평 한옥마을.png"
+                                src="./pics_area/인천/인천.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('인천')}
                             />
                             <div className="main01_title">인천</div>
@@ -100,7 +100,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                         <Link to="/subpage">
                             <img
                                 className="carousel-card-img"
-                                src="./pics_area/수원/수원 광교호수공원.png"
+                                src="./trip_pics/Suwon/수원1.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('수원')}
                             />
                             <div className="main01_title">수원</div>
@@ -111,7 +111,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                         <Link to="/subpage">
                             <img
                                 className="carousel-card-img"
-                                src="./pics_area/여수/여수 종포해양공원.png"
+                                src="./pics_area/대전/대전.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('대전')}
                             />
                             <div className="main01_title">대전</div>
@@ -122,7 +122,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                         <Link to="/subpage">
                             <img
                                 className="carousel-card-img"
-                                src="./pics_area/제주/제주 천지연폭포.png"
+                                src="./pics_area/대구/대구.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('대구')}
                             />
                             <div className="main01_title">대구</div>
@@ -133,7 +133,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                         <Link to="/subpage">
                             <img
                                 className="carousel-card-img"
-                                src="./pics_area/부산/부산 오륙도.png"
+                                src="./trip_pics/Gyeongju/경주1.webp"
                                 onClick={() => moveToSubPageBtnClickHandler('경주')}
                             />
                             <div className="main01_title">경주</div>
@@ -144,7 +144,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                         <Link to="/subpage">
                             <img
                                 className="carousel-card-img"
-                                src="./pics_area/서울/서울 청계천.png"
+                                src="./pics_area/전주/전주.jpg"
                                 onClick={() => moveToSubPageBtnClickHandler('전주')}
                             />
                             <div className="main01_title">전주</div>
@@ -155,7 +155,7 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
                         <Link to="/subpage">
                             <img
                                 className="carousel-card-img"
-                                src="./pics_area/제주/제주 성산일출봉.png"
+                                src="./trip_pics/Yeosu/여수1.webp"
                                 onClick={() => moveToSubPageBtnClickHandler('여수')}
                             />
                             <div className="main01_title">여수</div>
