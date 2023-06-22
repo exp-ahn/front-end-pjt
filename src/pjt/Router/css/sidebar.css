@@ -89,7 +89,7 @@
 }
 
 .box-radio-input input[type='radio']:checked + span {
-    border: 1px solid #23a3a7;
-    background: #23a3a7;
+    border: 1px solid #3085d6;
+    background: #3085d6;
     color: #fff;
 }
