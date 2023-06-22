@@ -16,3 +16,7 @@
     /* height: 12vh; */
     line-height: 11vh;
 }
+.swal-footer {
+    width: 1200px;
+    padding: 30px;
+}
