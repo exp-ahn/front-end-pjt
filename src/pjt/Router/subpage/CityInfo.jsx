@@ -25,8 +25,12 @@ const CityInfo = ({
     addKakaoPin,
     setAddKakaoPin,
 }) => {
+    const [errorMessage, setErrorMessage] = useState();
+
     const url = 'http://apis.data.go.kr/B551011/KorService1/searchKeyword1?';
-    const serviceKey = 't51lRPM28ojei66rhxTvsdJD3NoGauLy2iSnMetoi7TWdAYiyOr3jNo5wtn58txAyGr1IYQlVbXUEFFhOB5ogQ%3D%3D';
+    //const serviceKey = 't51lRPM28ojei66rhxTvsdJD3NoGauLy2iSnMetoi7TWdAYiyOr3jNo5wtn58txAyGr1IYQlVbXUEFFhOB5ogQ%3D%3D';
+    const serviceKey =
+        '27OBq9gerU7kv8KyoUPqpx%2BMxulovNT9oB%2BW2TqT%2BmADO2tHpBWvWMUuGQWVrKNem4qRs3Huen4r95BigFILzA%3D%3D';
     const numOfRows = '200';
     const pageNo = '1';
     const MobileOs = 'ETC';
@@ -107,6 +111,7 @@ const CityInfo = ({
                 console.log('[city]data', cityData);
             } catch (error) {
                 console.error('fetch 실패:', error);
+                setErrorMessage('서버 에러입니다. 잠시 후 다시 시도해주세요');
             } finally {
                 setFindingData(false);
                 console.log('showdetail', showDetail);
@@ -140,14 +145,16 @@ const CityInfo = ({
             <hr />
             <br />
             <div></div>
-            {findingData && (
-                <div className='location-result-findingRoute'>
-                    <div>
-                        <img src='./pjt_draft/sub/css/imgs/loading-circle.gif' />
-                    </div>
-                    <p>로딩 중...</p>
-                </div>
-            )}
+            {errorMessage !== null
+                ? errorMessage
+                : findingData && (
+                      <div className='location-result-findingRoute'>
+                          <div>
+                              <img src='./pjt_draft/sub/css/imgs/loading-circle.gif' />
+                          </div>
+                          <p>로딩 중...</p>
+                      </div>
+                  )}
             {!findingData && detailList()}
             <br />
         </div>

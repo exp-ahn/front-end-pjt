@@ -103,109 +103,109 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
         };
     }, []);
     return (
-        <div ref={outerDivRef} className="outer">
+        <div ref={outerDivRef} className='outer'>
             <Dots scrollIndex={scrollIndex} />
             <MainHeader />
-            <div className="inner bg-yellow">
+            <div className='inner bg-yellow'>
                 <Buttons setCheckedArea={setCheckedArea} hideButtons={hideButtons} setHideButtons={setHideButtons} />
             </div>
-            <div className="inner bg-blue">
+            <div className='inner bg-blue'>
                 <div>
                     멘트 작성
                     <br />
                     해야함
                     <br />
-                    <Link to="/subpage">
-                        <button className="nextPage" onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}>
+                    <Link to='/subpage'>
+                        <button className='nextPage' onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}>
                             구경하기
                         </button>
                     </Link>
                 </div>
                 <div>
-                    <div className="first_img">
-                        <Link to="/subpage">
+                    <div className='first_img'>
+                        <Link to='/subpage'>
                             <img
-                                src="./trip_pics/대구/대구01.jpg"
+                                src='./trip_pics/대구/대구01.jpg'
                                 onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}
                             />
                         </Link>
                     </div>
-                    <div className="second_img">
-                        <Link to="/subpage">
+                    <div className='second_img'>
+                        <Link to='/subpage'>
                             <img
-                                src="./trip_pics/대구/대구04.webp"
+                                src='./trip_pics/대구/대구04.webp'
                                 onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}
                             />
                         </Link>
                     </div>
                 </div>
                 <div>
-                    <div className="third_img">
-                        <Link to="/subpage">
+                    <div className='third_img'>
+                        <Link to='/subpage'>
                             <img
-                                src="./trip_pics/대구/대구02.jpg"
+                                src='./trip_pics/대구/대구02.jpg'
                                 onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}
                             />
                         </Link>
                     </div>
-                    <div className="fourth_img">
-                        <Link to="/subpage">
+                    <div className='fourth_img'>
+                        <Link to='/subpage'>
                             <img
-                                src="./trip_pics/대구/대구03.gif"
+                                src='./trip_pics/대구/대구03.gif'
                                 onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}
                             />
                         </Link>
                     </div>
-                    <div className="fifth_img">
-                        <Link to="/subpage">
+                    <div className='fifth_img'>
+                        <Link to='/subpage'>
                             <img
-                                src="./trip_pics/대구/대구05.jpg"
+                                src='./trip_pics/대구/대구05.jpg'
                                 onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}
                             />
                         </Link>
                     </div>
                 </div>
             </div>
-            <div className="inner bg-pink">
+            <div className='inner bg-pink'>
                 <div>
-                    <div className="first_img">
-                        <Link to="/subpage">
+                    <div className='first_img'>
+                        <Link to='/subpage'>
                             <img
-                                src="./trip_pics/Busan/night/부산01.jpg"
+                                src='./trip_pics/Busan/night/부산01.jpg'
                                 onClick={() => moveToSubPageBtnClickHandler('부산', '관광지')}
                             />
                         </Link>
                     </div>
-                    <div className="second_img">
-                        <Link to="/subpage">
+                    <div className='second_img'>
+                        <Link to='/subpage'>
                             <img
-                                src="./trip_pics/Busan/night/부산02.jpg"
+                                src='./trip_pics/Busan/night/부산02.jpg'
                                 onClick={() => moveToSubPageBtnClickHandler('부산', '관광지')}
                             />
                         </Link>
                     </div>
                 </div>
                 <div>
-                    <div className="third_img">
-                        <Link to="/subpage">
+                    <div className='third_img'>
+                        <Link to='/subpage'>
                             <img
-                                src="./trip_pics/Busan/night/부산03.jpg"
+                                src='./trip_pics/Busan/night/부산03.jpg'
                                 onClick={() => moveToSubPageBtnClickHandler('부산', '관광지')}
                             />
                         </Link>
                     </div>
-                    <div className="fourth_img">
-                        <Link to="/subpage">
+                    <div className='fourth_img'>
+                        <Link to='/subpage'>
                             <img
-                                src="./trip_pics/Busan/night/부산04.webp"
+                                src='./trip_pics/Busan/night/부산04.webp'
                                 onClick={() => moveToSubPageBtnClickHandler('부산', '관광지')}
                             />
                         </Link>
                     </div>
-                    <div className="fifth_img">
-                        <Link to="/subpage">
+                    <div className='fifth_img'>
+                        <Link to='/subpage'>
                             <img
-                                src="./trip_pics/Busan/night/부산05.jpg"
+                                src='./trip_pics/Busan/night/부산05.jpg'
                                 onClick={() => moveToSubPageBtnClickHandler('부산', '관광지')}
                             />
                         </Link>
@@ -216,8 +216,8 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                     <br />
                     해야함
                     <br />
-                    <Link to="/subpage">
-                        <button className="nextPage" onClick={() => moveToSubPageBtnClickHandler('부산', '관광지')}>
+                    <Link to='/subpage'>
+                        <button className='nextPage' onClick={() => moveToSubPageBtnClickHandler('부산', '관광지')}>
                             구경하기
                         </button>
                     </Link>
