@@ -111,9 +111,9 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
             </div>
             <div className='inner bg-blue'>
                 <div>
-                    멘트 작성
+                    놀러 가고 싶어?
                     <br />
-                    해야함
+                    오늘은 대구 어때?
                     <br />
                     <Link to='/subpage'>
                         <button className='nextPage' onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}>
@@ -212,9 +212,9 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                     </div>
                 </div>
                 <div>
-                    멘트 작성
+                    아니
                     <br />
-                    해야함
+                    부산은 어때?
                     <br />
                     <Link to='/subpage'>
                         <button className='nextPage' onClick={() => moveToSubPageBtnClickHandler('부산', '관광지')}>

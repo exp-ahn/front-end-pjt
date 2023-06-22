@@ -61,50 +61,50 @@ const SubFooter = () => {
     };
 
     return (
-        <div className="subfooter-content">
-            <div className="subfooter-company-info">
-                <div className="subfooter_menu">
-                    <a href="#none" onClick={serviceTermsBtnHandler}>
+        <div className='subfooter-content'>
+            <div className='subfooter-company-info'>
+                <div className='subfooter_menu'>
+                    <a href='#none' onClick={serviceTermsBtnHandler}>
                         서비스 약관
                     </a>
                 </div>
-                <div className="subfooter_menu">
+                <div className='subfooter_menu'>
                     <a>|</a>
                 </div>
-                <div className="subfooter_menu">
-                    <a href="#none" onClick={privatePolicyBtnHandler}>
+                <div className='subfooter_menu'>
+                    <a href='#none' onClick={privatePolicyBtnHandler}>
                         개인정보 보호정책
                     </a>
                 </div>
-                <div className="subfooter_menu">
+                <div className='subfooter_menu'>
                     <a>|</a>
                 </div>
-                <div className="subfooter_menu">
-                    <a href="#none" onClick={FAQBtnHandler}>
+                <div className='subfooter_menu'>
+                    <a href='#none' onClick={FAQBtnHandler}>
                         FAQ
                     </a>
                 </div>
-                <div className="subfooter_menu">
+                <div className='subfooter_menu'>
                     <a>|</a>
                 </div>
-                <div className="subfooter_menu">
-                    <a href="#none" onClick={refundPolicyBtnHandler}>
+                <div className='subfooter_menu'>
+                    <a href='#none' onClick={refundPolicyBtnHandler}>
                         취소/환불정책
                     </a>
                 </div>
-                <div className="subfooter_menu">
+                <div className='subfooter_menu'>
                     <a>|</a>
                 </div>
-                <div className="subfooter_menu">
-                    <a href="#none" onClick={announcementBtnHandler}>
+                <div className='subfooter_menu'>
+                    <a href='#none' onClick={announcementBtnHandler}>
                         공지사항
                     </a>
                 </div>
-                <div className="subfooter_menu">
+                <div className='subfooter_menu'>
                     <a>|</a>
                 </div>
-                <div className="subfooter_menu">
-                    <a href="#none" onClick={HelpBtnHandler}>
+                <div className='subfooter_menu'>
+                    <a href='#none' onClick={HelpBtnHandler}>
                         도움말
                     </a>
                 </div>

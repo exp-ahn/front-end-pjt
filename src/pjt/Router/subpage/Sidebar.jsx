@@ -94,8 +94,8 @@ const Daegu_Area = [
 ];
 
 const TOUR = [
-    { id: '문화시설', tour: '문화시설' },
     { id: '관광지', tour: '관광지' },
+    { id: '문화시설', tour: '문화시설' },
     { id: '레포츠', tour: '레포츠' },
     { id: '음식점', tour: '음식점' },
     { id: '행사', tour: '행사' },
