@@ -12,7 +12,8 @@ const cityEng = {
     Daejeon: '대전',
     Daegu: '대구',
     Yeosu: '여수',
-    Sokcho: '속초',
+    Gyeongju: '경주',
+    Jeonju: '전주',
 };
 const weatherDescriptionData = {
     맑음: 'clear',

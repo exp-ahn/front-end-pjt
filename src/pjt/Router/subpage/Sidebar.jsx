@@ -43,6 +43,7 @@ const Jeju_Area = [
     { id: '구제주', area: '구제주' },
     { id: '신제주', area: '신제주' },
     { id: '서귀포시', area: '서귀포시' },
+    { id: '애월', area: '애월' },
 ];
 const Incheon_Area = [
     { id: '미추홀구', area: '미추홀구' },
@@ -148,12 +149,12 @@ const SideBar_test = ({
 
     const buttonContent = isSidebarOpen ? (
         <>
-            <img src='./filter01.png' />
+            <img src="./filter01.png" />
             &nbsp; 필터 숨기기
         </>
     ) : (
         <>
-            <img src='./filter01.png' />
+            <img src="./filter01.png" />
             필터
         </>
     );
@@ -277,17 +278,17 @@ const SideBar_test = ({
             <div className={`sidebar ${isSidebarOpen ? '' : 'collapsed'}`}>
                 <hr />
                 <br />
-                <div className='filter-category'>
+                <div className="filter-category">
                     <p>지역</p>
-                    <ul className='filter-checkbox'>
+                    <ul className="filter-checkbox">
                         {areaList.map((item) => {
                             if (item.area === checkedArea) {
                                 return (
                                     <li key={item.id}>
-                                        <label className='box-radio-input'>
+                                        <label className="box-radio-input">
                                             <input
-                                                type='radio'
-                                                name='area_radio'
+                                                type="radio"
+                                                name="area_radio"
                                                 defaultValue={item.area}
                                                 defaultChecked
                                                 onChange={(e) => {
@@ -301,10 +302,10 @@ const SideBar_test = ({
                             } else {
                                 return (
                                     <li key={item.id}>
-                                        <label className='box-radio-input'>
+                                        <label className="box-radio-input">
                                             <input
-                                                type='radio'
-                                                name='area_radio'
+                                                type="radio"
+                                                name="area_radio"
                                                 defaultValue={item.area}
                                                 onChange={(e) => {
                                                     onCheckedRadioArea(e.target.checked, e.target.value);
@@ -321,16 +322,16 @@ const SideBar_test = ({
                 <br />
                 <hr />
                 <br />
-                <div className='filter-category'>
+                <div className="filter-category">
                     <p>상세 지역</p>
-                    <ul className='filter-checkbox'>
+                    <ul className="filter-checkbox">
                         {Detail_Area.map((item) => {
                             return (
                                 <li key={item.id}>
-                                    <label className='box-radio-input'>
+                                    <label className="box-radio-input">
                                         <input
-                                            type='radio'
-                                            name='area_radio2'
+                                            type="radio"
+                                            name="area_radio2"
                                             value={item.area}
                                             onClick={(e) => {
                                                 onCheckedRadio_detail(e.target.checked, e.target.value);
@@ -346,17 +347,17 @@ const SideBar_test = ({
                 <br />
                 <hr />
                 <br />
-                <div className='filter-category'>
+                <div className="filter-category">
                     <p>테마별</p>
-                    <ul className='filter-checkbox'>
+                    <ul className="filter-checkbox">
                         {TOUR.map((item) => {
                             if (item.tour === checkedTour) {
                                 return (
                                     <li key={item.id}>
-                                        <label className='box-radio-input'>
+                                        <label className="box-radio-input">
                                             <input
-                                                type='radio'
-                                                name='tour_radio'
+                                                type="radio"
+                                                name="tour_radio"
                                                 defaultValue={item.tour}
                                                 defaultChecked
                                                 onChange={(e) => {
@@ -370,10 +371,10 @@ const SideBar_test = ({
                             } else {
                                 return (
                                     <li key={item.id}>
-                                        <label className='box-radio-input'>
+                                        <label className="box-radio-input">
                                             <input
-                                                type='radio'
-                                                name='tour_radio'
+                                                type="radio"
+                                                name="tour_radio"
                                                 defaultValue={item.tour}
                                                 onChange={(e) => {
                                                     onCheckedRadioTour(e.target.checked, e.target.value);

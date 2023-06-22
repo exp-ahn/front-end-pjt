@@ -47,97 +47,119 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
     });
 
     return (
-        <div>
-            <div className='scene' ref={sceneRef}>
-                <div className='carousel' ref={carouselRef}>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[0] = el)}>
-                        <Link to='/subpage'>
+        <div className="main01_title">
+            <div className="how">오늘은 여기 어때?</div>
+            {/* <div className="main01_title">오늘은 여기 어때?</div> */}
+            <div className="scene" ref={sceneRef}>
+                <div className="carousel" ref={carouselRef}>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[0] = el)}>
+                        <Link to="/subpage">
                             <img
-                                className='carousel-card-img'
-                                src='./pics_area/대구/대구 스파크랜드.png'
-                                onClick={() => moveToSubPageBtnClickHandler('대구')}
-                            />
-                        </Link>
-                    </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[1] = el)}>
-                        <Link to='/subpage'>
-                            <img
-                                className='carousel-card-img'
-                                src='./pics_area/대전/대전 오월드.png'
-                                onClick={() => moveToSubPageBtnClickHandler('대전')}
-                            />
-                        </Link>
-                    </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[2] = el)}>
-                        <Link to='/subpage'>
-                            <img
-                                className='carousel-card-img'
-                                src='./pics_area/부산/부산 감천문화마을.png'
+                                className="carousel-card-img"
+                                src="./pics_area/대구/대구 스파크랜드.png"
                                 onClick={() => moveToSubPageBtnClickHandler('부산')}
                             />
+                            <div className="main01_title">부산</div>
+                            <br />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[3] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[1] = el)}>
+                        <Link to="/subpage">
                             <img
-                                className='carousel-card-img'
-                                src='./pics_area/서울/서울 은평 한옥마을.png'
+                                className="carousel-card-img"
+                                src="./pics_area/대전/대전 오월드.png"
                                 onClick={() => moveToSubPageBtnClickHandler('서울')}
                             />
+                            <div className="main01_title">서울</div>
+                            <br />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[4] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[2] = el)}>
+                        <Link to="/subpage">
                             <img
-                                className='carousel-card-img'
-                                src='./pics_area/수원/수원 광교호수공원.png'
+                                className="carousel-card-img"
+                                src="./pics_area/부산/부산 감천문화마을.png"
+                                onClick={() => moveToSubPageBtnClickHandler('제주')}
+                            />
+                            <div className="main01_title">제주</div>
+                            <br />
+                        </Link>
+                    </div>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[3] = el)}>
+                        <Link to="/subpage">
+                            <img
+                                className="carousel-card-img"
+                                src="./pics_area/서울/서울 은평 한옥마을.png"
+                                onClick={() => moveToSubPageBtnClickHandler('인천')}
+                            />
+                            <div className="main01_title">인천</div>
+                            <br />
+                        </Link>
+                    </div>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[4] = el)}>
+                        <Link to="/subpage">
+                            <img
+                                className="carousel-card-img"
+                                src="./pics_area/수원/수원 광교호수공원.png"
                                 onClick={() => moveToSubPageBtnClickHandler('수원')}
                             />
+                            <div className="main01_title">수원</div>
+                            <br />
                         </Link>
                     </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[5] = el)}>
-                        <Link to='/subpage'>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[5] = el)}>
+                        <Link to="/subpage">
                             <img
-                                className='carousel-card-img'
-                                src='./pics_area/여수/여수 종포해양공원.png'
+                                className="carousel-card-img"
+                                src="./pics_area/여수/여수 종포해양공원.png"
+                                onClick={() => moveToSubPageBtnClickHandler('대전')}
+                            />
+                            <div className="main01_title">대전</div>
+                            <br />
+                        </Link>
+                    </div>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[6] = el)}>
+                        <Link to="/subpage">
+                            <img
+                                className="carousel-card-img"
+                                src="./pics_area/제주/제주 천지연폭포.png"
+                                onClick={() => moveToSubPageBtnClickHandler('대구')}
+                            />
+                            <div className="main01_title">대구</div>
+                            <br />
+                        </Link>
+                    </div>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[7] = el)}>
+                        <Link to="/subpage">
+                            <img
+                                className="carousel-card-img"
+                                src="./pics_area/부산/부산 오륙도.png"
+                                onClick={() => moveToSubPageBtnClickHandler('경주')}
+                            />
+                            <div className="main01_title">경주</div>
+                            <br />
+                        </Link>
+                    </div>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[8] = el)}>
+                        <Link to="/subpage">
+                            <img
+                                className="carousel-card-img"
+                                src="./pics_area/서울/서울 청계천.png"
+                                onClick={() => moveToSubPageBtnClickHandler('전주')}
+                            />
+                            <div className="main01_title">전주</div>
+                            <br />
+                        </Link>
+                    </div>
+                    <div className="carousel-card" ref={(el) => (carouselCardRefs.current[9] = el)}>
+                        <Link to="/subpage">
+                            <img
+                                className="carousel-card-img"
+                                src="./pics_area/제주/제주 성산일출봉.png"
                                 onClick={() => moveToSubPageBtnClickHandler('여수')}
                             />
-                        </Link>
-                    </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[6] = el)}>
-                        <Link to='/subpage'>
-                            <img
-                                className='carousel-card-img'
-                                src='./pics_area/제주/제주 천지연폭포.png'
-                                onClick={() => moveToSubPageBtnClickHandler('제주')}
-                            />
-                        </Link>
-                    </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[7] = el)}>
-                        <Link to='/subpage'>
-                            <img
-                                className='carousel-card-img'
-                                src='./pics_area/부산/부산 오륙도.png'
-                                onClick={() => moveToSubPageBtnClickHandler('부산')}
-                            />
-                        </Link>
-                    </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[8] = el)}>
-                        <Link to='/subpage'>
-                            <img
-                                className='carousel-card-img'
-                                src='./pics_area/서울/서울 청계천.png'
-                                onClick={() => moveToSubPageBtnClickHandler('서울')}
-                            />
-                        </Link>
-                    </div>
-                    <div className='carousel-card' ref={(el) => (carouselCardRefs.current[9] = el)}>
-                        <Link to='/subpage'>
-                            <img
-                                className='carousel-card-img'
-                                src='./pics_area/제주/제주 성산일출봉.png'
-                                onClick={() => moveToSubPageBtnClickHandler('제주')}
-                            />
+                            <div className="main01_title">여수</div>
+                            <br />
                         </Link>
                     </div>
                 </div>
@@ -145,8 +167,8 @@ const Buttons = ({ checkedArea, setCheckedArea, hideButtons, setHideButtons }) =
             <br />
             <div className={`buttons_wrap ${hideButtons ? 'hidden' : ''}`}>
                 <br />
-                <MainSlideButton direction='prev' onClick={prevBtnClickHander} />
-                <MainSlideButton direction='next' onClick={nextBtnClickHander} />
+                <MainSlideButton direction="prev" onClick={prevBtnClickHander} />
+                <MainSlideButton direction="next" onClick={nextBtnClickHander} />
             </div>
         </div>
     );
