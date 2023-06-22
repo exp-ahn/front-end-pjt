@@ -39,3 +39,8 @@
     height: 5vh;
     line-height: 5vh;
 }
+
+.swal-footer {
+    width: 1200px;
+    padding: 30px;
+}
