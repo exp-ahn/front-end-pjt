@@ -16,6 +16,8 @@ const AREA_LIST = [
     { id: '수원', area: '수원' },
     { id: '대전', area: '대전' },
     { id: '대구', area: '대구' },
+    { id: '경주', area: '경주' },
+    { id: '전주', area: '전주' },
 ];
 
 function App() {

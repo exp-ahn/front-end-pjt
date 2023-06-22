@@ -23,6 +23,7 @@ const Seoul_Area = [
 const Busan_Area = [
     { id: '해운대구', area: '해운대구' },
     { id: '강서구', area: '강서구' },
+    { id: '진구', area: '진구' },
     { id: '사상구', area: '사상구' },
     { id: '사하구', area: '사하구' },
     { id: '영도구', area: '영도구' },
@@ -36,24 +37,23 @@ const Busan_Area = [
     { id: '동구', area: '동구' },
     { id: '북구', area: '북구' },
     { id: '남구', area: '남구' },
-    { id: '진구', area: '진구' },
 ];
 
 const Jeju_Area = [
-    { id: '서귀포시', area: '서귀포시' },
-    { id: '신제주', area: '신제주' },
     { id: '구제주', area: '구제주' },
+    { id: '신제주', area: '신제주' },
+    { id: '서귀포시', area: '서귀포시' },
 ];
 const Incheon_Area = [
     { id: '미추홀구', area: '미추홀구' },
     { id: '강화군', area: '강화군' },
+    { id: '동구', area: '동구' },
     { id: '계양구', area: '계양구' },
+    { id: '중구', area: '중구' },
+    { id: '서구', area: '서구' },
     { id: '부평구', area: '부평구' },
     { id: '남동구', area: '남동구' },
     { id: '연수구', area: '연수구' },
-    { id: '중구', area: '중구' },
-    { id: '서구', area: '서구' },
-    { id: '동구', area: '동구' },
 ];
 
 const Yeosu_Area = [
@@ -93,14 +93,40 @@ const Daegu_Area = [
     { id: '남구', area: '남구' },
 ];
 
+const Gyeongju_Area = [
+    { id: '선도동', area: '선도동' },
+    { id: '성건동', area: '성건동' },
+    { id: '황성동', area: '황성동' },
+    { id: '황남동', area: '황남동' },
+    { id: '용강동', area: '용강동' },
+    { id: '동천동', area: '동천동' },
+    { id: '월성동', area: '월성동' },
+    { id: '불국동', area: '불국동' },
+    { id: '보덕동', area: '보덕동' },
+];
+
+const Jeonju_Area = [
+    { id: '서신동', area: '서신동' },
+    { id: '평화동', area: '평화동' },
+    { id: '완산동', area: '완산동' },
+    { id: '중화산동', area: '중화산동' },
+    { id: '중앙동', area: '중앙동' },
+    { id: '사서학동', area: '사서학동' },
+    { id: '노송동', area: '노송동' },
+    { id: '동서학동', area: '동서학동' },
+    { id: '풍남동', area: '풍남동' },
+    { id: '효자동', area: '효자동' },
+    { id: '삼천동', area: '삼천동' },
+];
+
 const TOUR = [
     { id: '관광지', tour: '관광지' },
-    { id: '문화시설', tour: '문화시설' },
-    { id: '레포츠', tour: '레포츠' },
-    { id: '음식점', tour: '음식점' },
     { id: '행사', tour: '행사' },
     { id: '숙박', tour: '숙박' },
+    { id: '레포츠', tour: '레포츠' },
+    { id: '음식점', tour: '음식점' },
     { id: '쇼핑', tour: '쇼핑' },
+    { id: '문화시설', tour: '문화시설' },
     // { id: '여행코스', tour: '여행코스' },    데이터가 없음
 ];
 
@@ -150,6 +176,10 @@ const SideBar_test = ({
             Detail_Area = Daejeon_Area;
         } else if (checkedArea === '대구') {
             Detail_Area = Daegu_Area;
+        } else if (checkedArea === '경주') {
+            Detail_Area = Gyeongju_Area;
+        } else if (checkedArea === '전주') {
+            Detail_Area = Jeonju_Area;
         }
         addKakaoPin.length = 0;
 
@@ -180,6 +210,10 @@ const SideBar_test = ({
                 Detail_Area = Daejeon_Area;
             } else if (item === '대구') {
                 Detail_Area = Daegu_Area;
+            } else if (item === '경주') {
+                Detail_Area = Gyeongju_Area;
+            } else if (item === '전주') {
+                Detail_Area = Jeonju_Area;
             }
 
             console.log(checkedArea); // 리스트 테스트용
