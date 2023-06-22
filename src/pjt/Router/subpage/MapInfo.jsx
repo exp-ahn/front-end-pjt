@@ -227,6 +227,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                                         textAlign: 'center',
                                         paddingTop: '8px',
                                         paddingLeft: '5px',
+                                        borderRadius: '6px',
                                     }}
                                 >
                                     <a

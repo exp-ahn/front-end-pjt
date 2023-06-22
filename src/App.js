@@ -12,12 +12,12 @@ const AREA_LIST = [
     { id: '부산', area: '부산' },
     { id: '제주', area: '제주' },
     { id: '인천', area: '인천' },
-    { id: '여수', area: '여수' },
     { id: '수원', area: '수원' },
     { id: '대전', area: '대전' },
     { id: '대구', area: '대구' },
     { id: '경주', area: '경주' },
     { id: '전주', area: '전주' },
+    { id: '여수', area: '여수' },
 ];
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route
-                        path='/'
+                        path="/"
                         element={
                             <Main_01
                                 areaList={AREA_LIST}
@@ -43,7 +43,7 @@ function App() {
                         }
                     ></Route>
                     <Route
-                        path='/subpage'
+                        path="/subpage"
                         element={
                             <SubPage
                                 areaList={AREA_LIST}
