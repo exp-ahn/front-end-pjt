@@ -34,7 +34,6 @@ function useInterval(callback, delay) {
 }
 
 const CityInfoSlide = ({ showDetail, addKakaoPin, setAddKakaoPin }) => {
-    console.log('입장하셨습니다1');
     const [windowWidth, windowHeight] = useWindowSize();
 
     const items = [];
@@ -49,7 +48,7 @@ const CityInfoSlide = ({ showDetail, addKakaoPin, setAddKakaoPin }) => {
 
         items.push(tempData);
     }
-    console.log('[items]', items);
+    //console.log('[items]', items);
 
     const itemSize = showDetail.length;
     const sliderPadding = 40;
