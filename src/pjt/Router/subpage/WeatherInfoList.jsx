@@ -1,17 +1,5 @@
 import React from 'react';
 
-const weatherDescriptionData = {
-    맑음: 'Clear',
-    흐림: 'Clouds',
-    비: 'Rain',
-    가랑비: 'Drizzle',
-    '천둥/번개': 'Thunderstorm',
-    눈: 'Snow',
-    안개: 'Mist',
-    황사: 'Dust',
-    스모크: 'Smoke',
-    토네이도: 'Tornado',
-};
 const weatherDayData = {
     일: 0,
     월: 1,
@@ -30,12 +18,8 @@ const WeatherInfoList = ({ month, date, day, hour, icon, main, feels_like, temp 
             )}) ${hour}시`}</td>
             <td>
                 <img className="weather-forecast-value-icon" src={`./weather_icon/${icon}.png`} alt="Weather Icon" />
-                {/* <br />
-                {Object.keys(weatherDescriptionData).find((key) => weatherDescriptionData[key] === main)} */}
             </td>
-            {/* <td>{Object.keys(weatherDescriptionData).find((key) => weatherDescriptionData[key] === main)}</td> */}
             <td>{`${parseInt(temp - 273.15)}°C / ${parseInt(feels_like - 273.15)}°C`}</td>
-            {/* <td>{`${parseInt(feels_like - 273.15)}°C`}</td> */}
         </tr>
     );
 };

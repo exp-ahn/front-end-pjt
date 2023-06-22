@@ -15,21 +15,6 @@ const cityEng = {
     Gyeongju: '경주',
     Jeonju: '전주',
 };
-const weatherDescriptionData = {
-    맑음: 'clear',
-    흐림: 'clouds',
-    '약간 흐림': 'broken clouds',
-    '매우 흐림': 'overcast clouds',
-    비: 'rain',
-    가랑비: 'drizzle',
-    '천둥/번개': 'thunderstorm',
-    눈: 'snow',
-    안개: 'mist',
-    황사: 'dust',
-    스모크: 'smoke',
-    토네이도: 'tornado',
-};
-
 const api = {
     key: '245561218d937df62cc7a4e8d1173a37',
     base: 'https://api.openweathermap.org/data/2.5/',
@@ -129,12 +114,6 @@ const WeatherInfo = ({ checkedArea }) => {
                             src={`./weather_icon/${currentWeather.weather[0].icon}.png`}
                             alt="Weather Icon"
                         />
-                    </div>
-                    &nbsp;&nbsp;&nbsp;
-                    <div className="weather-current-value-description">
-                        {Object.keys(weatherDescriptionData).find(
-                            (key) => weatherDescriptionData[key] === currentWeather.weather[0].description
-                        )}
                     </div>
                 </div>
             </div>
