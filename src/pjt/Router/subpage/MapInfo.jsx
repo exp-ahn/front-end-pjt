@@ -123,7 +123,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
     }, [map, keyword, addKakaoPin, depart, arrival]);
 
     return (
-        <div className='mapInfo_wrap'>
+        <div className="mapInfo_wrap">
             {/* <div>KAKAO MAP에서 추천하는...</div> */}
             {map_locate}
             <hr />
@@ -151,7 +151,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                         >
                             {info && info.content === marker.content && (
                                 <div
-                                    className='mapContentBox'
+                                    className="mapContentBox"
                                     style={{
                                         color: '#000',
                                         width: '150px',
@@ -163,7 +163,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                                 >
                                     <a
                                         href={marker.content2}
-                                        target='_blank'
+                                        target="_blank"
                                         style={{ fontSize: '0.8em', fontWeight: 'bold' }}
                                     >
                                         {marker.content}
@@ -184,6 +184,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                                                 backgroundColor: '#f00',
                                                 textAlign: 'center',
                                                 lineHeight: '30px',
+                                                borderRadius: '6px',
                                             }}
                                         >
                                             출&nbsp;&nbsp;발
@@ -200,6 +201,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                                                 backgroundColor: '#00f',
                                                 textAlign: 'center',
                                                 lineHeight: '30px',
+                                                borderRadius: '6px',
                                             }}
                                         >
                                             도&nbsp;&nbsp;착
@@ -217,7 +219,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                         >
                             {info && info.content === marker.content && (
                                 <div
-                                    className='mapContentBox'
+                                    className="mapContentBox"
                                     style={{
                                         color: '#000',
                                         width: '150px',
@@ -229,7 +231,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                                 >
                                     <a
                                         href={marker.content2}
-                                        target='_blank'
+                                        target="_blank"
                                         style={{ fontSize: '0.8em', fontWeight: 'bold' }}
                                     >
                                         {marker.content}
@@ -250,6 +252,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                                                 backgroundColor: '#f00',
                                                 textAlign: 'center',
                                                 lineHeight: '30px',
+                                                borderRadius: '6px',
                                             }}
                                         >
                                             출&nbsp;&nbsp;발
@@ -266,6 +269,7 @@ const MapInfo = ({ map_locate, keyword, depart, setDepart, arrival, setArrival, 
                                                 backgroundColor: '#00f',
                                                 textAlign: 'center',
                                                 lineHeight: '30px',
+                                                borderRadius: '6px',
                                             }}
                                         >
                                             도&nbsp;&nbsp;착
