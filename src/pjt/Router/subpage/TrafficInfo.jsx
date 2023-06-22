@@ -5,7 +5,7 @@ import TrafficLocationName from './TrafficLocationName';
 import TrafficResultList from './TrafficResultList';
 import Swal from 'sweetalert2';
 
-const api_key = 'uWsrh1zKfT7GAQ1LpsAas5ye2KbeXxPL7oHwuyAX';
+const api_key = 'gN0w2K1dKV3v9t7enipQ45ZU77e5MZyJ9TR9zKdo';
 const url = 'https://apis.openapi.sk.com/transit/routes';
 
 const TrafficInfo = ({ depart, setDepart, arrival, setArrival }) => {

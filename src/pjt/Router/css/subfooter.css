@@ -1,9 +1,7 @@
 .subfooter-content {
-    /* background-color: #ffeebb; */
-    /* background-color: rgba(200, 200, 200, 0.7); */
-    padding-left: 480px;
-    padding-right: 480px;
-    height: 5vh;
+    width: 1000px;
+    height: 11vh;
+    margin: 10px auto 0px;
 }
 .subfooter-company-info {
     display: flex;
@@ -13,8 +11,8 @@
 .subfooter_menu > a {
     color: #00539c;
     padding-left: 20px;
-    font-size: 0.8em;
+    font-size: 0.9em;
     text-align: center;
-    height: 5vh;
-    line-height: 5vh;
+    /* height: 12vh; */
+    line-height: 11vh;
 }

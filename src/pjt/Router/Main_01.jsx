@@ -116,7 +116,9 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                     해야함
                     <br />
                     <Link to="/subpage">
-                        <button onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}>구경하기</button>
+                        <button className="nextPage" onClick={() => moveToSubPageBtnClickHandler('대구', '관광지')}>
+                            구경하기
+                        </button>
                     </Link>
                 </div>
                 <div>
@@ -215,7 +217,9 @@ const Main_01 = ({ checkedArea, setCheckedArea, checkedTour, setCheckedTour }) =
                     해야함
                     <br />
                     <Link to="/subpage">
-                        <button onClick={() => moveToSubPageBtnClickHandler('부산', '관광지')}>구경하기</button>
+                        <button className="nextPage" onClick={() => moveToSubPageBtnClickHandler('부산', '관광지')}>
+                            구경하기
+                        </button>
                     </Link>
                 </div>
             </div>
