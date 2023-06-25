@@ -43,7 +43,7 @@ npm install
 
 <br/>
 
--   React 실행하기
+-   Node.js 서버 실행하기
 
 ```bash
 npm start
